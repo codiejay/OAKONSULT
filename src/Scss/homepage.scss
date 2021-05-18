@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+$teal: #009ba7;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#homePage {
+  padding: 4rem 2rem;
+
+  #intro {
+    min-height: 100vh;
+    display: flex;
+
+    .introTextContent {
+      //   background: #a15c5c;
+      width: 60%;
+      .quoteSrc {
+        display: flex;
+        align-items: center;
+        .quote_dash {
+          height: 0.75rem;
+          width: 50px;
+          background: $teal;
+          margin-right: 1rem;
+        }
+        #quoteSource {
+          font-size: 30px;
+          font-family: $Archivo;
+        }
+      }
+      #quote {
+        font-family: $DM;
+        text-transform: capitalize;
+        font-size: 78px;
+        //   max-width: 90%;
+        margin-bottom: 4rem;
+      }
+    }
+
+    //   This is the hexagon design section, I'd like to see the fucking designer work some magic 😡😤
+
+    .introVideoButton {
+      // background: rgba(80, 113, 151, 0.5);
+      width: 40%;
+
+      // .hexagon {
+      //   position: relative;
+      //   height: 100px;
+      //   width: 400px;
+      //   background: $teal;
+      //   top: 25%;
+      //   margin: 0 auto;
+      //   &::before {
+      //     content: '';
+      //     height: 100px;
+      //     width: 100px;
+      //     position: absolute;
+      //     bottom: 100%;
+      //     border-bottom: 150px solid $teal;
+      //     border-left: 150px solid white;
+      //     border-right: 150px solid white;
+      //   }
+      //   &::after {
+      //     content: '';
+      //     height: 100px;
+      //     width: 100px;
+      //     position: absolute;
+      //     top: 100%;
+      //     border-top: 150px solid $teal;
+      //     border-left: 150px solid white;
+      //     border-right: 150px solid white;
+      //   }
+      // }
+    }
+  }
+
+  #whoAreYou {
+    min-height: 100vh;
+    width: 100%;
+
+    #whoAreYouContent {
+      display: flex;
+      .AboutDeets {
+        width: 100%;
+        h1 {
+          font-family: $DM;
+          font-size: 68px;
+          margin: 2rem 0;
+          text-transform: capitalize;
+        }
+        p {
+          font-family: $Archivo;
+          font-size: 20px;
+          margin-bottom: 4rem;
+          color: #a3a0a0;
+          max-width: 75%;
+        }
+        .tagGroup {
+          display: flex;
+          justify-content: space-between;
+          max-width: 410px;
+        }
+      }
+      .userCategories {
+        position: relative;
+        right: 0;
+        // background: rgb(187, 148, 148);
+        width: 60%;
+        padding-left: 8rem;
+      }
+    }
+  }
+}
