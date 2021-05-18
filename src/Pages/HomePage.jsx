@@ -4,17 +4,25 @@ import '../Scss/homepage.scss';
 // Images
 import LibraryImg from '../Assets/Library.svg';
 import HeartImg from '../Assets/heart.svg';
+import Star from '../Assets/star.svg';
+import ChatIcon from '../Assets/ChatIcon.svg';
+import PlayIcon from '../Assets/playbutton.svg';
+import StackIcon from '../Assets/stackIcon.svg';
+import syllabusIcon from '../Assets/syllabusIcon.svg';
 
 // components
 import ExploreBtn from '../Components/ExploreBtn';
 import SectionIcon from '../Components/SectionIcon';
 import UserTag from '../Components/UserTag';
 import TagDetail from '../Components/TagDetails';
+import WatchStory from '../Components/WatchStory';
+import SyllabusCard from '../Components/SyllabusCard';
 
 const Homepage = () => {
   return (
     <section id='homePage'>
-      {/* intro */}
+      {/* Section 1 */}
+
       <div id='intro'>
         <div className='introTextContent'>
           <div className='quoteSrc'>
@@ -29,6 +37,8 @@ const Homepage = () => {
           <div className='hexagon'></div>
         </div>
       </div>
+
+      {/* Section 2 */}
 
       <div id='whoAreYou'>
         <SectionIcon image={HeartImg} />
@@ -75,6 +85,74 @@ const Homepage = () => {
               ]}
             />
           </section>
+        </div>
+      </div>
+
+      {/* Section 3 */}
+
+      <div id='aboutFounder'>
+        <SectionIcon image={Star} />
+        <div className='aboutContent'>
+          <div id='Q_A'>
+            <h1>Who?</h1>
+            <p>
+              Olufunke has lived a life of ‘above and beyond’ in the face of
+              many difficult and challenging situations. Her enduring vision is
+              to see Carers within this sphere empowered enough to push forward
+            </p>
+            <h1>Why?</h1>
+            <p>
+              Olufunke has lived a life of ‘above and beyond’ in the face of
+              many difficult and challenging situations. Her enduring vision is
+              to see Carers within this sphere empowered enough to push forward
+            </p>
+          </div>
+          <div id='Founder'>
+            <div id='founderImg'></div>
+            <h1>OLUFUNKE ADELOYE</h1>
+            <ExploreBtn data={['Speak With Me', ChatIcon, true]} />
+          </div>
+          <div id='aboutFounder'>
+            <p className='founderDetails'>
+              Olufunke has a Diploma in Personal Performance Coaching (Merit
+              Award) from the Coaching Academy, UK, MA International Social
+              Policy from the University of Kent, Canterbury, UK; M.Sc.
+              Geography (Area of Specialization: Population Geography and
+              Resources Analysis)
+            </p>
+            <p className='founderDetails'>
+              Olufunke has a Diploma in Personal Performance Coaching (Merit
+              Award) from the Coaching Academy, UK, MA International Social
+              Policy from the University of Kent, Canterbury, UK; M.Sc.
+              Geography (Area of Specialization: Population Geography and
+              Resources Analysis)
+            </p>
+            <p className='founderDetails'>
+              Olufunke has a Diploma in Personal Performance Coaching (Merit
+              Award) from the Coaching Academy, UK, MA International Social
+              Policy from the University of Kent, Canterbury
+            </p>
+            <WatchStory data={{ text: 'Watch My Story', icon: PlayIcon }} />
+          </div>
+        </div>
+      </div>
+
+      {/* Section 4 */}
+      <div id='syllabusIntro'>
+        <SectionIcon image={StackIcon} />
+        <div id='syllabusIntroContent'>
+          <div id='syllabusIntroTitle'>
+            <h2>
+              The Complete Syllabus for everyone.
+              <br />
+              for you
+            </h2>
+            <ExploreBtn data={['Browse Our Syllabus', syllabusIcon]} />
+          </div>
+          <div id='syllabusCards'>
+            <SyllabusCard />
+            <SyllabusCard />
+          </div>
         </div>
       </div>
     </section>

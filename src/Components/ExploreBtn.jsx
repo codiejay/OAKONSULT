@@ -9,8 +9,17 @@ const ExploreBtn = (props) => {
     backgroundRepeat: 'no-repeat',
     backgroundSize: '50%',
   };
+
+  // Center Div in Component If necessary
+
+  let margin;
+  if (props.data[2]) {
+    margin = {
+      margin: '0 auto',
+    };
+  }
   return (
-    <div id='btn'>
+    <div id='btn' style={margin}>
       <div id='icon' style={iconStyle}></div>
       <p>{props.data[0]}</p>
     </div>

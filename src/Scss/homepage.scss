@@ -2,6 +2,7 @@
 $DM: 'DM Serif Display', serif;
 $Archivo: 'Archivo', sans-serif;
 $teal: #009ba7;
+$grey: #a9a6a6;
 $blue: #0aa7ff;
 $purple: #ff0ac9;
 $yellow: #ffba0a;
@@ -12,6 +13,8 @@ $yellow: #ffba0a;
 }
 #homePage {
   padding: 4rem 2rem;
+
+  //   Section 2
 
   #intro {
     min-height: 100vh;
@@ -50,35 +53,15 @@ $yellow: #ffba0a;
       width: 40%;
 
       // .hexagon {
-      //   position: relative;
-      //   height: 100px;
-      //   width: 400px;
-      //   background: $teal;
-      //   top: 25%;
-      //   margin: 0 auto;
-      //   &::before {
-      //     content: '';
-      //     height: 100px;
-      //     width: 100px;
-      //     position: absolute;
-      //     bottom: 100%;
-      //     border-bottom: 150px solid $teal;
-      //     border-left: 150px solid white;
-      //     border-right: 150px solid white;
-      //   }
-      //   &::after {
-      //     content: '';
-      //     height: 100px;
-      //     width: 100px;
-      //     position: absolute;
-      //     top: 100%;
-      //     border-top: 150px solid $teal;
-      //     border-left: 150px solid white;
-      //     border-right: 150px solid white;
-      //   }
+      height: 500px;
+      width: 400px;
+      background: $teal;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       // }
     }
   }
+
+  //   Section 2
 
   #whoAreYou {
     min-height: 100vh;
@@ -98,7 +81,7 @@ $yellow: #ffba0a;
           font-family: $Archivo;
           font-size: 20px;
           margin-bottom: 4rem;
-          color: #a3a0a0;
+          color: $grey;
           max-width: 75%;
         }
         .tagGroup {
@@ -111,8 +94,89 @@ $yellow: #ffba0a;
         position: relative;
         right: 0;
         // background: rgb(187, 148, 148);
-        width: 60%;
+        width: 70%;
         padding-left: 8rem;
+      }
+    }
+  }
+
+  //   Section 3
+
+  #aboutFounder {
+    .aboutContent {
+      margin-top: 2rem;
+      display: flex;
+      #Q_A {
+        h1 {
+          color: $teal;
+          font-size: 90px;
+          font-family: $DM;
+          text-transform: uppercase;
+          line-height: 77px;
+          font-weight: normal;
+          margin-bottom: 2rem;
+        }
+
+        p {
+          color: $grey;
+          font-family: $Archivo;
+          font-size: 22px;
+          margin-bottom: 6rem;
+        }
+      }
+      #Founder {
+        flex-grow: 2;
+        margin: 0 2rem;
+        #founderImg {
+          height: 500px;
+          width: 500px;
+          background: url(../Assets/olufunke.svg);
+          border-radius: 300px 300px 0 0;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(0, 155, 167, 0.51);
+            border-radius: 300px 300px 0 0;
+            height: 500px;
+            width: 500px;
+          }
+        }
+        h1 {
+          text-align: center;
+          font-family: $DM;
+          font-size: 90px;
+        }
+      }
+      #aboutFounder {
+        .founderDetails {
+          margin-bottom: 2rem;
+          font-family: $Archivo;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  //   Section 4
+
+  #syllabusIntro {
+    margin-top: 8rem;
+
+    #syllabusIntroContent {
+      display: flex;
+
+      #syllabusIntroTitle {
+        h2 {
+          font-family: $DM;
+          font-size: 78px;
+          text-transform: capitalize;
+        }
+      }
+      #syllabusCards {
       }
     }
   }
