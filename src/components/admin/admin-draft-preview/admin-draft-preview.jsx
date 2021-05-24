@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import edit from "../../assets/admin/edit.svg";
-import trashIcon from "../../assets/admin/trashIcon.svg";
+import edit from "../../../assets/admin/edit.svg";
+import trashIcon from "../../../assets/admin/trashIcon.svg";
 import AdminEditBlogPost from "../admin-edit-blog-post/admin-edit-blog-post";
-import { updateDraft } from "../../redux/admin/actions";
-import { selectDraft } from "../../redux/admin/selectors";
+import { updateDraft } from "../../../redux/admin/actions";
+import { selectDraft } from "../../../redux/admin/selectors";
 import "./admin-draft-preview.scss";
 
 const AdminDraftPreview = ({ data, updateDraft, draft }) => {

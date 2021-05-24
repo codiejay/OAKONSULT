@@ -1,18 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { firestore } from "../../firebase/firebase.utils";
+import { firestore } from "../../../firebase/config";
 import { createStructuredSelector } from "reselect";
-import { selectAdmin, selectDraft } from "../../redux/admin/selectors";
-import { updateDraft } from "../../redux/admin/actions";
+import { selectAdmin, selectDraft } from "../../../redux/admin/selectors";
+import { updateDraft } from "../../../redux/admin/actions";
 // import { toggleEditor } from "../../redux/admin/actions";
 import SunEditor from "suneditor-react";
 import plugins from "suneditor/src/plugins";
 import image from "suneditor/src/plugins/dialog/link";
-import { GenerateId } from "../../utils/id-generator";
-import loader from "../../assets/loader.gif";
+import { GenerateId } from "../../../utils/id-generator";
+import loader from "../../../assets/loader.gif";
 import "suneditor/dist/css/suneditor.min.css";
+import FormSelect from "../../form-select/form-select";
+
 import "./new-post-modal.scss";
-import FormSelect from "../form-select/form-select";
+
 class NewPostModal extends React.Component {
   state = {
     title: "",
@@ -112,14 +114,8 @@ class NewPostModal extends React.Component {
     this.setState({ today });
   }
   render() {
-    const {
-      errorMessage,
-      successMessage,
-      tag,
-      title,
-      tumbnail,
-      hook,
-    } = this.state;
+    const { errorMessage, successMessage, tag, title, tumbnail, hook } =
+      this.state;
     return (
       <div className="bg">
         <div className="new-post-modal">

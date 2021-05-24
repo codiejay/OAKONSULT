@@ -1,22 +1,24 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { firestore } from "../../firebase/firebase.utils";
+import { useDispatch, useSelector } from "react-redux";
+import { firestore } from "../../../firebase/config";
 import edit from "../../../assets/admin/edit.svg";
 import recycle from "../../../assets/admin/recycle.svg";
 import trashIcon from "../../../assets/admin/trashIcon.svg";
 import AdminEditBlogPost from "../admin-edit-blog-post/admin-edit-blog-post";
 import { updateTrash } from "../../../redux/admin/actions";
-import { selectTrash } from "../../../redux/admin/selectors";
+
 import "./admin-blog-post.scss";
-const AdminBlogPost = ({ data, updateTrash, trash, trashpage }) => {
+
+const AdminBlogPost = ({ data, trashpage }) => {
+  const trash = useSelector(({ admin }) => admin.trash);
+  const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
   const [isShow, setShow] = useState(false);
   const [message, setMessage] = useState({ success: "", error: "" });
 
   const deleteBlog = async () => {
     await firestore.collection("blogs").doc(data.id).delete();
-    updateTrash([...trash, data]);
+    dispatch(updateTrash([...trash, data]));
     setShow(false);
   };
   const restoreBlog = async () => {
@@ -24,7 +26,7 @@ const AdminBlogPost = ({ data, updateTrash, trash, trashpage }) => {
       await firestore.collection("blogs").doc(data.id).set(data);
       setMessage({ success: "Blog Restored" });
       const newTrash = trash.filter((item, index) => item.id !== data.id);
-      updateTrash([...newTrash]);
+      dispatch(updateTrash([...newTrash]));
     } catch (error) {
       setMessage({ error: "Failed, try again" });
     }
@@ -119,11 +121,5 @@ const AdminBlogPost = ({ data, updateTrash, trash, trashpage }) => {
     </>
   );
 };
-const mapStateToProps = createStructuredSelector({
-  trash: selectTrash,
-});
-const mapDispatchToProps = (dispatch) => ({
-  updateTrash: (trash) => dispatch(updateTrash(trash)),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminBlogPost);
+export default AdminBlogPost;
