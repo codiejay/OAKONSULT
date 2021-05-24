@@ -1,0 +1,24 @@
+@import "../../constants/scss/colors";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
+@import "../../constants/scss/framework";
+
+.line {
+  width: 15em;
+  height: 0.05em;
+  background-color: $black;
+}
+.filter-button {
+  padding: 1em 2em;
+  font-size: 1.1em;
+  //   background-image: linear-gradient(#0aa7ff, #0aa5ff3a), url(../../assets/images/placeholder.png);
+}
+.for-parents {
+  background-color: lighten($color: $for_parents, $amount: 10);
+}
+.for-siblings {
+  background-color: lighten($color: $for_siblings, $amount: 10);
+}
+.for-carers {
+  background-color: lighten($color: $for_carers, $amount: 10);
+}
