@@ -6,11 +6,11 @@ import plus from "../../../assets/admin/plus.svg";
 import draftIcon from "../../../assets/admin/draft.svg";
 import publish from "../../../assets/admin/publish.svg";
 import trashIcon from "../../../assets/admin/trashIcon.svg";
-import NewPostModal from "../../../components/admin/new-post-modal/new-post-modal";
-import AdminSidepanel from "../../../components/admin/admin-sidepanel/admin-sidepanel";
-import AdminBlogPosts from "../../../components/admin/admin-blog-posts/admin-blog-posts";
-import Draft from "../draft/draft";
-import Trash from "../trash/trash";
+import NewPostModal from "../../../components/admin/NewPostModal/NewPostModal";
+import AdminSidepanel from "../../../components/admin/AdminSidepanel/AdminSidepanel";
+import AdminBlogPosts from "../../../components/admin/AdminBlogPosts/AdminBlogPosts";
+import Draft from "../Draft/Draft";
+import Trash from "../Trash/Trash";
 
 import "./styles.scss";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import AdminBlogPost from "../../../components/admin/admin-blog-post/admin-blog-post";
+import AdminBlogPost from "../../../components/admin/AdminBlogPost/AdminBlogPost";
 import { useSelector } from "react-redux";
 
 import "./styles.scss";

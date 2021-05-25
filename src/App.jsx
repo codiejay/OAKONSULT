@@ -8,7 +8,7 @@ import Churches from "./pages/Churches/Churches";
 import TrainingAndResourcing from "./pages/TrainingAndResourcing/TrainingAndResourcing";
 import PublicSpeaking from "./pages/PublicSpeaking/PublicSpeaking";
 import Auth from "./pages/Auth/Auth";
-import Dashboard from "./pages/admin/dashboard/dashboard";
+import Dashboard from "./pages/admin/Dashboard/Dashboard";
 
 import "./App.scss";
 

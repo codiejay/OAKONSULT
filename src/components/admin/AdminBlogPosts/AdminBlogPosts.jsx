@@ -1,6 +1,8 @@
 import React from "react";
-import AdminBlogPost from "../admin-blog-post/admin-blog-post";
-import "./admin-blog-posts.scss";
+import AdminBlogPost from "../AdminBlogPost/AdminBlogPost";
+
+import "./styles.scss";
+
 const AdminBlogPosts = ({ blogs }) => {
   return (
     <div className="admin-blog-posts">

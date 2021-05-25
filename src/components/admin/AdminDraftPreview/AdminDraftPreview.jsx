@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 import edit from "../../../assets/admin/edit.svg";
 import trashIcon from "../../../assets/admin/trashIcon.svg";
-import AdminEditBlogPost from "../admin-edit-blog-post/admin-edit-blog-post";
+import AdminEditBlogPost from "../AdminEditBlogPost/AdminEditBlogPost";
 import { updateDraft } from "../../../redux/admin/actions";
-import { selectDraft } from "../../../redux/admin/selectors";
-import "./admin-draft-preview.scss";
 
-const AdminDraftPreview = ({ data, updateDraft, draft }) => {
+import "./styles.scss";
+
+const AdminDraftPreview = ({ data }) => {
+  const draft = useSelector(({ admin }) => admin.draft);
+  const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
   const deleteDraft = () => {
     const newDraft = draft.filter((item, index) => item.id !== data.id);
-    updateDraft([...newDraft]);
+    dispatch(updateDraft([...newDraft]));
   };
   return (
     <>
@@ -46,11 +47,5 @@ const AdminDraftPreview = ({ data, updateDraft, draft }) => {
     </>
   );
 };
-const mapStateToProps = createStructuredSelector({
-  draft: selectDraft,
-});
-const mapDispatchToProps = (dispatch) => ({
-  updateDraft: (draft) => dispatch(updateDraft(draft)),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminDraftPreview);
+export default AdminDraftPreview;

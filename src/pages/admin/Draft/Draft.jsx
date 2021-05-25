@@ -1,5 +1,5 @@
 import React from "react";
-import AdminDraftPreview from "../../../components/admin/admin-draft-preview/admin-draft-preview";
+import AdminDraftPreview from "../../../components/admin/AdminDraftPreview/AdminDraftPreview";
 import { useSelector } from "react-redux";
 
 import "./styles.scss";

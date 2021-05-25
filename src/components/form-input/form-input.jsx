@@ -1,6 +1,6 @@
 import React from "react";
-import hide from "../../../assets/hide.svg";
-import visible from "../../../assets/visible.svg";
+import hide from "../../assets/icons/hide.svg";
+import visible from "../../assets/icons/visible.svg";
 import "./form-input.scss";
 const FormInput = ({
   handleChange,

@@ -4,10 +4,10 @@ import { firestore } from "../../../firebase/config";
 import edit from "../../../assets/admin/edit.svg";
 import recycle from "../../../assets/admin/recycle.svg";
 import trashIcon from "../../../assets/admin/trashIcon.svg";
-import AdminEditBlogPost from "../admin-edit-blog-post/admin-edit-blog-post";
+import AdminEditBlogPost from "../AdminEditBlogPost/AdminEditBlogPost";
 import { updateTrash } from "../../../redux/admin/actions";
 
-import "./admin-blog-post.scss";
+import "./styles.scss";
 
 const AdminBlogPost = ({ data, trashpage }) => {
   const trash = useSelector(({ admin }) => admin.trash);

@@ -1,5 +1,7 @@
 import React from "react";
-import "./admin-published.scss";
+
+import "./styles.scss";
+
 const AdminPublished = () => {
   return <div></div>;
 };

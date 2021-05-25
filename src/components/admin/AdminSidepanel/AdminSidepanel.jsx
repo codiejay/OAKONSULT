@@ -11,7 +11,8 @@ import affiliate from "../../../assets/admin/affiliate.svg";
 import trashIcon from "../../../assets/admin/trashIcon.svg";
 import logout from "../../../assets/admin/logout.svg";
 import { auth } from "../../../firebase/config";
-import "./admin-sidepanel.scss";
+
+import "./styles.scss";
 
 const AdminSidepanel = ({ toggleSidePanel, isSidePanelShowing }) => {
   const currentPage = useSelector(({ admin }) => admin.currentPage);
