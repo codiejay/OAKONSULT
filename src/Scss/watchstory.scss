@@ -1,0 +1,14 @@
+#watchStory {
+  background: rgba(0, 155, 167, 0.17);
+  width: max-content;
+  display: flex;
+  align-items: center;
+  border-radius: 300px;
+  padding-right: 0.75rem;
+  cursor: pointer;
+  .text {
+    font-size: 22px;
+
+    // height: max-content;
+  }
+}

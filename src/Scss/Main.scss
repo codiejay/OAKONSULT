@@ -1,0 +1,42 @@
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+$teal: #009ba7;
+$grey: #a9a6a6;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+
+#mainpage { 
+  width: 90%;
+  margin: 0 auto;
+}
+
+header { 
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  img { 
+    width: 80px;
+  }
+  h3 { 
+    text-align: right;
+    font-family: $DM;
+    letter-spacing: 0.14rem;
+    font-weight: lighter;
+    font-size: 1.9rem;
+    cursor: pointer;
+  }
+}
+
+footer { 
+  margin: 2rem 0;
+    #programs { 
+      background-color: $teal;
+      height: 10vh;
+      padding: 3rem 1rem;
+      border-radius: 12px;
+    }
+}
+
