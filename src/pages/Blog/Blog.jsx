@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, useLocation } from "react-router-dom";
+import { Redirect, Route, useLocation } from "react-router-dom";
 import BlogOverview from "../../components/BlogOverview/BlogOverview";
 import Tag from "../Tag/Tag";
 
@@ -9,6 +9,11 @@ const Blog = () => {
   return (
     <>
       {/* BLOG OVERVIEW */}
+      <Route
+        exact
+        path={`/blogs`}
+        render={() => <Redirect to="/blogs/all" />}
+      />
       <Route exact path={`/blogs/all`} render={() => <BlogOverview />} />
       <Route
         path={`/blogs/for-parents`}

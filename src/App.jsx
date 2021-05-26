@@ -11,21 +11,57 @@ import Auth from "./pages/Auth/Auth";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 
 import "./App.scss";
+import Main from "./Components/Main";
 
 const App = () => {
   const admin = useSelector(({ user }) => user.admin);
   return (
     <Switch>
-      <Route exact path={`/`} component={HomePage} />
-      <Route exact path={`/carers`} component={Carers} />
-      <Route exact path={`/churches`} component={Churches} />
+      <Route exact path={`/`} render={() => <HomePage />} />
+      <Route
+        exact
+        path={`/carers`}
+        render={() => (
+          <Main>
+            <Carers />
+          </Main>
+        )}
+      />
+      <Route
+        exact
+        path={`/churches`}
+        render={() => (
+          <Main>
+            <Churches />
+          </Main>
+        )}
+      />
       <Route
         exact
         path={`/training-and-resourcing`}
-        component={TrainingAndResourcing}
+        render={() => (
+          <Main>
+            <TrainingAndResourcing />
+          </Main>
+        )}
       />
-      <Route exact path={`/public-speaking`} component={PublicSpeaking} />
-      <Route path={`/blogs`} component={Blog} />
+      <Route
+        exact
+        path={`/public-speaking`}
+        render={() => (
+          <Main>
+            <PublicSpeaking />
+          </Main>
+        )}
+      />
+      <Route
+        path={`/blogs`}
+        render={() => (
+          <Main>
+            <Blog />
+          </Main>
+        )}
+      />
       <Route
         exact
         path="/oak-admin-auth"
