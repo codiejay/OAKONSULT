@@ -1,20 +1,10 @@
 $tablet: 850px;
-$smartphone: 500px;
-$primaryColor: #77323b;
-$secondaryColor: #ffffff;
+@import "../../constants/scss/colors";
+@import "../../constants/scss/default";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
+@import "../../constants/scss/framework";
 
-// Mixin
-@mixin tablet {
-  @media (max-width: #{$tablet}) {
-    @content;
-  }
-}
-
-@mixin smartphone {
-  @media (max-width: #{$smartphone}) {
-    @content;
-  }
-}
 .admin-auth {
   max-width: 400px;
   margin: auto;
@@ -31,9 +21,9 @@ $secondaryColor: #ffffff;
       width: 20px;
       height: 20px;
     }
-
-    button {
-      margin-bottom: 10px;
+    .oak-admin-auth-btn {
+      padding: 1em 2em;
+      font-size: 1.5em;
     }
 
     @include tablet() {

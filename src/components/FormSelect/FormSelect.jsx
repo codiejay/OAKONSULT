@@ -1,5 +1,7 @@
 import React from "react";
-import "./form-select.scss";
+
+import "./styles.scss";
+
 const FormSelect = ({ handleChange, defaul, options, ...otherProps }) => {
   return (
     <select className="form-select" onChange={handleChange} {...otherProps}>

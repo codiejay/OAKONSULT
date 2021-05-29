@@ -1,7 +1,7 @@
 import React from "react";
 import hide from "../../assets/icons/hide.svg";
 import visible from "../../assets/icons/visible.svg";
-import "./form-input.scss";
+import "./styles.scss";
 const FormInput = ({
   handleChange,
   label,

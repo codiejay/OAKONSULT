@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { auth } from "../../firebase/config";
-import FormInput from "../../components/form-input/form-input";
+import FormInput from "../../components/FormInput/FormInput";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import loader from "../../assets/loader.gif";
 
@@ -25,7 +25,11 @@ export default class Auth extends Component {
 
     try {
       this.setState({ isLoading: true });
-      await auth.signInWithEmailAndPassword(email, password);
+      const message = await auth.signInWithEmailAndPassword(email, password);
+      // console.log(message.user);
+      // if (message.user) {
+
+      // }
       this.setState({ email: "", password: "" });
     } catch (error) {
       error.code === "auth/wrong-password"
@@ -83,9 +87,11 @@ export default class Auth extends Component {
               isShowPass={this.state.isShowPassword}
             />
             <div className="buttons">
-              <CustomButton type="button" onClick={this.handleSubmit}>
-                Sign In {isLoading ? <img src={loader} alt="Loader" /> : null}
-              </CustomButton>
+              <CustomButton
+                onClick={this.handleSubmit}
+                className="oak-admin-auth-btn"
+                label={`Sign In`}
+              />
             </div>
           </form>
         </div>
