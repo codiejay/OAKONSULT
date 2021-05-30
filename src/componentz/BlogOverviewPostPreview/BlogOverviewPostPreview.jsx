@@ -1,11 +1,11 @@
 import moment from "moment";
 import React from "react";
+import { useHistory, useLocation } from "react-router";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
-import placeholder from "../../assets/images/placeholder.png";
+import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
-import { useHistory, useLocation } from "react-router";
 
 const BlogOverviewPostPreview = ({
   data,
