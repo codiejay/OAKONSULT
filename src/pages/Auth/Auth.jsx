@@ -1,95 +1,84 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { auth } from "../../firebase/config";
-import FormInput from "../../components/form-input/form-input";
-import CustomButton from "../../components/CustomButton/CustomButton";
-import loader from "../../assets/loader.gif";
+import CustomButton from "../../componentz/CustomButton/CustomButton";
+import CustomPopUp from "../../componentz/CustomPopUp/CustomPopUp";
+import CustomInput from "../../componentz/CustomInput/CustomInput";
+import Spacing from "../../componentz/Spacing/Spacing";
+// import loader from "../../assets/loader.gif";
 
 import "./styles.scss";
+import { colors } from "../../constants/Colors";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
 
-export default class Auth extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      errorMessage: "",
-      isShowPassword: false,
-      isLoading: false,
-    };
-  }
-  handleToggleShowPassword = () =>
-    this.setState({ isShowPassword: !this.state.isShowPassword });
-  handleSubmit = async (event) => {
-    event.preventDefault();
-    const { email, password } = this.state;
-
+const Auth = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsloading] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState(false);
+  const onToggleShowPassword = () => setIsShowPassword(!isShowPassword);
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setIsloading(true);
     try {
-      this.setState({ isLoading: true });
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
+      const response = await auth.signInWithEmailAndPassword(email, password);
+      console.log(response.user);
+      setEmail("");
+      setPassword("");
+      setIsloading(false);
+      history.push("/oak-admin");
     } catch (error) {
       error.code === "auth/wrong-password"
-        ? this.setState({
-            isLoading: false,
-            errorMessage:
-              "The password is invalid or the user does not have a password.",
-          })
+        ? setErrorMessage(
+            "The password is invalid or the user does not have a password."
+          )
         : error.code === "auth/user-not-found"
-        ? this.setState({
-            isLoading: false,
-            errorMessage:
-              "There is no user record corresponding to this identifier.",
-          })
-        : this.setState({ isLoading: false, errorMessage: "Wierd" });
+        ? setErrorMessage(
+            "There is no user record corresponding to this identifier."
+          )
+        : setErrorMessage("Shit just got real");
+      setIsloading(false);
     }
-
-    // this.setState({ email: '', password: '' });
   };
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-      errorMessage: "",
-    });
-  };
-  render() {
-    const { email, password, errorMessage, isShowPassword, isLoading } =
-      this.state;
-    return (
-      <div className="admin-auth">
-        <div>
-          {" "}
-          <h3 className="title">Admin Login</h3>
+  return (
+    <div className="admin-auth">
+      <div>
+        <h3 className="title">Admin Login</h3>
+        <form onSubmit={onSubmit} className="form-container">
           {errorMessage !== "" ? (
-            <span className="error">{errorMessage}</span>
+            <CustomPopUp
+              message={`${errorMessage}`}
+              type={"error"}
+              customStyles={{ backgroundColor: colors.danger }}
+              customTextStyles={{ color: colors.white }}
+            />
           ) : null}
-          <form onSubmit={this.handleSubmit}>
-            <FormInput
-              type="email"
-              name="email"
-              value={email}
-              required
-              handleChange={this.handleChange}
-              label="Email"
-            />
-            <FormInput
-              type={isShowPassword ? "text" : "password"}
-              name="password"
-              value={password}
-              required
-              handleChange={this.handleChange}
-              label="Password"
-              toggleShowPassword={this.handleToggleShowPassword}
-              isShowPass={this.state.isShowPassword}
-            />
-            <div className="buttons">
-              <CustomButton type="button" onClick={this.handleSubmit}>
-                Sign In {isLoading ? <img src={loader} alt="Loader" /> : null}
-              </CustomButton>
-            </div>
-          </form>
-        </div>
+          <Spacing height="2em" />
+          <CustomInput
+            label="Email"
+            value={email}
+            type={"email"}
+            onChange={({ target }) => setEmail(target.value)}
+          />
+          <Spacing height="2em" />
+          <CustomInput
+            label="Password"
+            value={password}
+            type={"password"}
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <Spacing height="3em" />
+          <CustomButton
+            label="Login"
+            onClick={onSubmit}
+            className="login-btn"
+          />
+        </form>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+export default Auth;

@@ -7,6 +7,7 @@ import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
+require("react-web-vector-icons/fonts");
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router-dom";
-import BlogOverview from "../../components/BlogOverview/BlogOverview";
+import BlogOverview from "../../componentz/BlogOverview/BlogOverview";
 import Tag from "../Tag/Tag";
 
 const Blog = () => {

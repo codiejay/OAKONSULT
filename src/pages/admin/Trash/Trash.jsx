@@ -1,5 +1,5 @@
 import React from "react";
-import AdminBlogPost from "../../../Components/admin/AdminBlogPost/AdminBlogPost";
+import BlogPost from "../../../componentz/admin/BlogPost/BlogPost";
 import { useSelector } from "react-redux";
 
 import "./styles.scss";
@@ -10,7 +10,7 @@ const Trash = () => {
     <div className="trash">
       <div className="trashes">
         {trash.map((item, index) => (
-          <AdminBlogPost key={index} data={item} trashpage />
+          <BlogPost key={index} data={item} trashpage />
         ))}
         {trash.length === 0 && <span className="empty">Empty</span>}
       </div>
