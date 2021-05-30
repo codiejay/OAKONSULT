@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./styles.scss";
+
 const CustomButton = ({ label, className, onClick, inverted, icon }) => {
   return (
     <button

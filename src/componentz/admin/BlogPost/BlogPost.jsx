@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { firestore } from "../../../firebase/config";
-import edit from "../../../assets/admin/edit.svg";
-import recycle from "../../../assets/admin/recycle.svg";
-import trashIcon from "../../../assets/admin/trashIcon.svg";
+import edit from "../../../assetz/admin/edit.svg";
+import recycle from "../../../assetz/admin/recycle.svg";
+import trashIcon from "../../../assetz/admin/trashIcon.svg";
 import EditBlogPost from "../EditBlogPost/EditBlogPost";
 import "./styles.scss";
 const BlogPost = ({ data, trashpage }) => {

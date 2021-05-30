@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import edit from "../../../assets/admin/edit.svg";
-import trashIcon from "../../../assets/admin/trashIcon.svg";
+import edit from "../../../assetz/admin/edit.svg";
+import trashIcon from "../../../assetz/admin/trashIcon.svg";
 import EditBlogPost from "../EditBlogPost/EditBlogPost";
 
 import "./styles.scss";

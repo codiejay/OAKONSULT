@@ -10,7 +10,7 @@ import { firestore } from "../../firebase/config";
 import TagOverviewPostPreview from "../TagOverviewPostPreview/TagOverviewPostPreview";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
-import placeholder from "../../assets/images/placeholder.png";
+import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
 

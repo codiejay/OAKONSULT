@@ -1,6 +1,6 @@
 import React from "react";
 import SunEditor from "suneditor-react";
-import loader from "../../../assets/loader.gif";
+import loader from "../../../assetz/loader.gif";
 import "suneditor/dist/css/suneditor.min.css";
 
 import "./styles.scss";

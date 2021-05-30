@@ -8,8 +8,8 @@ import {
 import { Link } from "react-router-dom";
 import Spacing from "../../Spacing/Spacing";
 import SidebarLink from "../SidebarLink/SidebarLink";
-// import logo from "../../../assets/images/logo.png";
-// import logoIcon from "../../../assets/icons/logo-icon-light.svg";
+// import logo from "../../../assetz/images/logo.png";
+// import logoIcon from "../../../assetz/icons/logo-icon-light.svg";
 
 import "./styles.scss";
 
