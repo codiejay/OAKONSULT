@@ -8,28 +8,24 @@ import Churches from "./pages/Churches/Churches";
 import TrainingAndResourcing from "./pages/TrainingAndResourcing/TrainingAndResourcing";
 import PublicSpeaking from "./pages/PublicSpeaking/PublicSpeaking";
 import Auth from "./pages/Auth/Auth";
-import Dashboard from "./pages/admin/Dashboard/Dashboard";
 
 import "./App.scss";
 import Main from "./Components/Main";
 import { useEffect } from "react";
 import { auth } from "./firebase/config";
 import { setAdmin } from "./redux/admin/actions";
+import DashboardLayout from "./componentz/admin/DashboardLayout/Layout";
 
 const App = () => {
   const admin = useSelector(({ user }) => user.admin);
   const dispatch = useDispatch();
   useEffect(() => {
     auth.onAuthStateChanged(async (userAuth) => {
+      console.log(auth);
       // if (userAuth) {
       //   const userRef = await createUserProfileDocument(userAuth);
       //   userRef.onSnapshot((snapShot) => {
-      //     snapShot.id === "CemtdHWvipUXZc6cgRVnLlFnzsQ2"
-      //       ? dispatch(setAdmin({
-      //           id: snapShot.id,
-      //           ...snapShot.data(),
-      //         }))
-      //       : dispatch(setCurrentUser({
+      //       dispatch(setCurrentUser({
       //           id: snapShot.id,
       //           ...snapShot.data(),
       //         }))
@@ -93,7 +89,21 @@ const App = () => {
         exact
         path="/oak-admin"
         render={() =>
-          admin ? <Dashboard /> : <Redirect to="/oak-admin-auth" />
+          admin ? (
+            <DashboardLayout>Home</DashboardLayout>
+          ) : (
+            <Redirect to="/oak-admin-auth" />
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/gallery"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>Gallery</DashboardLayout>
+          )
         }
       />
       <Route render={() => <NotFound />} />

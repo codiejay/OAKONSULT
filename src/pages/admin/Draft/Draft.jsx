@@ -1,5 +1,5 @@
 import React from "react";
-import AdminDraftPreview from "../../../components/admin/AdminDraftPreview/AdminDraftPreview";
+import DraftPreview from "../../../componentz/admin/DraftPreview/DraftPreview";
 import { useSelector } from "react-redux";
 
 import "./styles.scss";
@@ -10,7 +10,7 @@ const Draft = () => {
     <div className="draft">
       <div className="drafts">
         {draft.map((item, index) => (
-          <AdminDraftPreview key={index} data={item} />
+          <DraftPreview key={index} data={item} />
         ))}
         {draft.length === 0 && <span className="empty">No Item</span>}
       </div>

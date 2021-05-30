@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, useLocation } from "react-router-dom";
-import TagOverview from "../../components/TagOverview/TagOverview";
+import TagOverview from "../../componentz/TagOverview/TagOverview";
 import { firestore } from "../../firebase/config";
 import Post from "../Post/Post";
 

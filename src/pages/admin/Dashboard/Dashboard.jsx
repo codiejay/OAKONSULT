@@ -6,9 +6,9 @@ import plus from "../../../assets/admin/plus.svg";
 import draftIcon from "../../../assets/admin/draft.svg";
 import publish from "../../../assets/admin/publish.svg";
 import trashIcon from "../../../assets/admin/trashIcon.svg";
-import NewPostModal from "../../../components/admin/NewPostModal/NewPostModal";
-import AdminSidepanel from "../../../components/admin/AdminSidepanel/AdminSidepanel";
-import AdminBlogPosts from "../../../components/admin/AdminBlogPosts/AdminBlogPosts";
+import NewPostModal from "../../../componentz/admin/NewPostModal/NewPostModal";
+import AdminSidepanel from "../../../componentz/admin/AdminSidepanel/AdminSidepanel";
+import AdminBlogPosts from "../../../componentz/admin/AdminBlogPosts/AdminBlogPosts";
 import Draft from "../Draft/Draft";
 import Trash from "../Trash/Trash";
 
