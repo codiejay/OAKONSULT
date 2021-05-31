@@ -34,9 +34,147 @@ footer {
   margin: 2rem 0;
     #programs { 
       background-color: $teal;
-      height: 10vh;
       padding: 3rem 1rem;
       border-radius: 12px;
+      display: grid;
+      grid-template-columns: 4fr 1.4fr;
+        #programTitle { 
+          color: white;
+            span { 
+              font-size: 1.2rem;
+            }
+            p { 
+              font-size: 1.8rem;
+              font-weight: bolder;
+            }
+        }
+        #programButton { 
+            #programLink { 
+              gap: 2rem;
+              background-color: #26AAB4;
+              padding: 1rem 1.2rem;
+              border-radius: 300px;
+              align-items: center;
+              display: grid;
+              grid-template-columns: 2fr 8fr;
+                img { 
+                  width: 50px;
+                }
+                p { 
+                  font-size: 1.3rem;
+                  color: white;
+                  font-weight: 900;
+                  font-family: $Archivo;
+                }
+            }
+        }
+    }
+    #newsletter { 
+      background-color: $teal;
+      margin: 3rem 0;
+      padding:  6rem 1rem;
+      text-align: center;
+      border-radius: 12px;
+
+        #heading { 
+
+            h2 { 
+              color: white; 
+              font-size: 3.5rem;
+              font-weight: lighter;
+              text-transform: uppercase;
+              margin-bottom: 1rem;
+            }
+            p { 
+              color: white;
+              text-transform: capitalize;
+              width: 60%;
+              margin: 0 auto 1rem auto;
+              font-size: 1.1rem;
+              line-height: 1.5rem;
+            }
+        }
+        form {
+          width: 60%;
+          margin: 0 auto; 
+            div { 
+              display: grid;
+              grid-template-columns: 9fr 1fr;
+              gap: 1rem;
+                input { 
+                  width: 100%;
+                  font-size: 1.6rem;
+                  font-family: $DM;
+                  border: 0px;
+                  padding: 0.8rem 0.8rem;
+                  text-transform: uppercase;
+                    &:focus { 
+                      outline-color: $teal;
+                    }
+                }
+                #sendButton {
+                  cursor: pointer; 
+                  align-items: center;
+                  width: 60px;
+                  height: 60px;
+                  background-color: #26AAB4;
+                    img { 
+                      width: 50%;
+                      height: 50%;
+                      margin-left: 50%;
+                    }
+                }
+            }
+            p { 
+              text-align: left;
+              color: white;
+              text-transform: uppercase;
+              font-family: $Archivo;
+              margin-top: 0.8rem;
+              
+            }
+        }
+    }
+
+    #mainFooter { 
+      border-radius: 12px;
+      background-color: $teal; 
+      padding-bottom: 3rem;
+        #footerImg { 
+          width: 100%;
+          height: 80vh;
+          background: url('../Assets/leaf.svg');
+          background-position: -20% 90%;
+          background-size: center;
+          background-repeat: no-repeat;
+        }
+        #footerBoxes { 
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+            #footerLogo { 
+              margin-left: 1rem;
+              width: 100px;
+              height: 100px;
+              background: url('../Assets/whiteLogo.svg');
+              background-position: center;
+              background-size: cover;
+            }
+            .footerBox { 
+              h3 { 
+                color: #fff;
+                font-size: 1.6rem;
+                letter-spacing: 0.06rem;
+                text-transform: uppercase;
+              }
+              a { 
+                display: block;
+                margin: 0.6rem 0;
+                color: whitesmoke;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+              }
+            }
+        }
     }
 }
 
