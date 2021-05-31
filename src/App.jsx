@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import Blog from "./pages/Blog/Blog";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound/NotFound";
@@ -11,29 +11,50 @@ import Auth from "./pages/Auth/Auth";
 
 import "./App.scss";
 import Main from "./Components/Main";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "./firebase/config";
 import { setAdmin } from "./redux/admin/actions";
 import DashboardLayout from "./componentz/admin/DashboardLayout/Layout";
+import { setUser } from "./redux/user/actions";
+import { OnCreateUserProfileDocument } from "./firebase/auth";
+import Spinner from "./componentz/Spinner/Spinner";
 
 const App = () => {
   const admin = useSelector(({ user }) => user.admin);
+  const location = useLocation();
+  const pathname = location.pathname;
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged(async (userAuth) => {
-      console.log(auth);
-      // if (userAuth) {
-      //   const userRef = await createUserProfileDocument(userAuth);
-      //   userRef.onSnapshot((snapShot) => {
-      //       dispatch(setCurrentUser({
-      //           id: snapShot.id,
-      //           ...snapShot.data(),
-      //         }))
-      //   });
-      // }
+      if (pathname === "/oak-admin") {
+        setLoading(true);
+      }
+      if (userAuth) {
+        const userRef = await OnCreateUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          snapShot.data().role === "admin"
+            ? dispatch(
+                setAdmin({
+                  id: snapShot.id,
+                  ...snapShot.data(),
+                })
+              )
+            : dispatch(
+                setUser({
+                  id: snapShot.id,
+                  ...snapShot.data(),
+                })
+              );
+          setLoading(false);
+        });
+      }
+      setLoading(false);
     });
   }, []);
-  return (
+  return loading ? (
+    <Spinner style={{ height: "100vh", width: "100vw" }} />
+  ) : (
     <Switch>
       <Route exact path={`/`} render={() => <HomePage />} />
       <Route
@@ -103,6 +124,46 @@ const App = () => {
             <Redirect to={`/oak-admin-auth`} />
           ) : (
             <DashboardLayout>Gallery</DashboardLayout>
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/quotes"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>Quotes</DashboardLayout>
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/events"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>Events</DashboardLayout>
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/drafts"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>Drafts</DashboardLayout>
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/trash"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>Trash</DashboardLayout>
           )
         }
       />
