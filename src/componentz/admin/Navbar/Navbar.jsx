@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { AntDesign, FontAwesome, Ionicons } from "react-web-vector-icons";
+import { AntDesign, FontAwesome } from "react-web-vector-icons";
 import { colors } from "../../../constants/Colors";
 
 import "./styles.scss";
@@ -33,7 +33,7 @@ const Navbar = ({
       </div>
       <div className="notification-user">
         <div className="notification" onClick={() => {}}>
-          <Ionicons name="md-notifications" size={30} color={colors.black} />
+          <AntDesign name="inbox" size={30} color={colors.black} />
           <span className="notification-count">{0}</span>
         </div>
         <div

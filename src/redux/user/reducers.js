@@ -2,6 +2,7 @@ import { ActionTypes } from "./types";
 
 const INITIAL_STATE = {
   admin: null,
+  user: null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         admin: action.payload,
+      };
+    case ActionTypes.SET_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

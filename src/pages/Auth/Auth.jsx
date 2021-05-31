@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { auth } from "../../firebase/config";
+import { auth, firestore } from "../../firebase/config";
 import CustomButton from "../../componentz/CustomButton/CustomButton";
 import CustomPopUp from "../../componentz/CustomPopUp/CustomPopUp";
 import CustomInput from "../../componentz/CustomInput/CustomInput";
+import { setAdmin } from "../../redux/admin/actions";
 import Spacing from "../../componentz/Spacing/Spacing";
-// import loader from "../../assets/loader.gif";
+import loader from "../../assetz/loader.gif";
 
 import "./styles.scss";
 import { colors } from "../../constants/Colors";
@@ -25,7 +26,17 @@ const Auth = () => {
     setIsloading(true);
     try {
       const response = await auth.signInWithEmailAndPassword(email, password);
-      console.log(response.user);
+      if (response.user) {
+        const userRef = firestore.doc(`auth/${response.uid}`);
+        userRef.onSnapshot((snapShot) => {
+          dispatch(
+            setAdmin({
+              id: snapShot.id,
+              ...snapShot.data(),
+            })
+          );
+        });
+      }
       setEmail("");
       setPassword("");
       setIsloading(false);
@@ -61,21 +72,33 @@ const Auth = () => {
             label="Email"
             value={email}
             type={"email"}
-            onChange={({ target }) => setEmail(target.value)}
+            onChange={({ target }) => {
+              setErrorMessage("");
+              setEmail(target.value);
+            }}
           />
           <Spacing height="2em" />
           <CustomInput
             label="Password"
             value={password}
             type={"password"}
-            onChange={({ target }) => setPassword(target.value)}
+            onChange={({ target }) => {
+              setErrorMessage("");
+              setPassword(target.value);
+            }}
           />
           <Spacing height="3em" />
-          <CustomButton
-            label="Login"
-            onClick={onSubmit}
-            className="login-btn"
-          />
+          {isLoading ? (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src={loader} alt="loader" className="auth-loading" />
+            </div>
+          ) : (
+            <CustomButton
+              label="Login"
+              onClick={onSubmit}
+              className="login-btn"
+            />
+          )}
         </form>
       </div>
     </div>

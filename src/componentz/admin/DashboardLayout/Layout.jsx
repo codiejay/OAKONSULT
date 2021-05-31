@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AntDesign, Feather } from "react-web-vector-icons";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../../firebase/config";
 import { colors } from "../../../constants/Colors";
 import Dropdown from "../Dropdown/Dropdown";
@@ -9,17 +9,19 @@ import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 
 import "./styles.scss";
+import { setAdmin } from "../../../redux/admin/actions";
 const DashboardLayout = ({ children }) => {
   const currentUser = useSelector(({ user }) => user.currentUser);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [sidebarCollapsed, collapsSidebar] = useState(false);
-
+  const dispatch = useDispatch();
   const history = useHistory();
   const onLogout = () => {
     // sessionStorage.setItem("reauthenticate", JSON.stringify({ status: false }));
+    dispatch(setAdmin(null));
     setDropdownVisible(false);
     auth.signOut();
-    history.push(`/login`);
+    history.push(`/oak-admin-auth`);
   };
   return (
     <>
@@ -40,7 +42,7 @@ const DashboardLayout = ({ children }) => {
         setDropdownVisible={setDropdownVisible}
         style={{ top: "8em", right: "1em", minHeight: "6em" }}
       >
-        <div
+        {/* <div
           className="dropdownLink"
           onClick={() => {
             history.push("/settings");
@@ -49,7 +51,7 @@ const DashboardLayout = ({ children }) => {
         >
           <Feather name="settings" size={20} color="black" />
           <h4>Settings</h4>
-        </div>
+        </div> */}
         <div className="dropdownLink logout" onClick={onLogout}>
           <AntDesign name="logout" size={18} color={colors.danger} />
           <h4>Logout</h4>
