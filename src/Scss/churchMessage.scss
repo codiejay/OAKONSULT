@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+
+$teal: #009ba7;
+$grey: #a9a6a6;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+$churchPagePurple: #b00aff;
+
+@mixin BGConfig($size, $position) {
+  background-position: $position;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+
+#intro {
+  min-height: 100vh;
+  display: flex;
+
+  .introTextContent {
+    // background: #a15c5c;
+    width: 60%;
+    .quoteSrc {
+      display: flex;
+      align-items: center;
+      .quote_dash {
+        height: 0.75rem;
+        width: 50px;
+        background: $churchPagePurple;
+        margin-right: 1rem;
+      }
+      #quoteSource {
+        font-size: 30px;
+        font-family: $Archivo;
+      }
+    }
+    #quote {
+      font-family: $DM;
+      text-transform: capitalize;
+      font-size: 78px;
+      font-weight: normal;
+      //   max-width: 90%;
+      margin-bottom: 4rem;
+    }
+    #watchStory {
+      background: #b00aff;
+      width: max-content;
+      display: flex;
+      align-items: center;
+      border-radius: 300px;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      .icon {
+        height: '50px';
+        width: '50px';
+        background-image: url(../Assets/playbutton.svg);
+        @include BGConfig(50%, center);
+      }
+
+      .text {
+        font-size: 22px;
+        color: white;
+      }
+    }
+  }
+
+  .introVideoButton {
+    width: 40%;
+    // background: rgb(201, 152, 152);
+
+    .hexagon {
+      height: 600px;
+      width: 500px;
+      margin-top: -30px;
+      background: url(../Assets/church.svg);
+      @include BGConfig(100%, top);
+      position: relative;
+
+      //   #play_btn {
+      //     height: 125px;
+      //     width: 125px;
+      //     background: url(../Assets/playbutton.svg);
+      //     @include BGConfig(100%, center);
+      //     position: absolute;
+      //     top: 32%;
+      //     left: 37%;
+      //     cursor: pointer;
+      //   }
+    }
+  }
+}

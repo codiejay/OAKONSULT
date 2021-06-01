@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../Scss/homepage.scss';
 
 // Images
@@ -18,6 +18,8 @@ import TagDetail from '../Components/TagDetails';
 import WatchStory from '../Components/WatchStory';
 import SyllabusCard from '../Components/SyllabusCard';
 import Main from '../Components/Main';
+
+// Internal Component
 
 const Homepage = () => {
   return (
@@ -40,7 +42,7 @@ const Homepage = () => {
           </div>
           <div className='introVideoButton'>
             <div className='hexagon'>
-              <div id='blay_btn'></div>
+              <div id='play_btn'></div>
             </div>
           </div>
         </div>
@@ -52,8 +54,9 @@ const Homepage = () => {
           <div id='whoAreYouContent'>
             <section className='AboutDeets'>
               <h1>
-                Are you a Parent Carer, Sibling of a child or young person with
-                disabilities/ special needs or a faith based organisation ?
+                Are you a Parent Carer,
+                <br /> Sibling of a child or young person with disabilities/
+                special needs or a faith based organisation ?
               </h1>
               <p>
                 OAK’s mandate is to introduce the gospel of Christ to Carers. We
@@ -99,6 +102,76 @@ const Homepage = () => {
         </div>
 
         {/* Section 3 */}
+        <div id='RssCategories'>
+          <h2 id='sectionTitle'>
+            Something
+            <br /> for everyone
+          </h2>
+          <p id='sectionDetails'>
+            OAK’s mandate is to introduce the gospel of Christ to Carers. We
+            empower Carers and families dealing with disability matters with
+            biblical principles and truth that will enable them find fulfilment
+            at whatever stage they might be in their individual journeys.
+          </p>
+
+          <div className='cards_mother'>
+            <div className='rssCard cardOne'>
+              <h2 className='cardTitle'>
+                FOR CHURCHES AND
+                <br /> FAITH-BASED ORGANISATIONS
+              </h2>
+              <p className='cardContent'>
+                OAK’s mandate is to introduce the gospel of Christ to Carers. We
+                empower Carers and families dealing with disability matters with
+                biblical principles.
+              </p>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </div>
+
+            <div className='rssCard cardTwo'>
+              <h2 className='cardTitle'>FOR PARENT CARERS</h2>
+              <p className='cardContent'>
+                OAK’s mandate is to introduce the gospel of Christ to Carers. We
+                empower Carers and families dealing with disability matters with
+                biblical principles.
+              </p>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </div>
+
+            <div className='rssCard cardThree'>
+              <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
+              <p className='cardContent'>
+                OAK’s mandate is to introduce the gospel of Christ to Carers. We
+                empower Carers and families dealing with disability matters with
+                biblical principles.
+              </p>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </div>
+
+            <div className='rssCard cardFour'>
+              <h2 className='cardTitle'>TRAINING AND RESOURCES</h2>
+              <p className='cardContent'>
+                OAK’s mandate is to introduce the gospel of Christ to Carers. We
+                empower Carers and families dealing with disability matters with
+                biblical principles.
+              </p>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Section 4 */}
 
         <div id='aboutFounder'>
           <SectionIcon image={Star} />
