@@ -21,6 +21,7 @@ $yellow: #ffba0a;
   font-family: $Archivo;
   font-weight: normal;
   font-size: 18px;
+  letter-spacing: normal;
 }
 #homePage {
   //   Section 2
@@ -49,10 +50,10 @@ $yellow: #ffba0a;
       #quote {
         font-family: $DM;
         text-transform: capitalize;
-        font-size: 78px;
+        font-size: 72px;
         font-weight: normal;
-        //   max-width: 90%;
         margin-bottom: 4rem;
+        line-height: 107px;
       }
     }
 
@@ -63,7 +64,7 @@ $yellow: #ffba0a;
       .hexagon {
         height: 600px;
         width: 500px;
-        margin-top: -30px;
+        // margin-top: -30px;
         background: url(../Assets/polygonVideoPlaceholder.svg);
         @include BGConfig(100%, top);
         position: relative;
@@ -95,10 +96,12 @@ $yellow: #ffba0a;
       .AboutDeets {
         // background: rgb(121, 223, 126);
         flex-grow: 2;
+        // width: 700px;
         h1 {
           font-family: $DM;
-          font-size: 54px;
-          line-height: 93px;
+          font-size: 64px;
+          font-weight: normal;
+          line-height: 87px;
           margin: 2rem 0;
           text-transform: capitalize;
           width: 80%;
@@ -111,7 +114,8 @@ $yellow: #ffba0a;
           line-height: 160.8%;
           margin-bottom: 4rem;
           color: $grey;
-          max-width: 75%;
+          max-width: 50%;
+          // background: rgb(82, 58, 58);
         }
         .tagGroup {
           display: flex;
@@ -124,6 +128,7 @@ $yellow: #ffba0a;
         right: 0;
         // background: rgb(187, 148, 148);
         flex-grow: 1;
+        min-width: 300px;
       }
     }
   }
@@ -169,6 +174,7 @@ $yellow: #ffba0a;
           width: max-content;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           padding: 1.5rem 3rem;
           border-radius: 300px;
           cursor: pointer;
@@ -288,14 +294,23 @@ $yellow: #ffba0a;
       display: flex;
 
       #syllabusIntroTitle {
+        width: 50%;
+        // background: rgb(146, 91, 91);
         h2 {
           font-family: $DM;
+          font-weight: normal;
           font-size: 78px;
           text-transform: capitalize;
           margin: 3rem 0;
         }
       }
       #syllabusCards {
+        #Card:nth-child(1) {
+          margin-bottom: 4rem;
+        }
+        #Card:nth-child(2) {
+          margin-left: 45%;
+        }
       }
     }
   }

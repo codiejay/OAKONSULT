@@ -1,0 +1,90 @@
+@import '../../constants/scss/colors';
+@import '../../constants/scss/variables';
+@import '../../constants/scss/mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+
+$teal: #009ba7;
+$grey: #a9a6a6;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+$churchPagePurple: #b00aff;
+$publicSpeakingOrange: #ff6725;
+
+@mixin BGConfig($size, $position) {
+  background-position: $position;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+
+#P_Sintro {
+  min-height: 100vh;
+  display: flex;
+
+  .introTextContent {
+    // background: #a15c5c;
+    width: 60%;
+    .quoteSrc {
+      display: flex;
+      align-items: center;
+      .quote_dash {
+        height: 0.75rem;
+        width: 50px;
+        background: $publicSpeakingOrange;
+        margin-right: 1rem;
+      }
+      #quoteSource {
+        font-size: 30px;
+        font-family: $Archivo;
+      }
+    }
+    #quote {
+      font-family: $DM;
+      text-transform: uppercase;
+      font-size: 78px;
+      font-weight: normal;
+      //   max-width: 90%;
+      margin-bottom: 4rem;
+      line-height: auto;
+    }
+    #watchStory {
+      background: hsla(18, 100%, 57%, 0.5);
+      height: 64px;
+      width: 248px;
+      display: flex;
+      align-items: center;
+      border-radius: 300px;
+      // padding: 1rem 0;
+      cursor: pointer;
+
+      .icon {
+        height: '50px';
+        width: '50px';
+        background-image: url(../../Assets/icons/orangePlayBtn.svg);
+        @include BGConfig(80%, center);
+      }
+
+      .text {
+        font-size: 22px;
+        color: white;
+      }
+    }
+  }
+
+  .introVideoButton {
+    width: 40%;
+    // background: rgb(201, 152, 152);
+
+    .hexagon {
+      height: 600px;
+      width: 500px;
+      margin-top: -30px;
+      background: url(../../Assets/images/PublicSpeaking.svg);
+      @include BGConfig(100%, top);
+      position: relative;
+    }
+  }
+}

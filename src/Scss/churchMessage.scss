@@ -45,18 +45,20 @@ $churchPagePurple: #b00aff;
       margin-bottom: 4rem;
     }
     #watchStory {
-      background: #b00aff;
-      width: max-content;
+      background: rgba(177, 10, 255, 0.5);
+      height: 64px;
+      width: 365px;
       display: flex;
       align-items: center;
       border-radius: 300px;
-      padding: 1rem 2rem;
+      // padding: 1rem 0;
       cursor: pointer;
+
       .icon {
         height: '50px';
         width: '50px';
-        background-image: url(../Assets/playbutton.svg);
-        @include BGConfig(50%, center);
+        background-image: url(../Assets/icons/purplePlayBtn.svg);
+        @include BGConfig(80%, center);
       }
 
       .text {

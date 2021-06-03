@@ -1,23 +1,23 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
-import Blog from "./pages/Blog/Blog";
-import HomePage from "./pages/HomePage";
-import NotFound from "./pages/NotFound/NotFound";
-import Carers from "./pages/Carers/Carers";
-import Churches from "./pages/Churches/Churches";
-import TrainingAndResourcing from "./pages/TrainingAndResourcing/TrainingAndResourcing";
-import PublicSpeaking from "./pages/PublicSpeaking/PublicSpeaking";
-import Auth from "./pages/Auth/Auth";
+import { useDispatch, useSelector } from 'react-redux';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import Blog from './pages/Blog/Blog';
+import HomePage from './pages/HomePage';
+import NotFound from './pages/NotFound/NotFound';
+import Carers from './pages/Carers/Carers';
+import Churches from './pages/ChurchesMessage';
+import TrainingAndResourcing from './pages/TrainingAndResourcing/TrainingAndResourcing';
+import PublicSpeaking from './pages/PublicSpeaking/PublicSpeaking';
+import Auth from './pages/Auth/Auth';
 
-import "./App.scss";
-import Main from "./Components/Main";
-import { useEffect, useState } from "react";
-import { auth } from "./firebase/config";
-import { setAdmin } from "./redux/admin/actions";
-import DashboardLayout from "./componentz/admin/DashboardLayout/Layout";
-import { setUser } from "./redux/user/actions";
-import { OnCreateUserProfileDocument } from "./firebase/auth";
-import Spinner from "./componentz/Spinner/Spinner";
+import './App.scss';
+import Main from './Components/Main';
+import { useEffect, useState } from 'react';
+import { auth } from './firebase/config';
+import { setAdmin } from './redux/admin/actions';
+import DashboardLayout from './componentz/admin/DashboardLayout/Layout';
+import { setUser } from './redux/user/actions';
+import { OnCreateUserProfileDocument } from './firebase/auth';
+import Spinner from './componentz/Spinner/Spinner';
 
 const App = () => {
   const admin = useSelector(({ user }) => user.admin);
@@ -27,13 +27,13 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged(async (userAuth) => {
-      if (pathname === "/oak-admin") {
+      if (pathname === '/oak-admin') {
         setLoading(true);
       }
       if (userAuth) {
         const userRef = await OnCreateUserProfileDocument(userAuth);
         userRef.onSnapshot((snapShot) => {
-          snapShot.data().role === "admin"
+          snapShot.data().role === 'admin'
             ? dispatch(
                 setAdmin({
                   id: snapShot.id,
@@ -53,10 +53,18 @@ const App = () => {
     });
   }, []);
   return loading ? (
-    <Spinner style={{ height: "100vh", width: "100vw" }} />
+    <Spinner style={{ height: '100vh', width: '100vw' }} />
   ) : (
     <Switch>
-      <Route exact path={`/`} render={() => <HomePage />} />
+      <Route
+        exact
+        path={`/`}
+        render={() => (
+          <Main>
+            <HomePage />
+          </Main>
+        )}
+      />
       <Route
         exact
         path={`/carers`}
@@ -103,22 +111,22 @@ const App = () => {
       />
       <Route
         exact
-        path="/oak-admin-auth"
-        render={() => (admin ? <Redirect to="/oak-admin" /> : <Auth />)}
+        path='/oak-admin-auth'
+        render={() => (admin ? <Redirect to='/oak-admin' /> : <Auth />)}
       />
       <Route
         exact
-        path="/oak-admin"
+        path='/oak-admin'
         render={() =>
           admin ? (
             <DashboardLayout>Home</DashboardLayout>
           ) : (
-            <Redirect to="/oak-admin-auth" />
+            <Redirect to='/oak-admin-auth' />
           )
         }
       />
       <Route
-        path="/oak-admin/gallery"
+        path='/oak-admin/gallery'
         render={() =>
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
@@ -128,7 +136,7 @@ const App = () => {
         }
       />
       <Route
-        path="/oak-admin/quotes"
+        path='/oak-admin/quotes'
         render={() =>
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
@@ -138,7 +146,7 @@ const App = () => {
         }
       />
       <Route
-        path="/oak-admin/events"
+        path='/oak-admin/events'
         render={() =>
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
@@ -148,7 +156,7 @@ const App = () => {
         }
       />
       <Route
-        path="/oak-admin/drafts"
+        path='/oak-admin/drafts'
         render={() =>
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
@@ -158,7 +166,7 @@ const App = () => {
         }
       />
       <Route
-        path="/oak-admin/trash"
+        path='/oak-admin/trash'
         render={() =>
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
