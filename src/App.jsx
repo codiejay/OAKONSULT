@@ -18,6 +18,10 @@ import DashboardLayout from "./componentz/admin/DashboardLayout/Layout";
 import { setUser } from "./redux/user/actions";
 import { OnCreateUserProfileDocument } from "./firebase/auth";
 import Spinner from "./componentz/Spinner/Spinner";
+import Gallery from "./pages/admin/Gallery/Gallery";
+import Quote from "./pages/admin/Quote/Quote";
+import Draft from "./pages/admin/Draft/Draft";
+import Event from "./pages/admin/Event/Event";
 
 const App = () => {
   const admin = useSelector(({ user }) => user.admin);
@@ -123,7 +127,9 @@ const App = () => {
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
           ) : (
-            <DashboardLayout>Gallery</DashboardLayout>
+            <DashboardLayout>
+              <Gallery />
+            </DashboardLayout>
           )
         }
       />
@@ -133,7 +139,9 @@ const App = () => {
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
           ) : (
-            <DashboardLayout>Quotes</DashboardLayout>
+            <DashboardLayout>
+              <Quote />
+            </DashboardLayout>
           )
         }
       />
@@ -143,17 +151,21 @@ const App = () => {
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
           ) : (
-            <DashboardLayout>Events</DashboardLayout>
+            <DashboardLayout>
+              <Event />
+            </DashboardLayout>
           )
         }
       />
       <Route
-        path="/oak-admin/drafts"
+        path="/oak-admin/draft"
         render={() =>
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
           ) : (
-            <DashboardLayout>Drafts</DashboardLayout>
+            <DashboardLayout>
+              <Draft />
+            </DashboardLayout>
           )
         }
       />

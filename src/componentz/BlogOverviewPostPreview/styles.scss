@@ -3,12 +3,12 @@
 @import "../../constants/scss/mixins";
 
 .blog-overview-post-preview-wrapper {
-  flex: 0 0 calc(100% / 3);
-  max-width: calc(100% / 3);
+  flex: 0 0 calc(100% / 2);
+  max-width: calc(100% / 2);
 
   @include tablet() {
-    flex: 0 0 calc(100% / 2);
-    max-width: calc(100% / 2);
+    flex: 0 0 calc(100% / 1);
+    max-width: calc(100% / 1);
   }
 
   @include smartphone() {

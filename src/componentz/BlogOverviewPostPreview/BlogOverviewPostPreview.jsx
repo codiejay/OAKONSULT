@@ -6,6 +6,7 @@ import Spacing from "../Spacing/Spacing";
 import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
+import { colors } from "../../constants/Colors";
 
 const BlogOverviewPostPreview = ({
   data,
@@ -31,7 +32,12 @@ const BlogOverviewPostPreview = ({
         <div
           className={`flex-center-column tumbnail`}
           style={{
-            backgroundImage: `linear-gradient(#0aa7ff3a, #0aa5ff3a), url(${placeholder})`,
+            backgroundImage:
+              main_tag === "parents"
+                ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${tumbnail})`
+                : main_tag === "siblings"
+                ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${tumbnail})`
+                : `linear-gradient(#ffba0a8a, #ffba0a3a), url(${tumbnail})`,
           }}
         >
           <CustomButton
@@ -63,7 +69,19 @@ const BlogOverviewPostPreview = ({
               {title}
             </h1>
             <Spacing height={`1em`} />
-            <span className={`time`}>{moment().fromNow(created_at)}</span>
+            <span
+              className={`time`}
+              style={{
+                color:
+                  main_tag === "parents"
+                    ? colors.for_parents
+                    : main_tag === "siblings"
+                    ? colors.for_siblings
+                    : colors.for_carers,
+              }}
+            >
+              {moment().fromNow(created_at)}
+            </span>
           </div>
         </div>
         <Spacing height={`1em`} />
