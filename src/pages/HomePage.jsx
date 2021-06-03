@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../Scss/homepage.scss';
 
 // Images
@@ -123,10 +124,12 @@ const Homepage = () => {
               empower Carers and families dealing with disability matters with
               biblical principles.
             </p>
-            <div id='learnMore_btn'>
-              <p>Learn More</p>
-              <div className='learnMore_icon'></div>
-            </div>
+            <Link to='./churches'>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </Link>
           </div>
 
           <div className='rssCard cardTwo'>
@@ -136,10 +139,12 @@ const Homepage = () => {
               empower Carers and families dealing with disability matters with
               biblical principles.
             </p>
-            <div id='learnMore_btn'>
-              <p>Learn More</p>
-              <div className='learnMore_icon'></div>
-            </div>
+            <Link to='./carers'>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </Link>
           </div>
 
           <div className='rssCard cardThree'>
@@ -149,10 +154,12 @@ const Homepage = () => {
               empower Carers and families dealing with disability matters with
               biblical principles.
             </p>
-            <div id='learnMore_btn'>
-              <p>Learn More</p>
-              <div className='learnMore_icon'></div>
-            </div>
+            <Link to='./public-speaking'>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </Link>
           </div>
 
           <div className='rssCard cardFour'>
@@ -162,10 +169,12 @@ const Homepage = () => {
               empower Carers and families dealing with disability matters with
               biblical principles.
             </p>
-            <div id='learnMore_btn'>
-              <p>Learn More</p>
-              <div className='learnMore_icon'></div>
-            </div>
+            <Link to='./training-and-resourcing'>
+              <div id='learnMore_btn'>
+                <p>Learn More</p>
+                <div className='learnMore_icon'></div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
