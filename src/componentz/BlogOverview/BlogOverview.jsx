@@ -81,7 +81,7 @@ const BlogOverview = () => {
           <div
             className="tumbnail"
             style={{
-              backgroundImage: `linear-gradient(#0aa7ff3a, #0aa5ff3a), url(${Main_Article.tumbnail})`,
+              backgroundImage: `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${Main_Article.tumbnail})`,
             }}
           ></div>
           <Spacing width={`2em`} />
