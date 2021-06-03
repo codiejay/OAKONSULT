@@ -34,10 +34,10 @@ footer {
   margin: 2rem 0;
     #programs { 
       background-color: $teal;
-      padding: 3rem 1rem;
+      padding: 3rem 0.6rem;
       border-radius: 12px;
       display: grid;
-      grid-template-columns: 4fr 1.4fr;
+      grid-template-columns: 3fr 1.2fr;
         #programTitle { 
           color: white;
             span { 
@@ -49,6 +49,7 @@ footer {
             }
         }
         #programButton { 
+          width: fit-content;
             #programLink { 
               gap: 2rem;
               background-color: #26AAB4;
