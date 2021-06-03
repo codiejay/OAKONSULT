@@ -1,14 +1,22 @@
 #watchStory {
   background: rgba(0, 155, 167, 0.17);
-  width: max-content;
+  width: 260px;
+  height: 64px;
   display: flex;
   align-items: center;
   border-radius: 300px;
-  padding-right: 0.75rem;
+  // padding: 0rem -0.5rem;
+  padding-right: 0.5rem;
   cursor: pointer;
+  .icon {
+    height: 50px;
+    width: 50px;
+    margin-left: 0.5rem;
+  }
   .text {
     font-size: 22px;
-
+    color: black;
+    padding-left: -0.5rem;
     // height: max-content;
   }
 }

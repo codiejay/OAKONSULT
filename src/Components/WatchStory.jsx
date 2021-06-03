@@ -2,12 +2,10 @@ import '../Scss/watchstory.scss';
 
 const WatchStory = (props) => {
   const iconStyle = {
-    height: '50px',
-    width: '50px',
     backgroundImage: `url(${props.data.icon})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '50%',
+    backgroundSize: '80%',
   };
   return (
     <div id='watchStory'>

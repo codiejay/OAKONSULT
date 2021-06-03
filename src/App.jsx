@@ -4,7 +4,7 @@ import Blog from "./pages/Blog/Blog";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound/NotFound";
 import Carers from "./pages/Carers/Carers";
-import Churches from "./pages/Churches/Churches";
+import Churches from "./pages/ChurchesMessage";
 import TrainingAndResourcing from "./pages/TrainingAndResourcing/TrainingAndResourcing";
 import PublicSpeaking from "./pages/PublicSpeaking/PublicSpeaking";
 import Auth from "./pages/Auth/Auth";
@@ -60,7 +60,15 @@ const App = () => {
     <Spinner style={{ height: "100vh", width: "100vw" }} />
   ) : (
     <Switch>
-      <Route exact path={`/`} render={() => <HomePage />} />
+      <Route
+        exact
+        path={`/`}
+        render={() => (
+          <Main>
+            <HomePage />
+          </Main>
+        )}
+      />
       <Route
         exact
         path={`/carers`}

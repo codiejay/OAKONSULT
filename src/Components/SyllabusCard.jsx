@@ -1,16 +1,16 @@
 import '../Scss/syllabusCard.scss';
 const SyllabusCard = (props) => {
   return (
-    <div className='CardTitle'>
-      The Hope
-      <div id='Card'>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-          dignissimos consectetur tempore rerum nisi voluptatem architecto ut
-          blanditiis suscipit quod nobis reprehenderit fugiat, ab sunt iste
-          incidunt rem laboriosam ipsum?
+    <div id='Card'>
+      <div className='CardTitle'>The Hope</div>
+      <div className='cardContent'>
+        <p className='classText'>
+          OAK’s mandate is to introduce the gospel of Christ to Carers. We
+          empower Carers and families dealing with disability matters with
+          biblical principles and truth that will enable them find fulfilment at
+          whatever stage they might be in their individual journeys.
         </p>
-        <div className='accessSyllabus'></div>
+        <div className='accessSyllabus'>Access This Syllabus</div>
       </div>
     </div>
   );
