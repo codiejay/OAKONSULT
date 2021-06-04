@@ -16,6 +16,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    // height: 57.6em;
   }
   .article-text-button {
     flex: 0 0 calc(100% / 3);
@@ -24,7 +25,10 @@
     overflow: hidden;
     .article-text {
       .main-article-title {
-        font-size: 6.6em;
+        // font-size: 6.6em;
+      }
+      .main-article-hook {
+        // font-size: 2.2em;
       }
     }
     .cr-btn-container {
@@ -51,4 +55,8 @@
 .posts {
   display: flex;
   flex-wrap: wrap;
+}
+.tag-btn {
+  padding: 1em 2em !important;
+  height: 4em !important;
 }

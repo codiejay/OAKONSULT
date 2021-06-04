@@ -75,13 +75,13 @@ const BlogOverview = () => {
   return (
     <div className="blog-overview">
       <div className="main-article">
-        <CustomButton label={`ARTICLE OF THE WEEK`} />
+        <CustomButton label={`ARTICLE OF THE WEEK`} className={"tag-btn"} />
         <Spacing height={`2em`} />
         <div className="article-data">
           <div
             className="tumbnail"
             style={{
-              backgroundImage: `linear-gradient(#0aa7ff3a, #0aa5ff3a), url(${placeholder})`,
+              backgroundImage: `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${Main_Article.tumbnail})`,
             }}
           ></div>
           <Spacing width={`2em`} />
