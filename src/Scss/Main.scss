@@ -9,6 +9,7 @@ $yellow: #ffba0a;
 #mainpage { 
   width: 90%;
   margin: 0 auto;
+  user-select: none;
 }
 
 header { 
@@ -20,13 +21,60 @@ header {
   img { 
     width: 80px;
   }
-  h3 { 
-    text-align: right;
-    font-family: $DM;
-    letter-spacing: 0.14rem;
-    font-weight: lighter;
-    font-size: 1.9rem;
-    cursor: pointer;
+  div { 
+    position: relative;
+      h3 { 
+        text-align: right;
+        font-family: $DM;
+        letter-spacing: 0.14rem;
+        font-weight: lighter;
+        font-size: 1.9rem;
+        cursor: pointer;
+      }
+      #menuContent { 
+        padding: 2rem 1rem 4rem 1rem;
+        background-color: $teal;
+        width: 350px;
+        position: absolute;
+        right: 0;
+        z-index: 900;
+        animation: menuAnimation 0.4s 1;
+         p { 
+           font-size: 1.6rem;
+           text-transform: uppercase;
+           color: white;
+           letter-spacing: 0.1rem;
+           cursor: pointer;
+           font-family: $DM;
+            animation: menuContent 1.5s 1;
+         }
+         ul { 
+          margin-top: 2rem;
+            li { 
+              margin: 2rem 0;
+                h3 { 
+                  text-align: left;
+                  color: rgb(255, 255, 255);
+                  font-size: 1.4rem;
+                }
+                p { 
+                  font-family: $Archivo;
+                  letter-spacing: 0.01rem;
+                  line-height: 1.8rem;
+                }
+            }
+         }
+         #social { 
+           display: grid;
+           grid-template-columns: 1fr 1fr 1fr;
+           margin-left: -9%;
+           margin-top: 3rem;
+            a { 
+              text-align: center;
+              color: rgba(255, 255, 255, 0.514);
+            }
+         }
+      }
   }
 }
 
@@ -179,3 +227,23 @@ footer {
     }
 }
 
+
+
+//animation
+@keyframes menuAnimation {
+  from { 
+    width: 0px;
+  }
+  to { 
+    width: 350px;
+  }
+}
+
+@keyframes menuContent {
+  0% { 
+    color: transparent;
+  }
+  100% { 
+    width: initial;
+  }
+}
