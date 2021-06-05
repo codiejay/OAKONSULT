@@ -10,9 +10,11 @@ const Main = (props) => {
   const Header = () => {
     return ( 
       <header>
-        <img 
-          src={logo}
-        />
+        <Link to='/'>
+          <img 
+            src={logo}
+          />
+        </Link>
         <h3>MENU</h3>
       </header>
     )
