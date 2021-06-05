@@ -1,11 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import { Helmet } from "react-helmet";
-import LibraryImg from "../../Assets/Library.svg";
-import GetCourseModal from "../../componentz/admin/GetCourseModal/GetCourseModal";
-import Dialog from "../../componentz/Dialog/Dialog";
+import React from 'react';
+import { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import LibraryImg from '../../Assets/Library.svg';
+import GetCourseModal from '../../componentz/admin/GetCourseModal/GetCourseModal';
+import Dialog from '../../componentz/Dialog/Dialog';
 
-import "./Carers.scss";
+import './Carers.scss';
 
 const Carers = () => {
   const [type, setType] = useState(null);
@@ -14,36 +14,36 @@ const Carers = () => {
     <>
       <Helmet>
         <title>Careers &mdash; Oak</title>
-        <meta property="og:title" content="Churches &mdash; Oak" />
-        <meta property="og:type" content="website" />
-        <meta name="description" content="" />
-        <meta property="og:site_name" content="Oakonsult" />
+        <meta property='og:title' content='Churches &mdash; Oak' />
+        <meta property='og:type' content='website' />
+        <meta name='description' content='' />
+        <meta property='og:site_name' content='Oakonsult' />
       </Helmet>
-      <div id="Carers_intro">
-        <div className="introTextContent">
-          <div className="quoteSrc">
-            <div className="quote_dash"></div>
-            <p id="quoteSource">John 10:10</p>
+      <div id='Carers_intro'>
+        <div className='introTextContent'>
+          <div className='quoteSrc'>
+            <div className='quote_dash'></div>
+            <p id='quoteSource'>John 10:10</p>
           </div>
-          <h1 id="quote">Parent Carers</h1>
-          <p id="quoteText">
+          <h1 id='quote'>Parent Carers</h1>
+          <p id='quoteText'>
             At OAKONSULT we are passionate about empowering and supporting
             Carers to garner inner strength and forge ahead in their individual
             lives notwithstanding the associated challenges.
           </p>
           {/* btn */}
-          <div id="watchStory">
-            <div className="icon"></div>
-            <p className="text">My Message </p>
+          <div id='watchStory'>
+            <div className='icon'></div>
+            <p className='text'>My Message </p>
           </div>
         </div>
 
-        <div className="introVideoButton">
-          <div className="hexagon"></div>
+        <div className='introVideoButton'>
+          <div className='hexagon'></div>
         </div>
       </div>
-      <div id="Carer_goals">
-        <div id="heartIcon"></div>
+      <div id='Carer_goals'>
+        <div id='heartIcon'></div>
         <p>
           Providing care for children or family members with disabilities,
           complex or life limiting conditions impact Carers in different ways.
@@ -59,7 +59,7 @@ const Carers = () => {
           our lives.
         </p>
       </div>
-      <div id="forYou">
+      <div id='forYou'>
         <h1>Something for you</h1>
         <p>
           At OAKONSULT we are passionate about empowering and supporting Carers
@@ -77,12 +77,12 @@ const Carers = () => {
           and sustainable for purposeful living.
         </p>
       </div>
-      <div id="availiableCourses">
+      <div id='availiableCourses'>
         <h2>Available Courses/Materials</h2>
-        <div className="courses">
-          <div className="carersCourse ">
-            <div className="blueTag"></div>
-            <div className="courseContainer">
+        <div className='courses'>
+          <div className='carersCourse '>
+            <div className='blueTag'></div>
+            <div className='courseContainer'>
               <h3>
                 Bespoke training
                 <br /> programs for Carers
@@ -98,11 +98,11 @@ const Carers = () => {
               </ul>
             </div>
           </div>
-          <div className="carersCourse">
-            <div className="blueTag"></div>
-            <div className="courseContainer">
+          <div className='carersCourse'>
+            <div className='blueTag'></div>
+            <div className='courseContainer'>
               <h3>PROJECT ME</h3>
-              <p id="ProjectMeAim">
+              <p id='ProjectMeAim'>
                 ‘Project Me’ aims to support the Carer to find fulfilment and
                 purpose
                 <br /> in her caring role; and to push beyond boundaries for
@@ -125,7 +125,7 @@ const Carers = () => {
                   to one another.
                 </li>
               </ul>
-              <div className="getCourse" onClick={() => setDialogVisible(true)}>
+              <div className='getCourse' onClick={() => setDialogVisible(true)}>
                 GET THIS COURSE
               </div>
             </div>
@@ -135,23 +135,23 @@ const Carers = () => {
 
       {/* This button uses the format of ExploreBtn.jsx and ExploreBtn.scss with little modification */}
       <div
-        className="SeeRelatedArticle"
-        id="btn"
+        className='SeeRelatedArticle'
+        id='btn'
         style={{
-          backgroundColor: "#0aa7ff",
-          marginBottom: "6rem",
-          marginTop: "3rem",
+          backgroundColor: '#0aa7ff',
+          marginBottom: '6rem',
+          marginTop: '3rem',
         }}
       >
         <div
-          id="icon"
+          id='icon'
           style={{
-            height: "50px",
-            width: "50px",
+            height: '50px',
+            width: '50px',
             backgroundImage: `url(${LibraryImg})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "50%",
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '50%',
           }}
         ></div>
         <p>See Related Article</p>
