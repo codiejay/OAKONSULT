@@ -10,7 +10,7 @@ import { onGetCourse } from "../../../firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 
 import "./styles.scss";
-const GetCourseModal = ({ setDialogVisible }) => {
+const GetCourseModal = ({ setDialogVisible, courseType }) => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,6 +25,8 @@ const GetCourseModal = ({ setDialogVisible }) => {
       name,
       email,
       phone,
+      course: courseType,
+      // tag: ,
     };
     if (name.trim() === "" || email.trim() === "") {
       setLoading(false);

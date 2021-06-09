@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import '../Scss/Main.scss';
 import logo from '../Assets/logo.png';
 import playicon from '../Assets/playIcon.png';
@@ -7,13 +7,60 @@ import { Link } from 'react-router-dom';
 
 const Main = (props) => {
 
+  //state and variables
+  const [showMenu, setShowMenu] = useState(false);
+
   const Header = () => {
     return ( 
       <header>
-        <img 
-          src={logo}
-        />
-        <h3>MENU</h3>
+        <Link to='/'>
+          <img 
+            src={logo}
+          />
+        </Link>
+        <div>
+          <h3 onClick={() => {setShowMenu(true)}}>
+            MENU
+          </h3>
+          { 
+            showMenu && 
+            <div id='menuContent'>
+              <p onClick={() => {setShowMenu(false)}}>close</p>
+              <ul>
+                <li>
+                  <Link to='about'>
+                    <h3>01</h3>
+                    <p>About OAK</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='tranining'>
+                    <h3>02</h3>
+                    <p>Tranining And Resources</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='invite'>
+                    <h3>03</h3>
+                    <p>Invite me</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='churches'>
+                    <h3>04</h3>
+                    <p>For Churces</p>
+                  </Link>
+                </li>
+              </ul>
+
+              <div id='social'>
+                <a target='_blank' href='https://twitter.com'>TWITTER</a>
+                <a target='_blank' href='https://instagram.com'>INSTAGRAM</a>
+                <a target='_blank' href='https://youtube.com'>YOUTUBE</a>
+              </div>
+            </div>
+          }
+        </div>
       </header>
     )
   }
@@ -92,7 +139,7 @@ const Main = (props) => {
   }
 
   return ( 
-    <div id='mainpage'>
+    <div id='mainpage' >
       <Header />
       {props.children}
       <Footer />
