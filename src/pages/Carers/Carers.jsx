@@ -96,6 +96,9 @@ const Carers = () => {
                 <li> Financial Matter for Carers</li>
                 <li>Faith and the Carer (A Free Course)</li>
               </ul>
+              <div className="getCourse" onClick={() => setDialogVisible(true)}>
+                GET THIS COURSE
+              </div>
             </div>
           </div>
           <div className="carersCourse">
@@ -157,7 +160,7 @@ const Carers = () => {
         <p>See Related Article</p>
       </div>
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
-        <GetCourseModal />
+        <GetCourseModal setDialogVisible={setDialogVisible} />
       </Dialog>
     </>
   );

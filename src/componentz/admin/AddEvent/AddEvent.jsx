@@ -15,12 +15,18 @@ const AddEvent = ({ setDialogVisible }) => {
 
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
+    const timestring = new Date(date).getTime();
     const eventData = {
       name,
+      description,
+      date,
+      timestring,
       imageUrl: "",
     };
     if (name.trim() === "") {
@@ -67,6 +73,20 @@ const AddEvent = ({ setDialogVisible }) => {
             value={name}
             type={"text"}
             onChange={({ target }) => setName(target.value)}
+            required
+          />
+          <CustomInput
+            label="Event Description"
+            value={description}
+            type={"text"}
+            onChange={({ target }) => setDescription(target.value)}
+            required
+          />
+          <CustomInput
+            label="Event Date"
+            value={date}
+            type={"date"}
+            onChange={({ target }) => setDate(target.value)}
             required
           />
           <Spacing height="2em" />

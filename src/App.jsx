@@ -22,6 +22,11 @@ import Gallery from "./pages/admin/Gallery/Gallery";
 import Quote from "./pages/admin/Quote/Quote";
 import Draft from "./pages/admin/Draft/Draft";
 import Event from "./pages/admin/Event/Event";
+import Dashboard from "./pages/admin/Dashboard/Dashboard";
+import CreatePost from "./pages/admin/CreatePost/CreatePost";
+import Trash from "./pages/admin/Trash/Trash";
+import Inbox from "./pages/admin/Inbox/Inbox";
+import Published from "./pages/admin/Published/Published";
 
 const App = () => {
   const admin = useSelector(({ user }) => user.admin);
@@ -123,9 +128,49 @@ const App = () => {
         path="/oak-admin"
         render={() =>
           admin ? (
-            <DashboardLayout>Home</DashboardLayout>
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
           ) : (
             <Redirect to="/oak-admin-auth" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/oak-admin/published"
+        render={() =>
+          admin ? (
+            <DashboardLayout>
+              <Published />
+            </DashboardLayout>
+          ) : (
+            <Redirect to="/oak-admin-auth" />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/oak-admin/inbox"
+        render={() =>
+          admin ? (
+            <DashboardLayout>
+              <Inbox />
+            </DashboardLayout>
+          ) : (
+            <Redirect to="/oak-admin-auth" />
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/create-post"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>
+              <CreatePost />
+            </DashboardLayout>
           )
         }
       />
@@ -183,7 +228,9 @@ const App = () => {
           !admin ? (
             <Redirect to={`/oak-admin-auth`} />
           ) : (
-            <DashboardLayout>Trash</DashboardLayout>
+            <DashboardLayout>
+              <Trash />
+            </DashboardLayout>
           )
         }
       />

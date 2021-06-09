@@ -21,7 +21,7 @@ const AddGallery = ({ setDialogVisible }) => {
     e.preventDefault();
     const galleryData = {
       photoUrl,
-      imageUrl: "",
+      created_at: Date.now(),
     };
     if (photoUrl.trim() === "") {
       setLoading(false);

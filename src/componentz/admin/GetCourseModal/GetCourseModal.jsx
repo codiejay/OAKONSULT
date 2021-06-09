@@ -7,6 +7,7 @@ import Spinner from "../../Spinner/Spinner";
 import CustomButton from "../../CustomButton/CustomButton";
 import { colors } from "../../../constants/Colors";
 import { onGetCourse } from "../../../firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
 
 import "./styles.scss";
 const GetCourseModal = ({ setDialogVisible }) => {
@@ -17,9 +18,10 @@ const GetCourseModal = ({ setDialogVisible }) => {
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const onSubmit = async (e) => {
+    const id = uuidv4().split("-").join("");
     setLoading(true);
     e.preventDefault();
-    const branchData = {
+    const userData = {
       name,
       email,
       phone,
@@ -30,7 +32,7 @@ const GetCourseModal = ({ setDialogVisible }) => {
       return;
     }
     try {
-      await onGetCourse(branchData);
+      await onGetCourse(id, userData);
       setLoading(false);
       setDialogVisible(false);
     } catch (error) {
@@ -70,7 +72,14 @@ const GetCourseModal = ({ setDialogVisible }) => {
             onChange={({ target }) => setName(target.value)}
             required
           />
-          W
+          <Spacing height="2em" />
+          <CustomInput
+            label="Email"
+            value={email}
+            type={"email"}
+            onChange={({ target }) => setEmail(target.value)}
+            required
+          />
           <Spacing height="2em" />
           <CustomInput
             label="Phone Number"

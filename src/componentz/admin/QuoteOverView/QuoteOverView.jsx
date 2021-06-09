@@ -11,7 +11,7 @@ import Spinner from "../../Spinner/Spinner";
 
 import "./styles.scss";
 
-const QuoteOverView = ({ hasGallery, gallery, loading }) => {
+const QuoteOverView = ({ hasQuote, quotes, loading }) => {
   const [type, setType] = useState(null);
   const [dialogVisible, setDialogVisible] = useState(false);
   const history = useHistory();
@@ -20,14 +20,14 @@ const QuoteOverView = ({ hasGallery, gallery, loading }) => {
     <Spinner style={{ height: "30vh" }} />
   ) : (
     <>
-      {!hasGallery ? (
+      {!hasQuote ? (
         <div className="flex-center-column no-data">
           <Spacing height="4em" />
           <span className="no-data-text">You have'nt added any quote yet</span>
           <Spacing height="2em" />
           <CustomButton
             label="Add Quote"
-            className="add-photo-btn"
+            className="add-quote-btn"
             onClick={() => {
               setType("addQuote");
               setDialogVisible(true);
@@ -38,31 +38,25 @@ const QuoteOverView = ({ hasGallery, gallery, loading }) => {
         <div className="has-data">
           <CustomButton
             label="Add Quote"
-            className="add-photo-btn absolute-btn"
+            className="add-quote-btn absolute-btn"
             onClick={() => {
               setType("addQuote");
               setDialogVisible(true);
             }}
           />
           <Spacing height="2em" />
-          <div className="flex-vertical-center photo-list">
-            {gallery.map((item, index) => (
+          <div className="flex-vertical-center quote-list">
+            {quotes.map((item, index) => (
               <div
                 key={index}
-                className="flex-center-column photo-preview"
+                className="flex-center-column quote-preview"
                 onClick={() => {
                   // dispatch(setGallery(item));
-                  history.push(`/gallery/${item.photoCode}`);
+                  history.push(`/quotes/${item.quoteCode}`);
                 }}
               >
                 <Spacing height="1em" />
-                <div className="flex-center photo-icon">
-                  <Entypo name="shop" size={30} color="black" />
-                </div>
-                <Spacing height="1em" />
-                <h3>{item.photoCode}</h3>
-                <h3>{item.name}</h3>
-                <h3>{item.address}</h3>
+                <h3 className="quote">"{item.quote}"</h3>
               </div>
             ))}
           </div>
@@ -72,11 +66,11 @@ const QuoteOverView = ({ hasGallery, gallery, loading }) => {
         {type === "addQuote" && (
           <AddQuote setDialogVisible={setDialogVisible} />
         )}
-        {/* {type === "photoView" && (
+        {/* {type === "quoteView" && (
           <GalleryView
             setDialogVisible={setDialogVisible}
             setGallerytData={setGallerytData}
-            data={photoData}
+            data={quoteData}
           />
         )} */}
       </Dialog>
