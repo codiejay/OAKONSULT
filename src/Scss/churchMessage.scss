@@ -91,17 +91,6 @@ $churchPagePurple: #b00aff;
       background: url(../Assets/church.svg);
       @include BGConfig(100%, top);
       position: relative;
-
-      //   #play_btn {
-      //     height: 125px;
-      //     width: 125px;
-      //     background: url(../Assets/playbutton.svg);
-      //     @include BGConfig(100%, center);
-      //     position: absolute;
-      //     top: 32%;
-      //     left: 37%;
-      //     cursor: pointer;
-      //   }
     }
   }
 }
