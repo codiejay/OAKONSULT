@@ -37,7 +37,9 @@ const Homepage = () => {
             <br /> life, and that more
             <br /> abundantly
           </h1>
-          <ExploreBtn data={['Explore our library', LibraryImg]} />
+          <Link to='/blogs'>
+            <ExploreBtn data={['Explore our library', LibraryImg]} />
+          </Link>
         </div>
         <div className='introVideoButton'>
           <div className='hexagon'>
