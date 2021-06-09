@@ -7,7 +7,6 @@ import Dialog from "../../Dialog/Dialog";
 import Spacing from "../../Spacing/Spacing";
 import AddGallery from "../AddGallery/AddGallery";
 import Spinner from "../../Spinner/Spinner";
-// import { setGallery } from "../../../redux/dashboard/actions";
 
 import "./styles.scss";
 
@@ -72,13 +71,6 @@ const GalleryOverView = ({ hasGallery, gallery, loading }) => {
         {type === "addPhoto" && (
           <AddGallery setDialogVisible={setDialogVisible} />
         )}
-        {/* {type === "photoView" && (
-          <GalleryView
-            setDialogVisible={setDialogVisible}
-            setGallerytData={setGallerytData}
-            data={photoData}
-          />
-        )} */}
       </Dialog>
     </>
   );

@@ -8,29 +8,8 @@ import EventOverView from "../../../componentz/admin/EventOverView/EventOverView
 import "./styles.scss";
 
 const Event = () => {
-  const [hasEvent, setHasEvent] = useState(false);
-  const [event, setEvent] = useState([]);
-  const [loading, setLoading] = useState(true);
   const history = useHistory();
-  const onLoadEvent = useCallback(async () => {
-    const eventRef = firestore.collection("event").orderBy("name", "asc");
-    eventRef.onSnapshot((snapShot) => {
-      if (!snapShot.empty) {
-        setHasEvent(true);
-        const eventArray = [];
-        snapShot.forEach((item) => {
-          eventArray.push(item.data());
-        });
-        setEvent(eventArray);
-        setLoading(false);
-      }
-      setLoading(false);
-    });
-  }, []);
-  useEffect(() => {
-    onLoadEvent();
-    return () => {};
-  }, [onLoadEvent]);
+
   return (
     <>
       <span>{history.location.pathname}</span>
@@ -38,17 +17,8 @@ const Event = () => {
       <Route
         exact
         path={`/oak-admin/events`}
-        render={() => (
-          <EventOverView hasEvent={hasEvent} event={event} loading={loading} />
-        )}
+        render={() => <EventOverView />}
       />
-      {/* <Route
-        exact
-        path={`/event/:eventId`}
-        render={() =>
-          event ? <EventView /> : <Redirect to="/event" />
-        }
-      /> */}
     </>
   );
 };

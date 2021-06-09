@@ -12,11 +12,11 @@ const Quote = () => {
   // const admin = useSelector(({ user }) => user.admin);
   // const quote = useSelector(({ dashboard }) => dashboard.quote);
   const [hasQuote, setHasQuote] = useState(false);
-  const [quote, setQuote] = useState([]);
+  const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
   const onLoadQuote = useCallback(async () => {
-    const quoteRef = firestore.collection("quote").orderBy("name", "asc");
+    const quoteRef = firestore.collection("quotes").orderBy("quote", "asc");
     quoteRef.onSnapshot((snapShot) => {
       if (!snapShot.empty) {
         setHasQuote(true);
@@ -24,7 +24,7 @@ const Quote = () => {
         snapShot.forEach((item) => {
           quoteArray.push(item.data());
         });
-        setQuote(quoteArray);
+        setQuotes(quoteArray);
         setLoading(false);
       }
       setLoading(false);
@@ -42,7 +42,11 @@ const Quote = () => {
         exact
         path={`/oak-admin/quotes`}
         render={() => (
-          <QuoteOverView hasQuote={hasQuote} quote={quote} loading={loading} />
+          <QuoteOverView
+            hasQuote={hasQuote}
+            quotes={quotes}
+            loading={loading}
+          />
         )}
       />
       {/* <Route

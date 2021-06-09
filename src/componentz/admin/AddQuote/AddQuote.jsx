@@ -21,7 +21,7 @@ const AddQuote = ({ setDialogVisible }) => {
     e.preventDefault();
     const galleryData = {
       quote,
-      imageUrl: "",
+      created_at: Date.now(),
     };
     if (quote.trim() === "") {
       setLoading(false);

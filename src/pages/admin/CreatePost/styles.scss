@@ -1,0 +1,55 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.noty {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+  z-index: 99;
+  text-align: center;
+}
+.success {
+  background-color: #00ff0d8a;
+  color: #00ff0d;
+}
+.error {
+  background-color: #ff00008a;
+  color: #ff0000;
+}
+.create-post {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  .properties,
+  .editor {
+    width: 40%;
+    height: 100%;
+  }
+  .left {
+    padding-right: 2em;
+  }
+  .divider {
+    height: calc(100vh - 10em);
+    width: 0.2em;
+    background-color: $tint;
+  }
+  .editor {
+    padding-left: 2em;
+    width: 60%;
+  }
+}
+code {
+  margin-bottom: 25px;
+  font-size: 15px;
+  text-align: center;
+}
+.absolute-btn {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+}

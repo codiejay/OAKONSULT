@@ -1,0 +1,14 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.message-list {
+  .message-preview {
+    display: flex;
+    box-shadow: $shadow;
+  }
+  .message-title {
+  }
+  .timestamp {
+  }
+}

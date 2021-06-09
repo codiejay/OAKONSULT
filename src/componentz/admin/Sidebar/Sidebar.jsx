@@ -94,7 +94,7 @@ const Sidebar = ({ sidebarCollapsed }) => {
         />
         <Spacing height="3.5em" />
         <SidebarLink
-          to="/oak-admin/drafts"
+          to="/oak-admin/draft"
           icon={
             <Entypo
               name="edit"

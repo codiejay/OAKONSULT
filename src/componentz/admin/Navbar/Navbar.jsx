@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { AntDesign, FontAwesome } from "react-web-vector-icons";
 import { colors } from "../../../constants/Colors";
 
@@ -32,10 +33,12 @@ const Navbar = ({
         )}
       </div>
       <div className="notification-user">
-        <div className="notification" onClick={() => {}}>
-          <AntDesign name="inbox" size={30} color={colors.black} />
-          <span className="notification-count">{0}</span>
-        </div>
+        <Link to="/oak-admin/inbox" style={{ marginLeft: "auto" }}>
+          <div className="notification">
+            <AntDesign name="inbox" size={30} color={colors.black} />
+            <span className="notification-count">{0}</span>
+          </div>
+        </Link>
         <div
           className="user"
           onClick={() => setDropdownVisible(!dropdownVisible)}

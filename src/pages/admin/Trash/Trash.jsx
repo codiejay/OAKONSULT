@@ -1,20 +1,55 @@
-import React from "react";
-import BlogPost from "../../../componentz/admin/BlogPost/BlogPost";
-import { useSelector } from "react-redux";
+import React, { useCallback, useEffect, useState } from "react";
+// import { Entypo } from "react-web-vector-icons";
+import { Route, useHistory } from "react-router-dom";
+// import TrashPreview from "../../../componentz/admin/TrashPreview/TrashPreview";
+import { firestore } from "../../../firebase/config";
+import TrashOverView from "../../../componentz/admin/TrashOverView/TrashOverView";
 
 import "./styles.scss";
 
 const Trash = () => {
-  const trash = useSelector(({ admin }) => admin.trash);
+  const [hasTrash, setHasTrash] = useState(false);
+  const [trash, setTrash] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const history = useHistory();
+  const onLoadTrash = useCallback(async () => {
+    const trashRef = firestore.collection("trash").orderBy("name", "asc");
+    trashRef.onSnapshot((snapShot) => {
+      if (!snapShot.empty) {
+        setHasTrash(true);
+        const trashArray = [];
+        snapShot.forEach((item) => {
+          trashArray.push(item.data());
+        });
+        setTrash(trashArray);
+        setLoading(false);
+      }
+      setLoading(false);
+    });
+  }, []);
+  useEffect(() => {
+    onLoadTrash();
+    return () => {};
+  }, [onLoadTrash]);
   return (
-    <div className="trash">
-      <div className="trashes">
-        {trash.map((item, index) => (
-          <BlogPost key={index} data={item} trashpage />
-        ))}
-        {trash.length === 0 && <span className="empty">Empty</span>}
-      </div>
-    </div>
+    <>
+      <span>{history.location.pathname}</span>
+      {/* <RoutePath route={history.location.pathname} /> */}
+      <Route
+        exact
+        path={`/oak-admin/trash`}
+        render={() => (
+          <TrashOverView hasTrash={hasTrash} trash={trash} loading={loading} />
+        )}
+      />
+      {/* <Route
+        exact
+        path={`/trash/:trashId`}
+        render={() =>
+          trash ? <TrashView /> : <Redirect to="/trash" />
+        }
+      /> */}
+    </>
   );
 };
 
