@@ -12,8 +12,8 @@ import Auth from "./pages/Auth/Auth";
 import "./App.scss";
 import Main from "./Components/Main";
 import { useEffect, useState } from "react";
-import { auth } from "./firebase/config";
-import { setAdmin } from "./redux/admin/actions";
+import { auth, firestore } from "./firebase/config";
+import { setAdmin, setNotificationCount } from "./redux/admin/actions";
 import DashboardLayout from "./componentz/admin/DashboardLayout/Layout";
 import { setUser } from "./redux/user/actions";
 import { OnCreateUserProfileDocument } from "./firebase/auth";
@@ -52,19 +52,25 @@ const App = () => {
       if (userAuth) {
         const userRef = await OnCreateUserProfileDocument(userAuth);
         userRef.onSnapshot((snapShot) => {
-          snapShot.data().role === "admin"
-            ? dispatch(
-                setAdmin({
-                  id: snapShot.id,
-                  ...snapShot.data(),
-                })
-              )
-            : dispatch(
-                setUser({
-                  id: snapShot.id,
-                  ...snapShot.data(),
-                })
-              );
+          if (snapShot.data().role === "admin") {
+            const inboxRef = firestore.collection("inbox");
+            inboxRef.where("seen", "==", false).onSnapshot((snapShot) => {
+              dispatch(setNotificationCount(`${snapShot.size}`));
+            });
+            dispatch(
+              setAdmin({
+                id: snapShot.id,
+                ...snapShot.data(),
+              })
+            );
+          } else {
+            dispatch(
+              setUser({
+                id: snapShot.id,
+                ...snapShot.data(),
+              })
+            );
+          }
           setLoading(false);
         });
       }

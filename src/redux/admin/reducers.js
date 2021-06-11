@@ -3,9 +3,7 @@ import { ActionTypes } from "./types";
 const INITIAL_STATE = {
   admin: null,
   toggle_editor: false,
-  current_page: "dashboard",
-  trash: [],
-  draft: [],
+  notificationCount: 0,
 };
 
 const AdminReducer = (state = INITIAL_STATE, action) => {
@@ -15,20 +13,11 @@ const AdminReducer = (state = INITIAL_STATE, action) => {
         ...state,
         admin: action.payload,
       };
-    case ActionTypes.TOGGLE_EDITOR:
+
+    case ActionTypes.UPDATE_NOTIFICATION:
       return {
         ...state,
-        toggle_editor: action.payload,
-      };
-    case ActionTypes.CURRENT_PAGE:
-      return {
-        ...state,
-        current_page: action.payload,
-      };
-    case ActionTypes.UPDATE_DRAFT:
-      return {
-        ...state,
-        draft: action.payload,
+        notificationCount: action.payload,
       };
     case ActionTypes.UPDATE_TRASH:
       return {

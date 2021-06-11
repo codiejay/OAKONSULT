@@ -18,13 +18,13 @@ export const OnAddEvent = (data) => {
   eventRef.doc(data.date).set(data);
 };
 
+export const sendNotification = (data) => {
+  const timestamp = Date.now();
+  inboxRef.doc(`${timestamp}`).set({ ...data, timestamp, seen: false });
+};
 export const onGetCourse = (courseId, data) => {
   courseRef.doc(courseId).collection("attendees").doc(data.email).set(data);
-  sendNotification(data);
-};
-
-export const sendNotification = (data) => {
-  inboxRef.doc(data.email).set({ ...data, seen: false });
+  sendNotification({ ...data, title: `${data.name} enrolled!!!` });
 };
 
 export const OnPost = (data) => {

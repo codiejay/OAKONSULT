@@ -7,7 +7,6 @@ import Spinner from "../../Spinner/Spinner";
 import CustomButton from "../../CustomButton/CustomButton";
 import { colors } from "../../../constants/Colors";
 import { onGetCourse } from "../../../firebase/firestore";
-import { v4 as uuidv4 } from "uuid";
 
 import "./styles.scss";
 const GetCourseModal = ({ setDialogVisible, courseType }) => {
@@ -15,10 +14,8 @@ const GetCourseModal = ({ setDialogVisible, courseType }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const onSubmit = async (e) => {
-    const id = uuidv4().split("-").join("");
     setLoading(true);
     e.preventDefault();
     const userData = {
@@ -34,11 +31,11 @@ const GetCourseModal = ({ setDialogVisible, courseType }) => {
       return;
     }
     try {
-      await onGetCourse(id, userData);
+      console.log(courseType.toLowerCase());
+      await onGetCourse(courseType.toLowerCase(), userData);
       setLoading(false);
       setDialogVisible(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
     }
   };
