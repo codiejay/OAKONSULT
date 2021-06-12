@@ -13,6 +13,7 @@ const Navbar = ({
   setDropdownVisible,
 }) => {
   const admin = useSelector(({ user }) => user.admin);
+  const notificationCount = useSelector(({ admin }) => admin.notificationCount);
   return (
     <nav className="flex-vertical-center admin-navbar">
       <div className="toggler">
@@ -36,7 +37,9 @@ const Navbar = ({
         <Link to="/oak-admin/inbox" style={{ marginLeft: "auto" }}>
           <div className="notification">
             <AntDesign name="inbox" size={30} color={colors.black} />
-            <span className="notification-count">{0}</span>
+            {notificationCount * 1 > 0 && (
+              <span className="notification-count">{notificationCount}</span>
+            )}
           </div>
         </Link>
         <div

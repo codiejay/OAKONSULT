@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import '../Scss/Main.scss';
+import { useSelector } from 'react-redux';
 import logo from '../Assets/logo.png';
 import playicon from '../Assets/playIcon.png';
 import playIconForButton from '../Assets/playIcon.svg';
 import { Link } from 'react-router-dom';
-import Popup from '../Components/PopUp/Popup';
+import '../Scss/Main.scss';
 
 const Main = (props) => {
+  const quotes = useSelector(({ common }) => common.quotes);
+  console.log(quotes);
   //state and variables
   const [showMenu, setShowMenu] = useState(false);
 

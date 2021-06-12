@@ -1,67 +1,54 @@
 import React, { useEffect, useState } from "react";
 import SunEditor from "suneditor-react";
 import plugins from "suneditor/src/plugins";
-// import image from "suneditor/src/plugins/dialog/link";
-import {
-  align,
-  font,
-  fontSize,
-  fontColor,
-  hiliteColor,
-  horizontalRule,
-  image,
-  template,
-} from "suneditor/src/plugins";
+import image from "suneditor/src/plugins/dialog/link";
 import "suneditor/dist/css/suneditor.min.css";
 import loader from "../../../assetz/loader.gif";
-import { v4 as uuidv4 } from "uuid";
 
 import "./styles.scss";
 import CustomInput from "../../../componentz/CustomInput/CustomInput";
 import Spacing from "../../../componentz/Spacing/Spacing";
-import { firestore } from "../../../firebase/config";
-import { OnPost } from "../../../firebase/firestore";
+import { OnPostEdit } from "../../../firebase/firestore";
 import CustomButton from "../../../componentz/CustomButton/CustomButton";
 import { GetWindowDimensions } from "../../../utils/functions";
 
-const CreatePost = () => {
+const EditPost = (data) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [title, setTitle] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
-  const [hook, setHook] = useState("");
+  const [thumbnail, setThumbnail] = useState(data.thumbnail);
+  const [hook, setHook] = useState(data.hook);
   const [body, setBody] = useState("");
-  const [tags, setTags] = useState(["all"]);
+  const [tags, setTags] = useState(data.tags);
   const [ready, setReady] = useState(false);
   const [loading, setLoading] = useState(false);
   const handleChange = (content) => {
     setBody(content);
   };
-  const OnCreatePost = async () => {
-    const id = uuidv4().split("-").join("");
+  const OnEditPost = async () => {
     if (body === "" || title === "" || thumbnail === "" || hook === "") {
       setErrorMessage("All fields is required");
       return;
     }
     setLoading(true);
     const newTopic = {
-      id,
+      id: data.id,
       body,
       title,
       hook,
       thumbnail,
       user: "Admin",
       tags,
-      posted_at: Date.now(),
+      posted_at: data.posted_at,
       updated_at: Date.now(),
-      views: 0,
-      viewers: {},
-      likes: 0,
-      likers: {},
-      comments: 0,
+      views: data.views,
+      viewers: data.viewers,
+      likes: data.likes,
+      likers: data.likers,
+      comments: data.comments,
     };
     try {
-      await OnPost(newTopic);
+      await OnPostEdit(newTopic);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -96,7 +83,7 @@ const CreatePost = () => {
       <CustomButton
         label="Post"
         className="create-post-btn absolute-btn"
-        onClick={OnCreatePost}
+        onClick={OnEditPost}
         onMouseEnter={OnMouse}
         onMouseLeave={OnMouse}
         style={{ cursor: !ready ? "not-allowed" : "pointer" }}
@@ -181,4 +168,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default EditPost;

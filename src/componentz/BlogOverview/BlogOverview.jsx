@@ -69,7 +69,6 @@ const BlogOverview = () => {
     }
   };
   useEffect(() => {
-    console.log(All_Blogs);
     onLoadTagPosts();
   }, [""]);
   return (

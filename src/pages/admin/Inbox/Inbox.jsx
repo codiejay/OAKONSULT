@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
-// import { Entypo } from "react-web-vector-icons";
-import { Route, useHistory } from "react-router-dom";
+import { AntDesign } from "react-web-vector-icons";
+import { useHistory } from "react-router-dom";
 import Spacing from "../../../componentz/Spacing/Spacing";
-// import InboxPreview from "../../../componentz/admin/InboxPreview/InboxPreview";
 import { firestore } from "../../../firebase/config";
 
 import "./styles.scss";
+import moment from "moment";
+import ReadNotification from "../../../componentz/admin/ReadNotification/ReadNotification";
 
 const Inbox = () => {
   const [hasInbox, setHasInbox] = useState(false);
+  const [active, setActive] = useState(null);
   const [inbox, setInbox] = useState([]);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
@@ -42,15 +44,42 @@ const Inbox = () => {
           <Spacing height="2em" />
         </div>
       ) : (
-        <div className="message-list">
-          {inbox.map((item) => {
-            return (
-              <div className="message-preview">
-                <h3 className="message-title">{item.title}</h3>
-                <span className="timestamp">{item.time}</span>
+        <div className="inbox">
+          <div className="message-list">
+            {inbox.map((item) => {
+              const { name } = item;
+              return (
+                <div
+                  className="message-preview"
+                  onClick={() => setActive(item)}
+                >
+                  <div className="message-preview-icon">
+                    <span className="message-preview-icon-text">
+                      {name.match(/[A-Z]/g).join("")}
+                    </span>
+                  </div>
+                  <div className="message-preview-info">
+                    <h3 className="message-title">{item.title}</h3>
+                    <span className="timestamp">
+                      {moment().fromNow(item.timestamp)}
+                    </span>
+                    {!item.seen && <div className="dot"></div>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="divider"></div>
+          <div className="message-view">
+            {active ? (
+              <ReadNotification data={active} />
+            ) : (
+              <div className="not-viewing">
+                <AntDesign name="inbox" size={50} color={"gray"} />
+                <h3>Inbox</h3>
               </div>
-            );
-          })}
+            )}
+          </div>
         </div>
       )}
     </>

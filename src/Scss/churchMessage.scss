@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
-$DM: 'DM Serif Display', serif;
-$Archivo: 'Archivo', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap");
+$DM: "DM Serif Display", serif;
+$Archivo: "Archivo", sans-serif;
 
 $teal: #009ba7;
 $grey: #a9a6a6;
@@ -67,8 +67,8 @@ $churchPagePurple: #b00aff;
       cursor: pointer;
 
       .icon {
-        height: '50px';
-        width: '50px';
+        height: "50px";
+        width: "50px";
         background-image: url(../Assets/icons/purplePlayBtn.svg);
         @include BGConfig(80%, center);
       }
@@ -153,7 +153,7 @@ $churchPagePurple: #b00aff;
     margin-bottom: 3rem;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       bottom: -1rem;
@@ -211,7 +211,7 @@ $churchPagePurple: #b00aff;
       margin-bottom: 3rem;
       position: relative;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -10px;
         left: 0;

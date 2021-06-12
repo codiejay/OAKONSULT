@@ -8,14 +8,13 @@ import Churches from './pages/ChurchesMessage';
 import TrainingAndResourcing from './pages/TrainingAndResourcing/TrainingAndResourcing';
 import PublicSpeaking from './pages/PublicSpeaking/PublicSpeaking';
 import Auth from './pages/Auth/Auth';
-
-import './App.scss';
 import Main from './Components/Main';
 import { useEffect, useState } from 'react';
-import { auth } from './firebase/config';
-import { setAdmin } from './redux/admin/actions';
-import DashboardLayout from './componentz/admin/DashboardLayout/Layout';
+import { auth, firestore } from './firebase/config';
+import { setAdmin, setNotificationCount } from './redux/admin/actions';
 import { setUser } from './redux/user/actions';
+import { setQoutes } from './redux/common/actions';
+import DashboardLayout from './componentz/admin/DashboardLayout/Layout';
 import { OnCreateUserProfileDocument } from './firebase/auth';
 import Spinner from './componentz/Spinner/Spinner';
 import Gallery from './pages/admin/Gallery/Gallery';
@@ -27,6 +26,8 @@ import CreatePost from './pages/admin/CreatePost/CreatePost';
 import Trash from './pages/admin/Trash/Trash';
 import Inbox from './pages/admin/Inbox/Inbox';
 import Published from './pages/admin/Published/Published';
+
+import './App.scss';
 
 const ScrollToTop = ({ children }) => {
   const { pathname } = useLocation();
@@ -44,7 +45,17 @@ const App = () => {
   const pathname = location.pathname;
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
+  const OnFetchQuotes = () => {
+    const quotesRef = firestore.collection('quotes');
+    quotesRef.onSnapshot((snapShot) => {
+      const quotes = [];
+      snapShot.docs.forEach((item) => {
+        quotes.push(item.data());
+        quotes.length === snapShot.size && dispatch(setQoutes(quotes));
+      });
+    });
+  };
+  const CheckUser = () => {
     auth.onAuthStateChanged(async (userAuth) => {
       if (pathname === '/oak-admin') {
         setLoading(true);
@@ -52,24 +63,34 @@ const App = () => {
       if (userAuth) {
         const userRef = await OnCreateUserProfileDocument(userAuth);
         userRef.onSnapshot((snapShot) => {
-          snapShot.data().role === 'admin'
-            ? dispatch(
-                setAdmin({
-                  id: snapShot.id,
-                  ...snapShot.data(),
-                })
-              )
-            : dispatch(
-                setUser({
-                  id: snapShot.id,
-                  ...snapShot.data(),
-                })
-              );
+          if (snapShot.data().role === 'admin') {
+            const inboxRef = firestore.collection('inbox');
+            inboxRef.where('seen', '==', false).onSnapshot((snapShot) => {
+              dispatch(setNotificationCount(`${snapShot.size}`));
+            });
+            dispatch(
+              setAdmin({
+                id: snapShot.id,
+                ...snapShot.data(),
+              })
+            );
+          } else {
+            dispatch(
+              setUser({
+                id: snapShot.id,
+                ...snapShot.data(),
+              })
+            );
+          }
           setLoading(false);
         });
       }
       setLoading(false);
     });
+  };
+  useEffect(() => {
+    CheckUser();
+    OnFetchQuotes();
   }, []);
   return loading ? (
     <Spinner style={{ height: '100vh', width: '100vw' }} />

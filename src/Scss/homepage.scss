@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
-$DM: 'DM Serif Display', serif;
-$Archivo: 'Archivo', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap");
+$DM: "DM Serif Display", serif;
+$Archivo: "Archivo", sans-serif;
 $teal: #009ba7;
 $grey: #a9a6a6;
 $blue: #0aa7ff;
@@ -21,7 +21,7 @@ $pink: #ff34ba;
   box-sizing: border-box;
   font-family: $Archivo;
   font-weight: normal;
-  font-size: 18px;
+  // font-size: 18px;
   letter-spacing: normal;
 }
 #homePage {
@@ -258,7 +258,7 @@ $pink: #ff34ba;
           position: relative;
 
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: 0;
