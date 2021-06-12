@@ -3,9 +3,9 @@ import { firestore } from "../../../firebase/config";
 import edit from "../../../assetz/icons/edit.svg";
 import recycle from "../../../assetz/icons/recycle.svg";
 import trashIcon from "../../../assetz/icons/trashIcon.svg";
-// import { updateTrash } from "../../redux/admin/actions";
 
 import "./styles.scss";
+import Dialog from "../../Dialog/Dialog";
 
 const PublishedPost = ({ data, trash, trashpage }) => {
   const [isShow, setShow] = useState(false);
@@ -45,16 +45,12 @@ const PublishedPost = ({ data, trash, trashpage }) => {
           <img src={data.tumbnail ? data.tumbnail : ""} alt="tumbnail" />
         </div>
         <div className="text">
-          <h2 className="title">{data.title ? data.title : "Blog Title"}</h2>
-          <p className="truncate-text">
-            {data.hook
-              ? data.hook.split(" ").slice(0, 30).join(" ")
-              : `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit sunt
-          laudantium totam earum dolore deleniti necessitatibus. Repudiandae
-          ipsum ipsa minima? Cupiditate incidunt.`}
-          </p>
+          <h2 className="title">{data.title}</h2>
+          <p className="hook">{data.hook.split(" ").slice(0, 30).join(" ")}</p>
           <div className="carosel-post">
-            <span>Make it appear in slider</span>
+            <span className="carosel-post-text">
+              Set as Article of the week
+            </span>
             <div
               className="slider-item-check"
               onClick={() =>
@@ -88,7 +84,7 @@ const PublishedPost = ({ data, trash, trashpage }) => {
             </div>
           )}
         </div>
-        {isShow && (
+        <Dialog dialogVisible={isShow}>
           <div className="warning-container">
             <div className="warning">
               <span>
@@ -108,7 +104,7 @@ const PublishedPost = ({ data, trash, trashpage }) => {
               </div>
             </div>
           </div>
-        )}
+        </Dialog>
       </div>
     </>
   );

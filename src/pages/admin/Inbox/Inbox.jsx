@@ -75,7 +75,7 @@ const Inbox = () => {
               <ReadNotification data={active} />
             ) : (
               <div className="not-viewing">
-                <AntDesign name="inbox" size={80} color={"gray"} />
+                <AntDesign name="inbox" size={50} color={"gray"} />
                 <h3>Inbox</h3>
               </div>
             )}

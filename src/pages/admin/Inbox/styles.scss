@@ -19,9 +19,9 @@
       align-items: center;
       box-shadow: $shadow;
       cursor: pointer;
-      padding: 0.5em;
+      padding: 1em;
       position: relative;
-      margin: 0.5em 0;
+      margin: 1em 0;
       .message-preview-icon {
         height: 2.5em;
         width: 2.5em;
@@ -33,18 +33,19 @@
         margin-right: 0.6em;
       }
       .message-title {
-        font-size: 1em;
+        font-size: 1.2em;
       }
       .timestamp {
+        font-size: 1em;
       }
     }
     .dot {
       position: absolute;
-      top: 0.5em;
-      right: 0.5em;
+      top: 1em;
+      right: 1em;
       background-color: $danger;
-      height: 0.6em;
-      width: 0.6em;
+      height: 1em;
+      width: 1em;
       border-radius: 50%;
     }
   }

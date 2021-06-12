@@ -37,7 +37,9 @@ const Navbar = ({
         <Link to="/oak-admin/inbox" style={{ marginLeft: "auto" }}>
           <div className="notification">
             <AntDesign name="inbox" size={30} color={colors.black} />
-            <span className="notification-count">{notificationCount}</span>
+            {notificationCount * 1 > 0 && (
+              <span className="notification-count">{notificationCount}</span>
+            )}
           </div>
         </Link>
         <div

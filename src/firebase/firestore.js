@@ -30,3 +30,6 @@ export const onGetCourse = (courseId, data) => {
 export const OnPost = (data) => {
   blogRef.doc(data.id).set(data);
 };
+export const OnPostEdit = (data) => {
+  blogRef.doc(data.id).update(data);
+};
