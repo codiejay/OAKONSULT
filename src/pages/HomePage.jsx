@@ -18,6 +18,7 @@ import UserTag from '../Components/UserTag';
 import TagDetail from '../Components/TagDetails';
 import WatchStory from '../Components/WatchStory';
 import SyllabusCard from '../Components/SyllabusCard';
+// import Popup from '../Components/PopUp/Popup';
 
 // Internal Component
 
@@ -25,6 +26,8 @@ const Homepage = () => {
   return (
     <section id='homePage'>
       {/* Section 1 */}
+
+      {/* <Popup></Popup> */}
 
       <div id='intro'>
         <div className='introTextContent'>

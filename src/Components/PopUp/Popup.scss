@@ -1,0 +1,79 @@
+#bg_Blur {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #009ca75e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  #popUp {
+    height: 681px;
+    width: 784px;
+
+    padding: 1rem 2rem;
+    background: #ffffff;
+    border-radius: 30px;
+    .close {
+      height: 100px;
+      width: 100px;
+      border-radius: 300px;
+      transition: all 0.05s;
+      cursor: pointer;
+      background: url(../../Assets/icons/cancel.svg), #009ba7;
+      background-position: center;
+      background-size: 30%;
+      background-repeat: no-repeat;
+
+      &:hover {
+        transform: scale(1.05);
+
+        &:active {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.popUpTitle {
+  font-weight: normal;
+  font-size: 40px;
+  margin: 2rem 0;
+}
+
+.popUpText {
+  font-size: 22px;
+  line-height: 44px;
+}
+
+.popUpSource {
+  height: max-content;
+  width: max-content;
+  background: #000;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  margin-top: 1rem;
+}
+
+.horizontalLine {
+  border: 1px solid #dddddd;
+  width: 110%;
+  margin-left: -2rem;
+  margin-top: 4rem;
+}
+
+.popupImg {
+  height: 100px;
+  width: 100px;
+  background: url(../../Assets/icons/owner.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 300px;
+  margin-top: 1rem;
+}

@@ -1,31 +1,38 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import '../Scss/Main.scss';
 import logo from '../Assets/logo.png';
 import playicon from '../Assets/playIcon.png';
 import playIconForButton from '../Assets/playIcon.svg';
 import { Link } from 'react-router-dom';
+import Popup from '../Components/PopUp/Popup';
 
 const Main = (props) => {
-
   //state and variables
   const [showMenu, setShowMenu] = useState(false);
 
   const Header = () => {
-    return ( 
+    return (
       <header>
         <Link to='/'>
-          <img 
-            src={logo}
-          />
+          <img src={logo} />
         </Link>
         <div>
-          <h3 onClick={() => {setShowMenu(true)}}>
+          <h3
+            onClick={() => {
+              setShowMenu(true);
+            }}
+          >
             MENU
           </h3>
-          { 
-            showMenu && 
+          {showMenu && (
             <div id='menuContent'>
-              <p onClick={() => {setShowMenu(false)}}>close</p>
+              <p
+                onClick={() => {
+                  setShowMenu(false);
+                }}
+              >
+                close
+              </p>
               <ul>
                 <li>
                   <Link to='about'>
@@ -54,25 +61,32 @@ const Main = (props) => {
               </ul>
 
               <div id='social'>
-                <a target='_blank' href='https://twitter.com'>TWITTER</a>
-                <a target='_blank' href='https://instagram.com'>INSTAGRAM</a>
-                <a target='_blank' href='https://youtube.com'>YOUTUBE</a>
+                <a target='_blank' href='https://twitter.com'>
+                  TWITTER
+                </a>
+                <a target='_blank' href='https://instagram.com'>
+                  INSTAGRAM
+                </a>
+                <a target='_blank' href='https://youtube.com'>
+                  YOUTUBE
+                </a>
               </div>
             </div>
-          }
+          )}
         </div>
       </header>
-    )
-  }
+    );
+  };
 
   const Footer = () => {
-    return ( 
+    return (
       <footer>
         <div id='programs'>
           <div id='programTitle'>
             <span>Matthew 18:20</span>
             <p>
-            ...For where two or three gather in my name, there am I with them."
+              ...For where two or three gather in my name, there am I with
+              them."
             </p>
           </div>
           <div id='programButton'>
@@ -85,17 +99,16 @@ const Main = (props) => {
 
         <div id='newsletter'>
           <div id='heading'>
-            <h2>
-              can i write you a letter?
-            </h2>
+            <h2>can i write you a letter?</h2>
             <p>
-            every week, I want to send you a letter from my heart. Something you can read in less than 20mins but will stay with you for longer
+              every week, I want to send you a letter from my heart. Something
+              you can read in less than 20mins but will stay with you for longer
             </p>
           </div>
 
           <form>
             <div>
-              <input placeholder='YOUR EMAIL'/>
+              <input placeholder='YOUR EMAIL' />
               <div id='sendButton'>
                 <img src={playIconForButton} />
               </div>
@@ -105,12 +118,9 @@ const Main = (props) => {
         </div>
 
         <div id='mainFooter'>
-          <div id='footerImg'>
-          </div>
+          <div id='footerImg'></div>
           <div id='footerBoxes'>
-            <div id='footerLogo'>
-
-            </div>
+            <div id='footerLogo'></div>
 
             <div className='footerBox'>
               <h3>contact</h3>
@@ -135,16 +145,17 @@ const Main = (props) => {
           </div>
         </div>
       </footer>
-    )
-  }
+    );
+  };
 
-  return ( 
-    <div id='mainpage' >
+  return (
+    <div id='mainpage'>
       <Header />
+      <Popup />
       {props.children}
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Main;
