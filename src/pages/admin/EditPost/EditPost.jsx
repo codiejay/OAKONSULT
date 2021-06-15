@@ -11,17 +11,23 @@ import Spacing from "../../../componentz/Spacing/Spacing";
 import { OnPostEdit } from "../../../firebase/firestore";
 import CustomButton from "../../../componentz/CustomButton/CustomButton";
 import { GetWindowDimensions } from "../../../utils/functions";
+import { useLocation } from "react-router-dom";
 
-const EditPost = (data) => {
+const EditPost = () => {
+  const location = useLocation();
+  const data = location.state;
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [title, setTitle] = useState("");
-  const [thumbnail, setThumbnail] = useState(data.thumbnail);
-  const [hook, setHook] = useState(data.hook);
+  const [title, setTitle] = useState(data.title);
+  const [thumbnail, setThumbnail] = useState(data.thumbnail || data.tumbnail);
+  const [hook, setHook] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState(data.tags);
   const [ready, setReady] = useState(false);
   const [loading, setLoading] = useState(false);
+  const onSetHook = (content) => {
+    setHook(content);
+  };
   const handleChange = (content) => {
     setBody(content);
   };
@@ -81,7 +87,7 @@ const EditPost = (data) => {
         <span className="noty success">{successMessage}</span>
       )}
       <CustomButton
-        label="Post"
+        label="Update Post"
         className="create-post-btn absolute-btn"
         onClick={OnEditPost}
         onMouseEnter={OnMouse}
@@ -97,13 +103,25 @@ const EditPost = (data) => {
             onChange={({ target }) => setTitle(target.value)}
             required
           />
-          <CustomInput
+          <Spacing height="1em" />
+          <span className={`hook-label`}>Hook</span>
+          <Spacing height="0.5em" />
+          <SunEditor
+            setContents={data.hook}
+            hideToolbar={true}
+            onChange={onSetHook}
+            show={true}
+            enable={true}
+            height={`${GetWindowDimensions().height - 600}px`}
+          />
+          <Spacing height="1em" />
+          {/* <CustomInput
             label="Hook"
             value={hook}
             type={"text"}
             onChange={({ target }) => setHook(target.value)}
             required
-          />
+          /> */}
           <CustomInput
             label="Thumbnail"
             value={thumbnail}
@@ -118,6 +136,7 @@ const EditPost = (data) => {
           </code>
           <Spacing height="1em" />
           <SunEditor
+            setContents={data.body}
             onChange={handleChange}
             enableToolbar={true}
             showToolbar={true}

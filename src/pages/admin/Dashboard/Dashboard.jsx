@@ -33,18 +33,24 @@ const Dashboard = () => {
           </button>
         </Link>
         <div className="admin-info-buttons">
-          <button className="admin-btn published">
-            {" "}
-            <img src={publish} alt="publish" /> PUBLISHED <span>{blog}</span>
-          </button>
-          <button className="admin-btn drafts">
-            {" "}
-            <img src={draftIcon} alt="draft" /> DRAFTS <span>{draft}</span>
-          </button>
-          <button className="admin-btn trash">
-            {" "}
-            <img src={trashIcon} alt="trash" /> TRASH <span>{trash}</span>
-          </button>
+          <Link to="/oak-admin/published">
+            <button className="admin-btn published">
+              {" "}
+              <img src={publish} alt="publish" /> PUBLISHED <span>{blog}</span>
+            </button>
+          </Link>
+          <Link to="/oak-admin/draft">
+            <button className="admin-btn drafts">
+              {" "}
+              <img src={draftIcon} alt="draft" /> DRAFTS <span>{draft}</span>
+            </button>
+          </Link>
+          <Link to="/oak-admin/trash">
+            <button className="admin-btn trash">
+              {" "}
+              <img src={trashIcon} alt="trash" /> TRASH <span>{trash}</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
