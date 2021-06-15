@@ -15,12 +15,14 @@ const AddQuote = ({ setDialogVisible }) => {
 
   const [loading, setLoading] = useState(false);
   const [quote, setQuote] = useState("");
+  const [bibleVerse, setBibleVerse] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
     const galleryData = {
       quote,
+      bible_verse: bibleVerse,
       created_at: Date.now(),
     };
     if (quote.trim() === "") {
@@ -67,6 +69,14 @@ const AddQuote = ({ setDialogVisible }) => {
             value={quote}
             type={"text"}
             onChange={({ target }) => setQuote(target.value)}
+            required
+          />
+          <Spacing height="2em" />
+          <CustomInput
+            label="Bible Verse"
+            value={bibleVerse}
+            type={"text"}
+            onChange={({ target }) => setBibleVerse(target.value)}
             required
           />
           <Spacing height="2em" />

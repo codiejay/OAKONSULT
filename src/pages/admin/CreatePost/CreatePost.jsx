@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from "react";
 import SunEditor from "suneditor-react";
 import plugins from "suneditor/src/plugins";
-// import image from "suneditor/src/plugins/dialog/link";
-import {
-  align,
-  font,
-  fontSize,
-  fontColor,
-  hiliteColor,
-  horizontalRule,
-  image,
-  template,
-} from "suneditor/src/plugins";
+import image from "suneditor/src/plugins/dialog/link";
 import "suneditor/dist/css/suneditor.min.css";
 import loader from "../../../assetz/loader.gif";
 import { v4 as uuidv4 } from "uuid";
-
-import "./styles.scss";
 import CustomInput from "../../../componentz/CustomInput/CustomInput";
 import Spacing from "../../../componentz/Spacing/Spacing";
-import { firestore } from "../../../firebase/config";
-import { OnPost } from "../../../firebase/firestore";
+import { OnPost, OnSaveToDraft } from "../../../firebase/firestore";
 import CustomButton from "../../../componentz/CustomButton/CustomButton";
 import { GetWindowDimensions } from "../../../utils/functions";
+
+import "./styles.scss";
 
 const CreatePost = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -34,17 +23,15 @@ const CreatePost = () => {
   const [tags, setTags] = useState(["all"]);
   const [ready, setReady] = useState(false);
   const [loading, setLoading] = useState(false);
+  const onSetHook = (content) => {
+    setHook(content);
+  };
   const handleChange = (content) => {
     setBody(content);
   };
-  const OnCreatePost = async () => {
+  const getPostInfo = () => {
     const id = uuidv4().split("-").join("");
-    if (body === "" || title === "" || thumbnail === "" || hook === "") {
-      setErrorMessage("All fields is required");
-      return;
-    }
-    setLoading(true);
-    const newTopic = {
+    const data = {
       id,
       body,
       title,
@@ -60,8 +47,40 @@ const CreatePost = () => {
       likers: {},
       comments: 0,
     };
+    return data;
+  };
+  const OnSaveDraft = async () => {
+    // if (
+    //   body.trim() === "" ||
+    //   title.trim() === "" ||
+    //   thumbnail.trim() === "" ||
+    //   hook.trim() === ""
+    // ) {
+    setLoading(true);
+    const data = getPostInfo();
+    console.log(data);
     try {
-      await OnPost(newTopic);
+      // await OnSaveToDraft(getPostInfo());
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage("Failed, try again");
+    }
+    // }
+  };
+  const OnCreatePost = async () => {
+    if (
+      body.trim() === "" ||
+      title.trim() === "" ||
+      thumbnail.trim() === "" ||
+      hook.trim() === ""
+    ) {
+      setErrorMessage("All fields is required");
+      return;
+    }
+    setLoading(true);
+    try {
+      await OnPost(getPostInfo());
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -93,14 +112,23 @@ const CreatePost = () => {
       {successMessage !== "" && (
         <span className="noty success">{successMessage}</span>
       )}
-      <CustomButton
-        label="Post"
-        className="create-post-btn absolute-btn"
-        onClick={OnCreatePost}
-        onMouseEnter={OnMouse}
-        onMouseLeave={OnMouse}
-        style={{ cursor: !ready ? "not-allowed" : "pointer" }}
-      />
+      <div className="absolute-btns">
+        <CustomButton
+          label="Save to Draft"
+          className="create-post-btn"
+          onClick={OnSaveDraft}
+          style={{ cursor: "pointer" }}
+        />
+        <Spacing width="2em" />
+        <CustomButton
+          label="Post"
+          className="create-post-btn"
+          onClick={OnCreatePost}
+          onMouseEnter={OnMouse}
+          onMouseLeave={OnMouse}
+          style={{ cursor: !ready ? "not-allowed" : "pointer" }}
+        />
+      </div>
       <div className="create-post">
         <div className="properties">
           <CustomInput
@@ -110,13 +138,24 @@ const CreatePost = () => {
             onChange={({ target }) => setTitle(target.value)}
             required
           />
-          <CustomInput
+          <Spacing height="1em" />
+          <span className={`hook-label`}>Hook</span>
+          <Spacing height="0.5em" />
+          <SunEditor
+            hideToolbar={true}
+            onChange={onSetHook}
+            show={true}
+            enable={true}
+            height={`${GetWindowDimensions().height - 600}px`}
+          />
+          <Spacing height="1em" />
+          {/* <CustomInput
             label="Hook"
             value={hook}
             type={"text"}
             onChange={({ target }) => setHook(target.value)}
             required
-          />
+          /> */}
           <CustomInput
             label="Thumbnail"
             value={thumbnail}
@@ -138,7 +177,7 @@ const CreatePost = () => {
             placeholder="Enter content"
             show={true}
             enable={true}
-            height={`${GetWindowDimensions().height - 280}px`}
+            height={`${GetWindowDimensions().height - 380}px`}
             setOptions={{
               plugins: plugins,
               buttonList: [

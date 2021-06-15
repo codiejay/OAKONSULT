@@ -50,8 +50,9 @@ code {
   font-size: 15px;
   text-align: center;
 }
-.absolute-btn {
+.absolute-btns {
   position: absolute;
   bottom: 2em;
   right: 2em;
+  display: flex;
 }

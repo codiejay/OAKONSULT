@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import renderHTML from "react-render-html";
 import { firestore } from "../../../firebase/config";
 import edit from "../../../assetz/icons/edit.svg";
 import recycle from "../../../assetz/icons/recycle.svg";
+import placeholderImage from "../../../assetz/images/placeholder.png";
 import trashIcon from "../../../assetz/icons/trashIcon.svg";
 
 import "./styles.scss";
@@ -42,11 +45,16 @@ const PublishedPost = ({ data, trash, trashpage }) => {
       )}
       <div className="admin-blog-post">
         <div className="tumbnail">
-          <img src={data.tumbnail ? data.tumbnail : ""} alt="tumbnail" />
+          <img
+            src={data.tumbnail ? data.tumbnail : placeholderImage}
+            alt="tumbnail"
+          />
         </div>
         <div className="text">
-          <h2 className="title">{data.title}</h2>
-          <p className="hook">{data.hook.split(" ").slice(0, 30).join(" ")}</p>
+          <h2 className="title">{data.title ? data.title : "No Title"}</h2>
+          <p className="hook">
+            {data.hook ? renderHTML(`${data.hook}`) : "No Hook"}
+          </p>
           <div className="carosel-post">
             <span className="carosel-post-text">
               Set as Article of the week
@@ -64,9 +72,16 @@ const PublishedPost = ({ data, trash, trashpage }) => {
         </div>
         <div className="controls">
           {!trashpage && (
-            <div className="ctrl edit" onClick={() => {}}>
-              <img src={edit} alt="edit" />
-            </div>
+            <Link
+              to={{
+                pathname: "/oak-admin/edit-post",
+                state: { ...data },
+              }}
+            >
+              <div className="ctrl edit" onClick={() => {}}>
+                <img src={edit} alt="edit" />
+              </div>
+            </Link>
           )}
           {!trashpage && (
             <div className="ctrl trash" onClick={() => setShow(!isShow)}>

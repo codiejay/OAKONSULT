@@ -28,6 +28,7 @@ import Inbox from "./pages/admin/Inbox/Inbox";
 import Published from "./pages/admin/Published/Published";
 
 import "./App.scss";
+import EditPost from "./pages/admin/EditPost/EditPost";
 
 const ScrollToTop = ({ children }) => {
   const { pathname } = useLocation();
@@ -201,6 +202,18 @@ const App = () => {
           ) : (
             <DashboardLayout>
               <CreatePost />
+            </DashboardLayout>
+          )
+        }
+      />
+      <Route
+        path="/oak-admin/edit-post"
+        render={() =>
+          !admin ? (
+            <Redirect to={`/oak-admin-auth`} />
+          ) : (
+            <DashboardLayout>
+              <EditPost />
             </DashboardLayout>
           )
         }
