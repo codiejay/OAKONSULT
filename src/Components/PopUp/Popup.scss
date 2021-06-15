@@ -1,10 +1,12 @@
+$Archivo: 'Archivo', sans-serif;
+
 #bg_Blur {
   display: none;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: #009ca75e;
+  background: rgba(0, 155, 167, 0.56);
   position: fixed;
   top: 0;
   left: 0;
@@ -40,7 +42,7 @@
 }
 
 .popUpTitle {
-  font-weight: normal;
+  font-weight: bold;
   font-size: 40px;
   margin: 2rem 0;
 }
@@ -48,6 +50,8 @@
 .popUpText {
   font-size: 22px;
   line-height: 44px;
+  font-family: $Archivo;
+  font-weight: normal;
 }
 
 .popUpSource {
@@ -58,6 +62,9 @@
   padding: 0.5rem 1rem;
   border-radius: 30px;
   margin-top: 1rem;
+  font-size: 22px;
+  padding: 0.75rem 1.75rem;
+  font-weight: bold;
 }
 
 .horizontalLine {

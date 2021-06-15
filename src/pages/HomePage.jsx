@@ -248,9 +248,9 @@ const Homepage = () => {
           <div id='syllabusCards'>
             <SyllabusCard
               data={{
-                Title: 'The Hope',
+                Title: 'Beyond Suffering',
                 Content:
-                  'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families dealing with disability matters with biblical principles and truth that will enable them find fulfilment at whatever stage they might be in their individual journeys.',
+                  ' Beyond Suffering Course has been designed by the Joni and Friends Ministry (USA) to explore the problem of suffering in general and then to examine ways in which the disability community provides the church with a dynamic model of spiritual transformation.',
               }}
             />
             <SyllabusCard

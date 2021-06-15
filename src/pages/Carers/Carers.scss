@@ -100,14 +100,24 @@ $yellow: #ffba0a;
 
 #Carer_goals {
   background: url(../../Assets/images/blue_hugging.svg);
-  @include BGConfig(100%, center);
+  @include BGConfig(120%, center);
   min-height: 90vh;
   height: max-content;
   border-radius: 10px;
-  padding: 1rem 2rem;
+  // padding: 1rem 2rem;
   //   padding-top: 10rem;
-  padding-bottom: 10rem;
+  // padding-bottom: 10rem;
   //   width: 105%;
+
+  .bgLayer {
+    background: rgba(10, 167, 255, 0.85);
+    min-height: 90vh;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    // padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
   #heartIcon {
     height: 100px;
     width: 100px;

@@ -92,15 +92,25 @@ $Archivo: 'Archivo', sans-serif;
   }
 }
 #Training_goals {
-  background: url(../../Assets/images/pink_hugging.svg);
-  @include BGConfig(100%, center);
+  background: url(../../Assets/images/hugging.svg);
+  @include BGConfig(120%, center);
   min-height: 90vh;
   height: max-content;
   border-radius: 10px;
-  padding: 1rem 2rem;
+  // padding: 1rem 2rem;
   //   padding-top: 10rem;
-  padding-bottom: 10rem;
+  // padding-bottom: 10rem;
   //   width: 105%;
+
+  .bgLayer {
+    background: rgba(255, 10, 201, 0.85);
+    min-height: 90vh;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    // padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
   #heartIcon {
     height: 100px;
     width: 100px;
@@ -108,6 +118,7 @@ $Archivo: 'Archivo', sans-serif;
     @include BGConfig(100%, center);
     // margin-top: 6rem;
   }
+
   p {
     font-family: $Archivo;
     font-style: normal;

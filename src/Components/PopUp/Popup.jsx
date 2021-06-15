@@ -28,7 +28,7 @@ const Popup = (props) => {
           <h2 className='popUpTitle'>GOD PROMISES</h2>
           <p className='popUpText'>
             Do not be afraid—I am with you!
-            <br /> I am your God—let nothing terrify you!
+            <br /> I am your God—Let nothing terrify you!
             <br /> I will make you strong and help you;
             <br /> I will protect you and save you.
           </p>

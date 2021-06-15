@@ -5,6 +5,7 @@ import playicon from '../Assets/playIcon.png';
 import playIconForButton from '../Assets/playIcon.svg';
 import { Link } from 'react-router-dom';
 import '../Scss/Main.scss';
+import Popup from '../Components/PopUp/Popup';
 
 const Main = (props) => {
   const quotes = useSelector(({ common }) => common.quotes);

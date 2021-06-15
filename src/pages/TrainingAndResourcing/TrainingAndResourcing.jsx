@@ -42,19 +42,23 @@ const TrainingAndResourcing = () => {
         </div>
       </div>
       <div id='Training_goals'>
-        <div id='heartIcon'></div>
-        <p>
-          “For I am persuaded that neither death nor life, nor angels nor
-          principalities nor powers, nor things present nor things to come, nor
-          height nor depth, nor any other created thing, shall be able to
-          separate us from the love of God which is in Christ Jesus our Lord”.
-          Romans 8:38-39 (ERV)
-          <br />
-          <br /> Beyond Suffering Course has been designed by the Joni and
-          Friends Ministry (USA) to explore the problem of suffering in general
-          and then to examine ways in which the disability community provides
-          the church with a dynamic model of spiritual transformation.
-        </p>
+        <div className='bgLayer'>
+          <div id='heartIcon'></div>
+
+          <p>
+            “For I am persuaded that neither death nor life, nor angels nor
+            principalities nor powers, nor things present nor things to come,
+            nor height nor depth, nor any other created thing, shall be able to
+            separate us from the love of God which is in Christ Jesus our Lord”.
+            Romans 8:38-39 (ERV)
+            <br />
+            <br /> Beyond Suffering Course has been designed by the Joni and
+            Friends Ministry (USA) to explore the problem of suffering in
+            general and then to examine ways in which the disability community
+            provides the church with a dynamic model of spiritual
+            transformation.
+          </p>
+        </div>
       </div>
       <div id='Training_forYou'>
         <h1>
