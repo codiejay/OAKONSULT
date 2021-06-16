@@ -36,20 +36,22 @@ const Churches = () => {
         </div>
       </div>
       <div id='Churches_goals'>
-        <div id='heartIcon'></div>
-        <p>
-          “…Then the owner of the house became angry and said to his servant,
-          ‘Go out quickly into the streets and alleys of the city, and bring in
-          the poor, the crippled, the blind, and the lame.’ So, the master told
-          his servant, ‘Go out to the highways and hedges and compel them to
-          come in, so that my house will be full…” - Luke 14:21-23
-          <br />
-          <br /> Only the gospel of Jesus can make a lasting, significant, and
-          eternal difference in the lives of people with disabilities; just like
-          it is for every living being on the surface of the earth! The needs of
-          families dealing with disabilities go beyond charitable offers, as
-          helpful as these are.
-        </p>
+        <div className='bgLayer'>
+          <div id='heartIcon'></div>
+          <p>
+            “…Then the owner of the house became angry and said to his servant,
+            ‘Go out quickly into the streets and alleys of the city, and bring
+            in the poor, the crippled, the blind, and the lame.’ So, the master
+            told his servant, ‘Go out to the highways and hedges and compel them
+            to come in, so that my house will be full…” - Luke 14:21-23
+            <br />
+            <br /> Only the gospel of Jesus can make a lasting, significant, and
+            eternal difference in the lives of people with disabilities; just
+            like it is for every living being on the surface of the earth! The
+            needs of families dealing with disabilities go beyond charitable
+            offers, as helpful as these are.
+          </p>
+        </div>
       </div>
       <div id='Churches_forYou'>
         <h1>Olufunke will inspire your audience to:</h1>

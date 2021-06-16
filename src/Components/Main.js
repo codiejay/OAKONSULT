@@ -154,7 +154,7 @@ const Main = (props) => {
   return (
     <div id='mainpage'>
       <Header />
-      <Popup />
+      <Popup data={quotes} />
       {props.children}
       <Footer />
     </div>

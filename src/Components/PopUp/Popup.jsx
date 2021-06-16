@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Popup.scss';
 
 const Popup = (props) => {
+  console.log(props.data[0]);
   let displayValue;
   const [showPopUp, changeShowPopUp] = useState(false);
 
@@ -26,13 +27,8 @@ const Popup = (props) => {
         ></div>
         <div className='popUpcontent'>
           <h2 className='popUpTitle'>GOD PROMISES</h2>
-          <p className='popUpText'>
-            Do not be afraid—I am with you!
-            <br /> I am your God—Let nothing terrify you!
-            <br /> I will make you strong and help you;
-            <br /> I will protect you and save you.
-          </p>
-          <div className='popUpSource'>Isaiah 41:10 </div>
+          <p className='popUpText'>{props.data[0].quote}</p>
+          <div className='popUpSource'>{props.data[0].bible_verse}</div>
         </div>
 
         <div className='horizontalLine'></div>

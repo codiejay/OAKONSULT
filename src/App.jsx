@@ -27,12 +27,8 @@ import Trash from './pages/admin/Trash/Trash';
 import Inbox from './pages/admin/Inbox/Inbox';
 import Published from './pages/admin/Published/Published';
 
-<<<<<<< HEAD
 import './App.scss';
-=======
-import "./App.scss";
-import EditPost from "./pages/admin/EditPost/EditPost";
->>>>>>> a7845431fc4b88ec2e0bacb3c8a1c60f1cade647
+import EditPost from './pages/admin/EditPost/EditPost';
 
 const ScrollToTop = ({ children }) => {
   const { pathname } = useLocation();
@@ -100,7 +96,6 @@ const App = () => {
   return loading ? (
     <Spinner style={{ height: '100vh', width: '100vw' }} />
   ) : (
-<<<<<<< HEAD
     <ScrollToTop>
       <Switch>
         <Route
@@ -213,6 +208,18 @@ const App = () => {
           }
         />
         <Route
+          path='/oak-admin/edit-post'
+          render={() =>
+            !admin ? (
+              <Redirect to={`/oak-admin-auth`} />
+            ) : (
+              <DashboardLayout>
+                <EditPost />
+              </DashboardLayout>
+            )
+          }
+        />
+        <Route
           path='/oak-admin/gallery'
           render={() =>
             !admin ? (
@@ -275,192 +282,6 @@ const App = () => {
         <Route render={() => <NotFound />} />
       </Switch>
     </ScrollToTop>
-=======
-    <Switch>
-      <Route
-        exact
-        path={`/`}
-        render={() => (
-          <Main>
-            <HomePage />
-          </Main>
-        )}
-      />
-      <Route
-        exact
-        path={`/carers`}
-        render={() => (
-          <Main>
-            <Carers />
-          </Main>
-        )}
-      />
-      <Route
-        exact
-        path={`/churches`}
-        render={() => (
-          <Main>
-            <Churches />
-          </Main>
-        )}
-      />
-      <Route
-        exact
-        path={`/training-and-resourcing`}
-        render={() => (
-          <Main>
-            <TrainingAndResourcing />
-          </Main>
-        )}
-      />
-      <Route
-        exact
-        path={`/public-speaking`}
-        render={() => (
-          <Main>
-            <PublicSpeaking />
-          </Main>
-        )}
-      />
-      <Route
-        path={`/blogs`}
-        render={() => (
-          <Main>
-            <Blog />
-          </Main>
-        )}
-      />
-      <Route
-        exact
-        path="/oak-admin-auth"
-        render={() => (admin ? <Redirect to="/oak-admin" /> : <Auth />)}
-      />
-      <Route
-        exact
-        path="/oak-admin"
-        render={() =>
-          admin ? (
-            <DashboardLayout>
-              <Dashboard />
-            </DashboardLayout>
-          ) : (
-            <Redirect to="/oak-admin-auth" />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/oak-admin/published"
-        render={() =>
-          admin ? (
-            <DashboardLayout>
-              <Published />
-            </DashboardLayout>
-          ) : (
-            <Redirect to="/oak-admin-auth" />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/oak-admin/inbox"
-        render={() =>
-          admin ? (
-            <DashboardLayout>
-              <Inbox />
-            </DashboardLayout>
-          ) : (
-            <Redirect to="/oak-admin-auth" />
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/create-post"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <CreatePost />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/edit-post"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <EditPost />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/gallery"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <Gallery />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/quotes"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <Quote />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/events"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <Event />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/draft"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <Draft />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route
-        path="/oak-admin/trash"
-        render={() =>
-          !admin ? (
-            <Redirect to={`/oak-admin-auth`} />
-          ) : (
-            <DashboardLayout>
-              <Trash />
-            </DashboardLayout>
-          )
-        }
-      />
-      <Route render={() => <NotFound />} />
-    </Switch>
->>>>>>> a7845431fc4b88ec2e0bacb3c8a1c60f1cade647
   );
 };
 

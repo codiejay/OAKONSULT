@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import LibraryImg from '../../Assets/Library.svg';
 import GetCourseModal from '../../componentz/admin/GetCourseModal/GetCourseModal';
 import Dialog from '../../componentz/Dialog/Dialog';
@@ -151,28 +152,30 @@ const Carers = () => {
       </div>
 
       {/* This button uses the format of ExploreBtn.jsx and ExploreBtn.scss with little modification */}
-      <div
-        className='SeeRelatedArticle'
-        id='btn'
-        style={{
-          backgroundColor: '#0aa7ff',
-          marginBottom: '6rem',
-          marginTop: '3rem',
-        }}
-      >
+      <Link to='blogs/for-parents'>
         <div
-          id='icon'
+          className='SeeRelatedArticle'
+          id='btn'
           style={{
-            height: '50px',
-            width: '50px',
-            backgroundImage: `url(${LibraryImg})`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '50%',
+            backgroundColor: '#0aa7ff',
+            marginBottom: '6rem',
+            marginTop: '3rem',
           }}
-        ></div>
-        <p>See Related Article</p>
-      </div>
+        >
+          <div
+            id='icon'
+            style={{
+              height: '50px',
+              width: '50px',
+              backgroundImage: `url(${LibraryImg})`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '50%',
+            }}
+          ></div>
+          <p>See Related Article</p>
+        </div>
+      </Link>
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
         <GetCourseModal
           courseType={courseType}
