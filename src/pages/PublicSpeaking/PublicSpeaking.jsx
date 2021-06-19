@@ -42,20 +42,22 @@ const PublicSpeaking = () => {
         </div>
       </div>
       <div id='PS_goals'>
-        <div id='heartIcon'></div>
-        <p>
-          I speak to faith and non-faith-based audiences at: Carer’s Groups,
-          Women forums, Retreats, Churches and Conferences.
-          <br />
-          <br /> I have found out that absolutely nothing prepares you for the
-          disability of your child. Even though some parents have the
-          ‘opportunity’ of knowing about their children’s condition during
-          pregnancy, the reality of ‘life as a Carer’ still pales until you
-          begin to live it!
-          <br />
-          <br /> In my situation, we had no idea we would be going on this route
-          until after 18 months of nurturing a healthy child!
-        </p>
+        <div className='bgLayer'>
+          <div id='heartIcon'></div>
+          <p>
+            I speak to faith and non-faith-based audiences at: Carer’s Groups,
+            Women forums, Retreats, Churches and Conferences.
+            <br />
+            <br /> I have found out that absolutely nothing prepares you for the
+            disability of your child. Even though some parents have the
+            ‘opportunity’ of knowing about their children’s condition during
+            pregnancy, the reality of ‘life as a Carer’ still pales until you
+            begin to live it!
+            <br />
+            <br /> In my situation, we had no idea we would be going on this
+            route until after 18 months of nurturing a healthy child!
+          </p>
+        </div>
       </div>
       <div id='PS_forYou'>
         <h1>Olufunke will inspire your audience to:</h1>
