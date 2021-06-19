@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { Ionicons } from "react-web-vector-icons";
 import CustomInput from "../../CustomInput/CustomInput";
 import CustomPopUp from "../../CustomPopUp/CustomPopUp";
@@ -7,32 +6,30 @@ import Spacing from "../../Spacing/Spacing";
 import Spinner from "../../Spinner/Spinner";
 import CustomButton from "../../CustomButton/CustomButton";
 import { colors } from "../../../constants/Colors";
-import { OnAddQuote } from "../../../firebase/firestore";
+import { OnEditQuote } from "../../../firebase/firestore";
 
 import "./styles.scss";
 
-const AddQuote = ({ setDialogVisible }) => {
+const EditQuote = ({ data, setDialogVisible }) => {
   const [loading, setLoading] = useState(false);
-  const [quote, setQuote] = useState("");
-  const [bibleVerse, setBibleVerse] = useState("");
+  const [quote, setQuote] = useState(data.quote);
+  const [bibleVerse, setBibleVerse] = useState(data.bible_verse);
   const [errorMessage, setErrorMessage] = useState("");
   const onSubmit = async (e) => {
-    const id = uuidv4().split("-").join("");
     setLoading(true);
     e.preventDefault();
     const quoteData = {
-      id,
       quote,
       bible_verse: bibleVerse,
       created_at: Date.now(),
     };
-    if (quote.trim() === "" || bibleVerse.trim() === "") {
+    if (quote.trim() === "") {
       setLoading(false);
       setErrorMessage(`Photo url is required!`);
       return;
     }
     try {
-      await OnAddQuote(quoteData);
+      await OnEditQuote(quoteData);
       setLoading(false);
       setDialogVisible(false);
     } catch (error) {
@@ -47,7 +44,7 @@ const AddQuote = ({ setDialogVisible }) => {
       ) : (
         <div className="flex-center add-category">
           <div className="flex-vertical-center add-category-head">
-            <span>New Quote</span>
+            <span>Edit Quote</span>
             <div
               className="flex-center close-icon"
               onClick={() => setDialogVisible(false)}
@@ -82,7 +79,7 @@ const AddQuote = ({ setDialogVisible }) => {
           />
           <Spacing height="2em" />
           <CustomButton
-            label="Add"
+            label="Update"
             onClick={onSubmit}
             className="add-category-btn"
           />
@@ -92,4 +89,4 @@ const AddQuote = ({ setDialogVisible }) => {
   );
 };
 
-export default AddQuote;
+export default EditQuote;

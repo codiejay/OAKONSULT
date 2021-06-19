@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Entypo } from "react-web-vector-icons";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import CustomButton from "../../CustomButton/CustomButton";
 import edit from "../../../assetz/icons/edit.svg";
@@ -9,18 +9,16 @@ import Dialog from "../../Dialog/Dialog";
 import Spacing from "../../Spacing/Spacing";
 import AddQuote from "../AddQuote/AddQuote";
 import Spinner from "../../Spinner/Spinner";
+// import { setGallery } from "../../../redux/dashboard/actions";
 
 import "./styles.scss";
-import EditQuote from "../EditQuote/EditQuote";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const QuoteOverView = ({ hasQuote, quotes, loading }) => {
   const [type, setType] = useState(null);
-  const [editing, setEditing] = useState({});
   const [dialogVisible, setDialogVisible] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
-  useEffect(() => {}, [editing, type, dialogVisible]);
   return loading ? (
     <Spinner style={{ height: "30vh" }} />
   ) : (
@@ -60,14 +58,7 @@ const QuoteOverView = ({ hasQuote, quotes, loading }) => {
                 <Spacing height="1em" />
                 <h3 className="quote">"{item.quote}"</h3>
                 <div className="controls">
-                  <div
-                    className="ctrl edit"
-                    onClick={() => {
-                      setEditing(item);
-                      setType("editQuote");
-                      setDialogVisible(true);
-                    }}
-                  >
+                  <div className="ctrl edit" onClick={() => {}}>
                     <img src={edit} alt="edit" />
                   </div>
                   <Spacing width="1em" />
@@ -84,9 +75,13 @@ const QuoteOverView = ({ hasQuote, quotes, loading }) => {
         {type === "addQuote" && (
           <AddQuote setDialogVisible={setDialogVisible} />
         )}
-        {type === "editQuote" && (
-          <EditQuote data={editing} setDialogVisible={setDialogVisible} />
-        )}
+        {/* {type === "quoteView" && (
+          <GalleryView
+            setDialogVisible={setDialogVisible}
+            setGallerytData={setGallerytData}
+            data={quoteData}
+          />
+        )} */}
       </Dialog>
     </>
   );

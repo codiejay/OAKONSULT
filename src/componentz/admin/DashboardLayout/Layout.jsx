@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AntDesign, Feather } from "react-web-vector-icons";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../../firebase/config";
 import { colors } from "../../../constants/Colors";
@@ -16,6 +16,8 @@ const DashboardLayout = ({ children }) => {
   const [sidebarCollapsed, collapsSidebar] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
+  const overScroll = location.pathname.includes("oak-admin");
   const onLogout = () => {
     // sessionStorage.setItem("reauthenticate", JSON.stringify({ status: false }));
     dispatch(setAdmin(null));
@@ -25,7 +27,10 @@ const DashboardLayout = ({ children }) => {
   };
   return (
     <>
-      <div className="flex-horizontal-center admin-dashboard-layout">
+      <div
+        className="flex-horizontal-center admin-dashboard-layout"
+        style={overScroll ? { overflow: "hidden" } : { overflow: "scroll" }}
+      >
         <Sidebar sidebarCollapsed={sidebarCollapsed} />
         <main className={`main ${sidebarCollapsed && "mainExpand"}`}>
           <Navbar

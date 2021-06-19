@@ -47,6 +47,7 @@ const EditPost = () => {
       tags,
       posted_at: data.posted_at,
       updated_at: Date.now(),
+      articleOfTheWeek: data.articleOfTheWeek,
       views: data.views,
       viewers: data.viewers,
       likes: data.likes,

@@ -6,6 +6,7 @@ import "./styles.scss";
 
 const Published = () => {
   const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const blogsRef = await firestore

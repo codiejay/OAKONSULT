@@ -16,13 +16,21 @@ const BlogOverview = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isMoreLoading, setIsMoreLoading] = useState(false);
   const [lastDoc, setLastDoc] = useState(null);
+  const [articleOfTheWeek, setArticleOfTheWeek] = useState({});
   const [posts, setPosts] = useState([]);
   const [noPost, setNoPost] = useState(false);
   const [onEndReachedCalled, setOnEndReachedCalled] = useState(false);
-  const [blogsRef] = useState(
-    firestore.collection("blogs").doc("all").collection("posts")
-  );
+  const [blogsRef] = useState(firestore.collection("blogs"));
 
+  const onLoadArticleOfTheWeek = () => {
+    const slug = blogsRef.where("articleOfTheWeek", "==", true);
+    slug.onSnapshot((snapShot) => {
+      if (!snapShot.empty) {
+        const data = snapShot.docs[0].data();
+        setArticleOfTheWeek(data);
+      }
+    });
+  };
   const onLoadTagPosts = () => {
     setIsLoading(true);
     const slug = blogsRef.orderBy("created_at").limit(10);
@@ -70,6 +78,7 @@ const BlogOverview = () => {
   };
   useEffect(() => {
     onLoadTagPosts();
+    onLoadArticleOfTheWeek();
   }, [""]);
   return (
     <div className="blog-overview">
@@ -80,14 +89,16 @@ const BlogOverview = () => {
           <div
             className="tumbnail"
             style={{
-              backgroundImage: `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${Main_Article.tumbnail})`,
+              backgroundImage: `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${
+                articleOfTheWeek.tumbnail || articleOfTheWeek.thumbnail
+              })`,
             }}
           ></div>
           <Spacing width={`2em`} />
           <div className="article-text-button">
             <div className="article-text">
-              <h1 className="main-article-title">{Main_Article.title}</h1>
-              <p className="main-article-hook">{Main_Article.hook}</p>
+              <h1 className="main-article-title">{articleOfTheWeek.title}</h1>
+              <p className="main-article-hook">{articleOfTheWeek.hook}</p>
             </div>
             <Spacing height={`12em`} />
             <div className="cr-btn-container">
