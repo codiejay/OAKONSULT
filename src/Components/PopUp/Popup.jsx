@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './Popup.scss';
 
 const Popup = (props) => {
-  console.log(props.data[0]);
   let displayValue;
   const [showPopUp, changeShowPopUp] = useState(false);
 

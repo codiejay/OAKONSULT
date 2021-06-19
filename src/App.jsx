@@ -26,6 +26,7 @@ import CreatePost from './pages/admin/CreatePost/CreatePost';
 import Trash from './pages/admin/Trash/Trash';
 import Inbox from './pages/admin/Inbox/Inbox';
 import Published from './pages/admin/Published/Published';
+import Programmes from './Components/Programs/Programmes';
 
 import './App.scss';
 import EditPost from './pages/admin/EditPost/EditPost';
@@ -140,6 +141,15 @@ const App = () => {
           render={() => (
             <Main>
               <PublicSpeaking />
+            </Main>
+          )}
+        />
+        <Route
+          exact
+          path={`/programmes`}
+          render={() => (
+            <Main>
+              <Programmes />
             </Main>
           )}
         />

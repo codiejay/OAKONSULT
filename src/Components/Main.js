@@ -9,7 +9,6 @@ import Popup from '../Components/PopUp/Popup';
 
 const Main = (props) => {
   const quotes = useSelector(({ common }) => common.quotes);
-  console.log(quotes);
   //state and variables
   const [showMenu, setShowMenu] = useState(false);
 
@@ -93,7 +92,7 @@ const Main = (props) => {
             </p>
           </div>
           <div id='programButton'>
-            <Link to='programs' id='programLink'>
+            <Link to='programmes' id='programLink'>
               <img src={playicon} />
               <p>See Our Programs</p>
             </Link>

@@ -1,7 +1,6 @@
 import '../Scss/syllabusCard.scss';
 import { Link } from 'react-router-dom';
 const SyllabusCard = (props) => {
-  console.log(props.data.Title);
   return (
     <div id='Card'>
       <div className='CardTitle'>{props.data.Title}</div>

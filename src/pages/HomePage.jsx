@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Scss/homepage.scss';
 
@@ -18,16 +19,29 @@ import UserTag from '../Components/UserTag';
 import TagDetail from '../Components/TagDetails';
 import WatchStory from '../Components/WatchStory';
 import SyllabusCard from '../Components/SyllabusCard';
-// import Popup from '../Components/PopUp/Popup';
+import VideoModal from '../Components/VideoModal/VideoModal';
 
 // Internal Component
 
 const Homepage = () => {
+  const [DisplayModal, ChangeDisplayModal] = useState(false);
+  let showVideoPlayer;
+  DisplayModal
+    ? (showVideoPlayer = { display: 'flex' })
+    : (showVideoPlayer = { display: 'none' });
+
   return (
     <section id='homePage'>
+      <div
+        id='VideoModal'
+        style={showVideoPlayer}
+        onClick={() => {
+          ChangeDisplayModal(false);
+        }}
+      >
+        <VideoModal data={[true]} />
+      </div>
       {/* Section 1 */}
-
-      {/* <Popup></Popup> */}
 
       <div id='intro'>
         <div className='introTextContent'>
@@ -46,7 +60,12 @@ const Homepage = () => {
         </div>
         <div className='introVideoButton'>
           <div className='hexagon'>
-            <div id='play_btn'></div>
+            <div
+              id='play_btn'
+              onClick={() => {
+                ChangeDisplayModal(true);
+              }}
+            ></div>
           </div>
         </div>
       </div>
