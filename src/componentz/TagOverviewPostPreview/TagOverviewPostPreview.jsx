@@ -1,55 +1,109 @@
 import moment from "moment";
 import React from "react";
+import renderHTML from "react-render-html";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
 import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
 import { useHistory, useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import { colors } from "../../constants/Colors";
 
 const TagOverviewPostPreview = ({
-  data,
-  data: { title, hook, created_at, main_tag, tumbnail },
+  data: { id, title, hook, created_at, main_tag, thumbnail, tumbnail },
 }) => {
-  const location = useLocation();
-  const pathname = location.pathname;
   const history = useHistory();
+  const OnTagClick = () => {
+    history.push(
+      `${
+        main_tag === "for-parents"
+          ? "/blogs/for-parents"
+          : main_tag === "for-siblings"
+          ? "/blogs/for-siblings"
+          : "/blogs/for-carers"
+      }`
+    );
+  };
   return (
-    <div className={`blog-overview-post-preview-wrapper`}>
+    <div className={`blog-overview-post-preview-container`}>
       <div className={`blog-overview-post-preview`}>
         <div
           className={`flex-center-column tumbnail`}
           style={{
-            backgroundImage: `linear-gradient(#0aa7ff3a, #0aa5ff3a), url(${placeholder})`,
+            backgroundImage:
+              main_tag === "for-parents"
+                ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${
+                    tumbnail || thumbnail || placeholder
+                  })`
+                : main_tag === "for-siblings"
+                ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${
+                    tumbnail || thumbnail || placeholder
+                  })`
+                : `linear-gradient(#ffba0a8a, #ffba0a3a), url(${
+                    tumbnail || thumbnail || placeholder
+                  })`,
           }}
         >
           <CustomButton
             label={main_tag}
+            onClick={OnTagClick}
             className={`${
-              main_tag === "parents"
+              main_tag === "for-parents"
                 ? "for-parents-button"
-                : main_tag === "siblings"
+                : main_tag === "for-siblings"
                 ? "for-siblings-button"
                 : "for-carers-button"
             } tag-button`}
           />
           <div className={`title-container`}>
-            <h1
-              className={`title`}
-              onClick={() =>
-                history.push(
-                  `${pathname}/${title.split(" ").join("-").toLowerCase()}`
-                )
-              }
+            <Link
+              to={{
+                pathname: `${
+                  main_tag === "for-parents"
+                    ? "/blogs/for-parents"
+                    : main_tag === "for-siblings"
+                    ? "/blogs/for-siblings"
+                    : "/blogs/for-carers"
+                }/${title.split(" ").join("-").toLowerCase()}`,
+                search: id,
+              }}
             >
-              {title}
-            </h1>
+              <h1
+                className={`title`}
+                onClick={() =>
+                  history.push(
+                    `${
+                      main_tag === "for-parents"
+                        ? "/blogs/for-parents"
+                        : main_tag === "for-siblings"
+                        ? "/blogs/for-siblings"
+                        : "/blogs/for-carers"
+                    }/${title.split(" ").join("-").toLowerCase()}`
+                  )
+                }
+              >
+                {title}
+              </h1>
+            </Link>
             <Spacing height={`1em`} />
-            <span className={`time`}>{moment().fromNow(created_at)}</span>
+            <span
+              className={`time`}
+              style={{
+                color:
+                  main_tag === "for-parents"
+                    ? colors.for_parents
+                    : main_tag === "for-siblings"
+                    ? colors.for_siblings
+                    : colors.for_carers,
+              }}
+            >
+              {moment().fromNow(created_at)}
+            </span>
           </div>
         </div>
         <Spacing height={`1em`} />
-        <p className={`hook`}>{hook}</p>
+        <p className={`hook`}>{renderHTML(`${hook}`)}</p>
       </div>
     </div>
   );

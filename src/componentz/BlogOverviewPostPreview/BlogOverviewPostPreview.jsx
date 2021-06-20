@@ -17,9 +17,9 @@ const BlogOverviewPostPreview = ({
   const OnTagClick = () => {
     history.push(
       `${
-        main_tag === "parents"
+        main_tag === "for-parents"
           ? "/blogs/for-parents"
-          : main_tag === "siblings"
+          : main_tag === "for-siblings"
           ? "/blogs/for-siblings"
           : "/blogs/for-carers"
       }`
@@ -32,11 +32,11 @@ const BlogOverviewPostPreview = ({
           className={`flex-center-column tumbnail`}
           style={{
             backgroundImage:
-              main_tag === "parents"
+              main_tag === "for-parents"
                 ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${
                     tumbnail || thumbnail || placeholder
                   })`
-                : main_tag === "siblings"
+                : main_tag === "for-siblings"
                 ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${
                     tumbnail || thumbnail || placeholder
                   })`
@@ -49,9 +49,9 @@ const BlogOverviewPostPreview = ({
             label={main_tag}
             onClick={OnTagClick}
             className={`${
-              main_tag === "parents"
+              main_tag === "for-parents"
                 ? "for-parents-button"
-                : main_tag === "siblings"
+                : main_tag === "for-siblings"
                 ? "for-siblings-button"
                 : "for-carers-button"
             } tag-button`}
@@ -60,9 +60,9 @@ const BlogOverviewPostPreview = ({
             <Link
               to={{
                 pathname: `${
-                  main_tag === "parents"
+                  main_tag === "for-parents"
                     ? "/blogs/for-parents"
-                    : main_tag === "siblings"
+                    : main_tag === "for-siblings"
                     ? "/blogs/for-siblings"
                     : "/blogs/for-carers"
                 }/${title.split(" ").join("-").toLowerCase()}`,
@@ -74,9 +74,9 @@ const BlogOverviewPostPreview = ({
                 onClick={() =>
                   history.push(
                     `${
-                      main_tag === "parents"
+                      main_tag === "for-parents"
                         ? "/blogs/for-parents"
-                        : main_tag === "siblings"
+                        : main_tag === "for-siblings"
                         ? "/blogs/for-siblings"
                         : "/blogs/for-carers"
                     }/${title.split(" ").join("-").toLowerCase()}`
@@ -91,9 +91,9 @@ const BlogOverviewPostPreview = ({
               className={`time`}
               style={{
                 color:
-                  main_tag === "parents"
+                  main_tag === "for-parents"
                     ? colors.for_parents
-                    : main_tag === "siblings"
+                    : main_tag === "for-siblings"
                     ? colors.for_siblings
                     : colors.for_carers,
               }}

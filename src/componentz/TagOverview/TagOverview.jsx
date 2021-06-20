@@ -23,8 +23,9 @@ const TagOverview = () => {
   const [posts, setPosts] = useState([]);
   const [noPost, setNoPost] = useState(false);
   const [onEndReachedCalled, setOnEndReachedCalled] = useState(false);
+  console.log(endpoint);
   const [tagRef] = useState(
-    firestore.collection("tags").doc(endpoint).collection("posts")
+    firestore.collection("blogs").where("main_tag", "==", endpoint)
   );
   const data =
     endpoint === "for-parents"
@@ -35,19 +36,19 @@ const TagOverview = () => {
 
   const onLoadTagPosts = () => {
     setIsLoading(true);
-    const slug = tagRef.orderBy("created_at").limit(10);
+    const slug = tagRef.orderBy("posted_at", "desc").limit(10);
     slug.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         setNoPost(true);
         return;
       }
-      setNoPost(true);
       let newPosts = [];
       setLastDoc(snapshot.docs[snapshot.docs.length - 1]);
 
       for (let i = 0; i < snapshot.docs.length; i++) {
         newPosts.push(snapshot.docs[i].data());
       }
+      console.log(newPosts);
       setPosts(newPosts);
     });
   };
@@ -97,7 +98,7 @@ const TagOverview = () => {
       </div>
       <Spacing height={`6em`} />
       <div className="posts">
-        {All_Blogs.map((item, index) => (
+        {posts.map((item, index) => (
           <TagOverviewPostPreview key={index} data={item} />
         ))}
       </div>

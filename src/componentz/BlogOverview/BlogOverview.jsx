@@ -48,7 +48,6 @@ const BlogOverview = () => {
       for (let i = 0; i < snapshot.docs.length; i++) {
         newPosts.push(snapshot.docs[i].data());
       }
-      console.log(newPosts);
       setPosts(newPosts);
     });
   };
@@ -119,21 +118,7 @@ const BlogOverview = () => {
                   search: articleOfTheWeek.id,
                 }}
               >
-                <CustomButton
-                  label={`Continue Reading`}
-                  // onClick={() =>
-                  //   history.push(
-                  //     `${
-                  //       Main_Article.main_tag === "parents"
-                  //         ? "/blogs/for-parents"
-                  //         : Main_Article.main_tag === "siblings"
-                  //         ? "/blogs/for-siblings"
-                  //         : "/blogs/for-carers"
-                  //     }/${Main_Article.title.split(" ").join("-").toLowerCase()}`
-                  //   )
-                  // }
-                  className={`cr-btn`}
-                />
+                <CustomButton label={`Continue Reading`} className={`cr-btn`} />
               </Link>
             </div>
           </div>
