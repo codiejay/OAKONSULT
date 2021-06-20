@@ -34,7 +34,8 @@
   .event-nav-links {
     display: flex;
     .event-nav-link {
-      a {
+      span {
+        cursor: pointer;
         font-size: 1.3em;
         padding: 0.5em 1em;
       }

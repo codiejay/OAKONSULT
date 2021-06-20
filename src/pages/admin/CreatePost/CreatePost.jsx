@@ -41,6 +41,7 @@ const CreatePost = () => {
       tags,
       posted_at: Date.now(),
       updated_at: Date.now(),
+      articleOfTheWeek: false,
       views: 0,
       viewers: {},
       likes: 0,

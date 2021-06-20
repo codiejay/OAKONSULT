@@ -15,7 +15,7 @@ const Inbox = () => {
   const [loading, setLoading] = useState(true);
   const history = useHistory();
   const onLoadInbox = useCallback(async () => {
-    const inboxRef = firestore.collection("inbox").orderBy("timestamp", "asc");
+    const inboxRef = firestore.collection("inbox").orderBy("timestamp", "desc");
     inboxRef.onSnapshot((snapShot) => {
       if (!snapShot.empty) {
         setHasInbox(true);

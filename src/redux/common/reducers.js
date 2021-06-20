@@ -2,6 +2,7 @@ import { ActionTypes } from "./types";
 
 const INITIAL_STATE = {
   quotes: [],
+  articleOfTheWeek: {},
 };
 
 const commonReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const commonReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         quotes: action.payload,
+      };
+    case ActionTypes.SET_ARTICLE_OF_THE_WEEK:
+      return {
+        ...state,
+        articleOfTheWeek: action.payload,
       };
 
     default:

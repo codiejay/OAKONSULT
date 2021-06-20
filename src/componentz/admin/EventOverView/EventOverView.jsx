@@ -23,11 +23,12 @@ const EventOverView = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const eventRef = firestore.collection("events");
-  const onLoadEvents = useCallback(async () => {
+  const onLoadEvents = async () => {
     const query =
       type === "upcoming"
         ? eventRef.where("timestring", ">", Date.now())
         : eventRef.where("timestring", "<", Date.now());
+    console.log(query);
     query.onSnapshot((snapShot) => {
       if (!snapShot.empty) {
         setHasEvent(true);
@@ -35,21 +36,25 @@ const EventOverView = () => {
         snapShot.forEach((item) => {
           eventArray.push(item.data());
         });
+        console.log(eventArray);
         setEvents(eventArray);
         setLoading(false);
       }
       setLoading(false);
     });
-  }, [eventRef, type]);
+  };
   useEffect(() => {
     onLoadEvents();
-    return () => {};
-  }, [onLoadEvents]);
+  }, [type]);
   return loading ? (
     <Spinner style={{ height: "30vh" }} />
   ) : (
     <>
-      <EventNav setType={setType} setDialogVisible={setDialogVisible} />
+      <EventNav
+        type={type}
+        setType={setType}
+        setDialogVisible={setDialogVisible}
+      />
       {!hasEvent ? (
         <div className="flex-center-column no-data">
           <Spacing height="4em" />
@@ -57,7 +62,7 @@ const EventOverView = () => {
           <Spacing height="2em" />
           <CustomButton
             label="Add Event"
-            className="add-photo-btn"
+            className="add-event-btn"
             onClick={() => {
               setType("addEvent");
               setDialogVisible(true);
@@ -68,29 +73,27 @@ const EventOverView = () => {
         <div className="has-data">
           <CustomButton
             label="Add Event"
-            className="add-photo-btn absolute-btn"
+            className="add-event-btn absolute-btn"
             onClick={() => {
               setType("addEvent");
               setDialogVisible(true);
             }}
           />
           <Spacing height="2em" />
-          <div className="flex-vertical-center photo-list">
+          <div className="flex-vertical-center event-list">
             {events.map((item, index) => (
               <div
                 key={index}
-                className="flex-center-column photo-preview"
-                onClick={() => {
-                  history.push(`/event/${item.eventId}`);
-                }}
+                className="flex-center-column event-preview"
+                onClick={() => {}}
               >
                 <Spacing height="1em" />
-                <div className="flex-center photo-icon">
+                <div className="flex-center event-icon">
                   {/* <Entypo name="shop" size={30} color="black" /> */}
                 </div>
                 <Spacing height="1em" />
                 <h3>{item.name}</h3>
-                <h3>{item.description}</h3>
+                <span>{item.description}</span>
                 <h3>{item.date}</h3>
               </div>
             ))}
@@ -117,14 +120,14 @@ const EventNav = ({ type, setType, setDialogVisible }) => {
     <div className="event-nav">
       <ul className="event-nav-links">
         <li className="event-nav-link" onClick={() => setType("upcoming")}>
-          <Link style={type === "upcoming" ? { color: colors.tint } : {}}>
+          <span style={type === "upcoming" ? { color: colors.tint } : {}}>
             Upcoming Events
-          </Link>
+          </span>
         </li>
         <li className="event-nav-link" onClick={() => setType("past")}>
-          <Link style={type === "past" ? { color: colors.tint } : {}}>
+          <span style={type === "past" ? { color: colors.tint } : {}}>
             Past Events
-          </Link>
+          </span>
         </li>
       </ul>
       <CustomButton

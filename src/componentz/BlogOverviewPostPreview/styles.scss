@@ -2,18 +2,18 @@
 @import "../../constants/scss/variables";
 @import "../../constants/scss/mixins";
 
-.blog-overview-post-preview-wrapper {
-  flex: 0 0 calc(100% / 2);
-  max-width: calc(100% / 2);
+.blog-overview-post-preview-container {
+  flex: 0 0 calc(100% / 2) !important;
+  max-width: calc(100% / 2) !important;
 
   @include tablet() {
-    flex: 0 0 calc(100% / 1);
-    max-width: calc(100% / 1);
+    flex: 0 0 calc(100% / 1) !important;
+    max-width: calc(100% / 1) !important;
   }
 
   @include smartphone() {
-    flex: 0 0 calc(100% / 1);
-    max-width: calc(100% / 1);
+    flex: 0 0 calc(100% / 1) !important;
+    max-width: calc(100% / 1) !important;
   }
   padding: 1em;
   .blog-overview-post-preview {
@@ -22,7 +22,7 @@
     .tumbnail {
       background-size: cover;
       background-position: center;
-      height: 30em;
+      height: 40em;
       width: 100%;
       position: relative;
       box-shadow: $shadow;
@@ -44,23 +44,24 @@
         z-index: 1;
       }
       .title-container {
-        padding: 1em;
+        padding: 2em 1em;
         background-color: $white;
         width: 90%;
         border-radius: 1em;
         margin-top: auto;
         margin-bottom: 2em;
         .title {
-          font-size: 1.4em;
+          font-size: 1.6em;
           cursor: pointer;
         }
         .time {
-          font-size: 1em;
+          font-size: 1.3em;
         }
       }
     }
     .hook {
-      font-size: 1.1em;
+      font-size: 1.4em;
+      margin-bottom: 1.5em;
     }
   }
 }
