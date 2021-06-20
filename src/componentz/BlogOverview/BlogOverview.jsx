@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import { All_Blogs, Main_Article } from "../../constants/Data";
+import renderHTML from "react-render-html";
 import { firestore } from "../../firebase/config";
 import BlogFilterer from "../BlogFilterer/BlogFilterer";
 import BlogOverviewPostPreview from "../BlogOverviewPostPreview/BlogOverviewPostPreview";
@@ -9,6 +10,7 @@ import Spacing from "../Spacing/Spacing";
 import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const BlogOverview = () => {
   const location = useLocation().pathname;
@@ -33,19 +35,20 @@ const BlogOverview = () => {
   };
   const onLoadTagPosts = () => {
     setIsLoading(true);
-    const slug = blogsRef.orderBy("created_at").limit(10);
+    const slug = blogsRef.orderBy("posted_at", "desc").limit(10);
     slug.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         setNoPost(true);
         return;
       }
-      setNoPost(true);
+      // setNoPost(true);
       let newPosts = [];
       setLastDoc(snapshot.docs[snapshot.docs.length - 1]);
 
       for (let i = 0; i < snapshot.docs.length; i++) {
         newPosts.push(snapshot.docs[i].data());
       }
+      console.log(newPosts);
       setPosts(newPosts);
     });
   };
@@ -98,25 +101,40 @@ const BlogOverview = () => {
           <div className="article-text-button">
             <div className="article-text">
               <h1 className="main-article-title">{articleOfTheWeek.title}</h1>
-              <p className="main-article-hook">{articleOfTheWeek.hook}</p>
+              <p className="main-article-hook">
+                {renderHTML(`${articleOfTheWeek.hook}`)}
+              </p>
             </div>
             <Spacing height={`12em`} />
             <div className="cr-btn-container">
-              <CustomButton
-                label={`Continue Reading`}
-                onClick={() =>
-                  history.push(
-                    `${
-                      Main_Article.main_tag === "parents"
-                        ? "/blogs/for-parents"
-                        : Main_Article.main_tag === "siblings"
-                        ? "/blogs/for-siblings"
-                        : "/blogs/for-carers"
-                    }/${Main_Article.title.split(" ").join("-").toLowerCase()}`
-                  )
-                }
-                className={`cr-btn`}
-              />
+              <Link
+                to={{
+                  pathname: `${
+                    Main_Article.main_tag === "parents"
+                      ? "/blogs/for-parents"
+                      : Main_Article.main_tag === "siblings"
+                      ? "/blogs/for-siblings"
+                      : "/blogs/for-carers"
+                  }/${Main_Article.title.split(" ").join("-").toLowerCase()}`,
+                  search: articleOfTheWeek.id,
+                }}
+              >
+                <CustomButton
+                  label={`Continue Reading`}
+                  // onClick={() =>
+                  //   history.push(
+                  //     `${
+                  //       Main_Article.main_tag === "parents"
+                  //         ? "/blogs/for-parents"
+                  //         : Main_Article.main_tag === "siblings"
+                  //         ? "/blogs/for-siblings"
+                  //         : "/blogs/for-carers"
+                  //     }/${Main_Article.title.split(" ").join("-").toLowerCase()}`
+                  //   )
+                  // }
+                  className={`cr-btn`}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -125,7 +143,7 @@ const BlogOverview = () => {
       <BlogFilterer />
       <Spacing height={`6em`} />
       <div className="posts">
-        {All_Blogs.map((item, index) => (
+        {posts.map((item, index) => (
           <BlogOverviewPostPreview key={index} data={item} />
         ))}
       </div>

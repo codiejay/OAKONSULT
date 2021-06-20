@@ -1,19 +1,18 @@
 import moment from "moment";
 import React from "react";
-import { useHistory, useLocation } from "react-router";
+import { useHistory } from "react-router";
+import renderHTML from "react-render-html";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
 import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
 import { colors } from "../../constants/Colors";
+import { Link } from "react-router-dom";
 
 const BlogOverviewPostPreview = ({
-  data,
-  data: { title, hook, created_at, main_tag, tumbnail },
+  data: { id, title, hook, created_at, main_tag, thumbnail, tumbnail },
 }) => {
-  const location = useLocation();
-  const pathname = location.pathname;
   const history = useHistory();
   const OnTagClick = () => {
     history.push(
@@ -27,17 +26,23 @@ const BlogOverviewPostPreview = ({
     );
   };
   return (
-    <div className={`blog-overview-post-preview-wrapper`}>
+    <div className={`blog-overview-post-preview-container`}>
       <div className={`blog-overview-post-preview`}>
         <div
           className={`flex-center-column tumbnail`}
           style={{
             backgroundImage:
               main_tag === "parents"
-                ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${tumbnail})`
+                ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${
+                    tumbnail || thumbnail || placeholder
+                  })`
                 : main_tag === "siblings"
-                ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${tumbnail})`
-                : `linear-gradient(#ffba0a8a, #ffba0a3a), url(${tumbnail})`,
+                ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${
+                    tumbnail || thumbnail || placeholder
+                  })`
+                : `linear-gradient(#ffba0a8a, #ffba0a3a), url(${
+                    tumbnail || thumbnail || placeholder
+                  })`,
           }}
         >
           <CustomButton
@@ -52,22 +57,35 @@ const BlogOverviewPostPreview = ({
             } tag-button`}
           />
           <div className={`title-container`}>
-            <h1
-              className={`title`}
-              onClick={() =>
-                history.push(
-                  `${
-                    main_tag === "parents"
-                      ? "/blogs/for-parents"
-                      : main_tag === "siblings"
-                      ? "/blogs/for-siblings"
-                      : "/blogs/for-carers"
-                  }/${title.split(" ").join("-").toLowerCase()}`
-                )
-              }
+            <Link
+              to={{
+                pathname: `${
+                  main_tag === "parents"
+                    ? "/blogs/for-parents"
+                    : main_tag === "siblings"
+                    ? "/blogs/for-siblings"
+                    : "/blogs/for-carers"
+                }/${title.split(" ").join("-").toLowerCase()}`,
+                search: id,
+              }}
             >
-              {title}
-            </h1>
+              <h1
+                className={`title`}
+                onClick={() =>
+                  history.push(
+                    `${
+                      main_tag === "parents"
+                        ? "/blogs/for-parents"
+                        : main_tag === "siblings"
+                        ? "/blogs/for-siblings"
+                        : "/blogs/for-carers"
+                    }/${title.split(" ").join("-").toLowerCase()}`
+                  )
+                }
+              >
+                {title}
+              </h1>
+            </Link>
             <Spacing height={`1em`} />
             <span
               className={`time`}
@@ -85,7 +103,7 @@ const BlogOverviewPostPreview = ({
           </div>
         </div>
         <Spacing height={`1em`} />
-        <p className={`hook`}>{hook}</p>
+        <p className={`hook`}>{renderHTML(`${hook}`)}</p>
       </div>
     </div>
   );
