@@ -87,7 +87,12 @@ const TagOverview = () => {
       <div
         className="hero"
         style={{
-          backgroundImage: `linear-gradient(#0aa7ff3a, #0aa5ff90), url(${placeholder})`,
+          backgroundImage:
+            endpoint === "for-parents"
+              ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${placeholder})`
+              : endpoint === "for-siblings"
+              ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${placeholder})`
+              : `linear-gradient(#ffba0a8a, #ffba0a3a), url(${placeholder})`,
         }}
       >
         <div className="hero-text-wrapper">

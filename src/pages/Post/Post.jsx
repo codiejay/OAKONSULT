@@ -34,7 +34,14 @@ const Post = ({ endpoint }) => {
         <meta name="description" content="" />
         <meta property="og:site_name" content="Oakonsult" />
       </Helmet>
-      {loading ? <Spinner style={{ height: "70vh" }} /> : renderHTML(data.body)}
+      {loading ? (
+        <Spinner style={{ height: "70vh" }} />
+      ) : (
+        <div>
+          <h3>{data.title}</h3>
+          {renderHTML(data.body)}
+        </div>
+      )}
     </div>
   );
 };
