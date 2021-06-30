@@ -152,9 +152,9 @@ const Carers = () => {
       </div>
 
       {/* This button uses the format of ExploreBtn.jsx and ExploreBtn.scss with little modification */}
-      <Link to='blogs/for-parents'>
+      <Link to='blogs/for-carers'>
         <div
-          className='SeeRelatedArticle'
+          className='SeeRelatedArticle CTA_Btn'
           id='btn'
           style={{
             backgroundColor: '#0aa7ff',

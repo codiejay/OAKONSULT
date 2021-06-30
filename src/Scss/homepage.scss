@@ -28,7 +28,6 @@ $pink: #ff34ba;
   //   Section 2
 
   #intro {
-    min-height: 100vh;
     display: flex;
 
     .introTextContent {
@@ -53,7 +52,7 @@ $pink: #ff34ba;
         text-transform: capitalize;
         font-size: 72px;
         font-weight: normal;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
         line-height: 100px;
         letter-spacing: normal;
       }
@@ -66,7 +65,6 @@ $pink: #ff34ba;
       .hexagon {
         height: 600px;
         width: 500px;
-        // margin-top: -30px;
         background: url(../Assets/polygonVideoPlaceholder.svg);
         @include BGConfig(100%, top);
         position: relative;
@@ -88,7 +86,6 @@ $pink: #ff34ba;
   //   Section 2
 
   #whoAreYou {
-    min-height: 100vh;
     width: 100%;
     margin-bottom: 7rem;
 
@@ -254,6 +251,7 @@ $pink: #ff34ba;
           height: 500px;
           width: 500px;
           background: url(../Assets/olufunke.svg);
+          @include BGConfig(100%, center);
           border-radius: 300px 300px 0 0;
           position: relative;
 
@@ -269,7 +267,7 @@ $pink: #ff34ba;
           }
         }
         h1 {
-          text-align: center;
+          text-align: left;
           font-family: $DM;
           font-size: 90px;
         }
@@ -291,7 +289,7 @@ $pink: #ff34ba;
 
   #syllabusIntro {
     margin-top: 8rem;
-    height: 100vh;
+    margin-bottom: 10rem;
 
     #syllabusIntroContent {
       display: flex;
@@ -313,6 +311,229 @@ $pink: #ff34ba;
         }
         #Card:nth-child(2) {
           margin-left: 45%;
+        }
+      }
+    }
+  }
+}
+
+// Tablet
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  // Homepage
+
+  #homePage {
+    #intro {
+      margin-bottom: 7rem;
+      .introTextContent {
+        #quote {
+          font-size: 48px;
+          line-height: normal;
+        }
+        // a {
+        //   #btn {
+        //     padding: 0.25rem 1rem 0.25rem 0.25rem;
+        //   }
+        // }
+      }
+      .introVideoButton {
+        .hexagon {
+          height: 400px;
+          width: 400px;
+          @include BGConfig(80%, center);
+        }
+      }
+    }
+
+    #whoAreYou {
+      min-height: 0;
+      #whoAreYouContent {
+        .AboutDeets {
+          h1 {
+            font-size: 36px;
+            line-height: normal;
+          }
+        }
+      }
+    }
+
+    #aboutFounder {
+      .aboutContent {
+        flex-direction: column;
+        #Q_A {
+          //   margin: 0 auto;
+          //   width: 80%;
+        }
+        #Founder {
+          #founderImg {
+            margin: 0 auto;
+          }
+          margin-bottom: 4rem;
+        }
+        #aboutFounder {
+          #watchStory {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    #syllabusIntro {
+      // height: 40vh;
+      #syllabusIntroContent {
+        #syllabusIntroTitle {
+          h2 {
+            font-size: 36px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #homePage {
+    #intro {
+      flex-direction: column-reverse;
+      margin-bottom: 3rem;
+
+      .introTextContent {
+        width: 100%;
+        .quoteSrc {
+          #quoteSource {
+            font-size: 18px;
+          }
+        }
+        #quote {
+          font-size: 24px;
+          line-height: normal;
+        }
+      }
+      .introVideoButton {
+        width: 100%;
+        .hexagon {
+          height: 300px;
+          width: 300px;
+          @include BGConfig(70%, center);
+          display: block;
+          margin: 0 auto;
+
+          #play_btn {
+            height: 75px;
+            width: 75px;
+            background: url(../Assets/playbutton.svg);
+            @include BGConfig(100%, center);
+            position: absolute;
+            top: 35%;
+            left: 37%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    #whoAreYou {
+      margin-bottom: 1rem;
+      #whoAreYouContent {
+        flex-direction: column;
+        .AboutDeets {
+          h1 {
+            font-size: 21px;
+            line-height: normal;
+          }
+          p {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+
+    #RssCategories {
+      #sectionTitle {
+        font-size: 48px;
+        line-height: normal;
+      }
+      #sectionDetails {
+        max-width: 100%;
+      }
+      .cards_mother {
+        .rssCard {
+          height: max-content;
+          margin: 1rem 0;
+          .cardTitle {
+            font-size: 24px;
+          }
+          .cardContent {
+            width: auto;
+            margin: 2rem 0;
+          }
+          #learnMore_btn {
+            p {
+            }
+            .learnMore_icon {
+            }
+          }
+        }
+      }
+    }
+
+    #aboutFounder {
+      .aboutContent {
+        flex-direction: column;
+        #Q_A {
+          h1 {
+            font-size: 48px;
+            line-height: normal;
+            margin-bottom: 1rem;
+          }
+        }
+        #Founder {
+          #founderImg {
+            margin: 0 auto;
+            height: 200px;
+            width: 200px;
+
+            &::before {
+              height: 200px;
+              width: 200px;
+            }
+          }
+          h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 1rem;
+          }
+          #btn {
+            padding: 0.25rem 1rem 0.25rem 0.25rem;
+          }
+        }
+        #aboutFounder {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    #syllabusIntro {
+      #syllabusIntroContent {
+        flex-direction: column;
+        #syllabusIntroTitle {
+          margin-bottom: 2rem;
+          h2 {
+            font-size: 24px;
+          }
+        }
+        #syllabusCards {
+          #Card {
+            width: 300px;
+            height: 225px;
+
+            .cardContent {
+              .classText {
+                width: 100%;
+              }
+            }
+          }
         }
       }
     }

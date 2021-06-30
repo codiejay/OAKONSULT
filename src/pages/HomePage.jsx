@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Scss/homepage.scss';
+import '../Scss/mediaQuery.scss';
 
 // Images
 import LibraryImg from '../Assets/Library.svg';
@@ -272,8 +273,11 @@ const Homepage = () => {
                 <br />
                 for you
               </h2>
-              <ExploreBtn data={['Browse Our Syllabus', syllabusIcon]} />
+              <Link to='./training-and-resourcing'>
+                <ExploreBtn data={['Browse Our Syllabus', syllabusIcon]} />
+              </Link>
             </div>
+
             <div id='syllabusCards'>
               <SyllabusCard
                 data={{

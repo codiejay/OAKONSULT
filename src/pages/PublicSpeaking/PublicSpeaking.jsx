@@ -70,9 +70,7 @@ const PublicSpeaking = () => {
           <li>
             Be more deliberate about reaching out to people with disabilities
           </li>
-          <li>
-            Become a disability friendly church/organization/group/community
-          </li>
+          <li>Become a disability friendly church/organization/community</li>
           <li>Support more families affected by disabilities</li>
         </ul>
       </div>
@@ -144,7 +142,7 @@ const PublicSpeaking = () => {
 
       {/* This button uses the format of ExploreBtn.jsx and ExploreBtn.scss with little modification */}
       <div
-        className='SeeRelatedArticle'
+        className='SeeRelatedArticle CTA_Btn'
         id='btn'
         style={{
           backgroundColor: '#ff6725',

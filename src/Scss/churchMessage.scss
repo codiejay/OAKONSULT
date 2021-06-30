@@ -16,7 +16,7 @@ $churchPagePurple: #b00aff;
 }
 
 #Church_intro {
-  min-height: 100vh;
+  margin-bottom: 7rem;
   display: flex;
 
   .introTextContent {
@@ -235,6 +235,143 @@ $churchPagePurple: #b00aff;
         color: #000000;
         list-style: url(../Assets/icons/purpleHyphen.svg);
         margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// Tablet
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  #Church_intro {
+    min-height: 0;
+    margin-bottom: 7rem;
+    .introTextContent {
+      #quote {
+        font-size: 48px;
+        line-height: normal;
+      }
+    }
+    .introVideoButton {
+      .hexagon {
+        height: 400px;
+        width: 400px;
+        @include BGConfig(80%, center);
+      }
+    }
+  }
+  #OurSolutions {
+    flex-direction: column;
+    #HowToDoWhatToDo {
+      margin: 2rem 0;
+      margin-left: 2rem;
+      width: 80%;
+    }
+  }
+}
+
+// Mobile
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #Church_intro {
+    flex-direction: column-reverse;
+    .introTextContent {
+      width: 100%;
+      margin-top: -2rem;
+      .quoteSrc {
+        #quoteSource {
+          font-size: 18px;
+        }
+      }
+      #quote {
+        font-size: 24px;
+        line-height: normal;
+      }
+      #quoteText {
+        width: auto;
+      }
+      #watchStory {
+        width: 100%;
+      }
+    }
+    .introVideoButton {
+      width: 100%;
+      .hexagon {
+        height: 300px;
+        width: 300px;
+        @include BGConfig(70%, top);
+        display: block;
+        margin: 0 auto;
+
+        #play_btn {
+          height: 75px;
+          width: 75px;
+          background: url(../Assets/playbutton.svg);
+          @include BGConfig(100%, center);
+          position: absolute;
+          top: 35%;
+          left: 37%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  #Churches_goals {
+    .bgLayer {
+      #heartIcon {
+        height: 50px;
+        width: 50px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+    }
+  }
+
+  #Churches_forYou {
+    width: 90%;
+    h1 {
+      font-size: 18px;
+      line-height: normal;
+      letter-spacing: normal;
+    }
+    ul {
+      li {
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: normal;
+      }
+    }
+  }
+
+  #OurSolutions {
+    flex-direction: column;
+    #WhatToDo {
+      min-width: 0;
+      height: max-content;
+      h2 {
+        font-size: 24px;
+        line-height: normal;
+      }
+      ul {
+        li {
+          font-size: 18px;
+          line-height: 23px;
+        }
+      }
+    }
+    #HowToDoWhatToDo {
+      h3 {
+        margin: 2rem 0;
+        font-size: 24px;
+        line-height: normal;
+      }
+      ul {
+        li {
+          font-size: 18px;
+        }
       }
     }
   }

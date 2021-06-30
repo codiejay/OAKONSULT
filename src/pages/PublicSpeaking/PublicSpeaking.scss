@@ -21,8 +21,8 @@ $publicSpeakingOrange: #ff6725;
 }
 
 #P_Sintro {
-  min-height: 100vh;
   display: flex;
+  margin-bottom: 7rem;
 
   .introTextContent {
     // background: #a15c5c;
@@ -312,6 +312,175 @@ $publicSpeakingOrange: #ff6725;
           color: #000000;
           list-style: url(../../Assets/icons/orangeHyphen.svg);
           margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+// Tablet
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  #P_Sintro {
+    .introTextContent {
+      #quote {
+        line-height: normal;
+      }
+    }
+    .introVideoButton {
+      .hexagon {
+        height: 400px;
+        width: 400px;
+        @include BGConfig(80%, center);
+      }
+    }
+  }
+  #theChurch {
+    flex-direction: column;
+    #churchTopic {
+      margin: 2rem;
+    }
+  }
+  // #topicsSection{
+  //   #whatWeDiscuss{
+  //     #topicCard{
+
+  //     }
+  //   }
+  // }
+}
+
+// Mobile
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #P_Sintro {
+    flex-direction: column-reverse;
+    .introTextContent {
+      width: 100%;
+      margin-top: -2rem;
+      .quoteSrc {
+        #quoteSource {
+          font-size: 18px;
+        }
+      }
+      #quote {
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 2px;
+        margin: 1rem 0;
+      }
+      #quoteText {
+        width: auto;
+      }
+    }
+    .introVideoButton {
+      width: 100%;
+      .hexagon {
+        height: 300px;
+        width: 300px;
+        @include BGConfig(70%, top);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  #PS_goals {
+    .bgLayer {
+      #heartIcon {
+        height: 50px;
+        width: 50px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+    }
+  }
+  #PS_forYou {
+    width: 90%;
+    height: max-content;
+    h1 {
+      font-size: 23px;
+      line-height: normal;
+      letter-spacing: normal;
+
+      &::before {
+        bottom: -10px;
+      }
+    }
+    ul {
+      li {
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: normal;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  #topicsSection {
+    #questionAndImage {
+      flex-direction: column-reverse;
+      #questions {
+        h3 {
+          font-size: 48px;
+          line-height: normal;
+        }
+        ul {
+          li {
+            font-size: 18px;
+          }
+        }
+      }
+      #PS_Image {
+        width: 300px;
+        height: 300px;
+      }
+    }
+    #note {
+      font-size: 18px;
+      line-height: 24px;
+      margin-top: 2rem;
+      // text-align: left;
+    }
+
+    #whatWeDiscuss {
+      h3 {
+        font-size: 48px;
+        line-height: normal;
+      }
+      #topicCard {
+        margin: 1rem 1rem 1rem 0rem;
+        #topicCardContent {
+          height: 100px;
+          font-size: 18px;
+          padding: 0 1rem;
+        }
+      }
+    }
+    #theChurch {
+      flex-direction: column;
+      #theChurchResponse {
+        min-width: 0;
+        height: max-content;
+        h2 {
+          font-size: 48px;
+        }
+        p {
+          font-size: 18px;
+          line-height: 25px;
+        }
+      }
+      #churchTopic {
+        margin-top: 2rem;
+        h3 {
+          width: 100%;
+          font-weight: normal;
+          font-size: 23px;
+          line-height: normal;
+        }
+        ul {
+          li {
+            font-size: 18px;
+          }
         }
       }
     }

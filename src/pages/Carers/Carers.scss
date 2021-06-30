@@ -19,8 +19,8 @@ $yellow: #ffba0a;
 }
 
 #Carers_intro {
-  min-height: 100vh;
   display: flex;
+  margin-bottom: 7rem;
 
   .introTextContent {
     // background: #a15c5c;
@@ -247,6 +247,133 @@ $yellow: #ffba0a;
         line-height: 31px;
         text-transform: capitalize;
         color: #ffffff;
+      }
+    }
+  }
+}
+
+// Tablet
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  #Carers_intro {
+    .introTextContent {
+      #quote {
+        line-height: normal;
+      }
+    }
+    .introVideoButton {
+      .hexagon {
+        height: 400px;
+        width: 400px;
+        @include BGConfig(80%, center);
+      }
+    }
+  }
+  .courses {
+    flex-direction: column;
+
+    .carersCourse {
+      // margin: 0 auto;
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #Carers_intro {
+    flex-direction: column-reverse;
+    .introTextContent {
+      width: 100%;
+      margin-top: -2rem;
+      .quoteSrc {
+        #quoteSource {
+          font-size: 18px;
+        }
+      }
+      #quote {
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 2px;
+        margin: 1rem 0;
+      }
+      #quoteText {
+        width: auto;
+      }
+      // #watchStory {
+      //   width: 100%;
+      // }
+    }
+    .introVideoButton {
+      width: 100%;
+      .hexagon {
+        height: 300px;
+        width: 300px;
+        @include BGConfig(70%, top);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  #Carer_goals {
+    .bgLayer {
+      #heartIcon {
+        height: 50px;
+        width: 50px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+    }
+  }
+  #forYou {
+    width: 90%;
+    h1 {
+      font-size: 23px;
+      line-height: normal;
+      letter-spacing: normal;
+
+      &::before {
+        bottom: -10px;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: normal;
+      letter-spacing: normal;
+    }
+  }
+
+  #availiableCourses {
+    h2 {
+      font-size: 36px;
+      line-height: normal;
+    }
+    .courses {
+      flex-direction: column;
+
+      .carersCourse {
+        margin-bottom: 6rem;
+        .courseContainer {
+          width: 100%;
+          h3 {
+            font-size: 23px;
+            line-height: normal;
+          }
+          #ProjectMeAim {
+          }
+          ul {
+            li {
+              font-size: 15px;
+              margin-bottom: 1rem;
+            }
+          }
+          .getCourse {
+            width: 100%;
+            font-size: 17px;
+          }
+        }
       }
     }
   }

@@ -37,15 +37,15 @@ const Main = (props) => {
               </p>
               <ul>
                 <li>
-                  <Link to='about'>
+                  <Link to='#aboutFounder'>
                     <h3>01</h3>
                     <p>About OAK</p>
                   </Link>
                 </li>
                 <li>
-                  <Link to='tranining'>
+                  <Link to='/training-and-resourcing'>
                     <h3>02</h3>
-                    <p>Tranining And Resources</p>
+                    <p>Training And Resources</p>
                   </Link>
                 </li>
                 <li>
@@ -132,17 +132,17 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>our offerings</h3>
-              <a href='https://hey.com'>- for parent carers</a>
-              <a href='https://hey.com'>- for churches</a>
+              <a href='/carers'>- for parent carers</a>
+              <a href='/churches'>- for churches</a>
 
-              <a href='https://hey.com'>- training and resources</a>
+              <a href='/training-and-resourcing'>- training and resources</a>
             </div>
 
             <div className='footerBox'>
               <h3>about OAK</h3>
               <a href='https://hey.com'>- our story</a>
               <a href='https://hey.com'>- abigail's story</a>
-              <a href='https://hey.com'>- make a donation</a>
+              <a href='/donations'>- make a donation</a>
             </div>
           </div>
         </div>

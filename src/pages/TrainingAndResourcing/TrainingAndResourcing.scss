@@ -13,7 +13,7 @@ $Archivo: 'Archivo', sans-serif;
 }
 
 #Training_intro {
-  min-height: 100vh;
+  margin-bottom: 7rem;
   display: flex;
 
   .introTextContent {
@@ -97,10 +97,6 @@ $Archivo: 'Archivo', sans-serif;
   min-height: 90vh;
   height: max-content;
   border-radius: 10px;
-  // padding: 1rem 2rem;
-  //   padding-top: 10rem;
-  // padding-bottom: 10rem;
-  //   width: 105%;
 
   .bgLayer {
     background: rgba(255, 10, 201, 0.85);
@@ -293,5 +289,155 @@ $Archivo: 'Archivo', sans-serif;
     text-transform: capitalize;
     color: #000000;
     margin-top: -1.25rem;
+  }
+}
+
+// Tablet
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  #Training_intro {
+    .introTextContent {
+      // display: none;
+      #quote {
+        font-size: 48px;
+        line-height: normal;
+      }
+    }
+    .introVideoButton {
+      .hexagon {
+        height: 400px;
+        width: 400px;
+        @include BGConfig(80%, center);
+      }
+    }
+  }
+  #TargetAndGoals {
+    flex-direction: column;
+    #Aim {
+      margin: 2rem 0;
+      margin-left: 2rem;
+    }
+  }
+}
+
+// Mobile
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #Training_intro {
+    flex-direction: column-reverse;
+    .introTextContent {
+      width: 100%;
+      margin-top: -2rem;
+      .quoteSrc {
+        #quoteSource {
+          font-size: 18px;
+        }
+      }
+      #quote {
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 2px;
+        margin: 1rem 0;
+      }
+      #quoteText {
+        width: auto;
+      }
+      #watchStory {
+        width: 100%;
+      }
+    }
+    .introVideoButton {
+      width: 100%;
+      .hexagon {
+        height: 300px;
+        width: 300px;
+        @include BGConfig(70%, top);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  #Training_goals {
+    .bgLayer {
+      #heartIcon {
+        height: 50px;
+        width: 50px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: normal;
+      }
+    }
+  }
+
+  #Training_forYou {
+    width: 90%;
+    height: max-content;
+    h1 {
+      font-size: 23px;
+      line-height: normal;
+      letter-spacing: normal;
+
+      &::before {
+        bottom: -10px;
+      }
+    }
+    p {
+      font-size: 18px;
+    }
+    ul {
+      li {
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: normal;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  #TargetAndGoals {
+    flex-direction: column;
+    #ForWho {
+      min-width: 0;
+      height: max-content;
+      h2 {
+        font-size: 48px;
+      }
+      p {
+        font-size: 23px;
+        line-height: 25px;
+        margin-bottom: 1rem;
+      }
+      ul {
+        li {
+          font-size: 18px;
+          line-height: 23px;
+        }
+      }
+    }
+    #Aim {
+      margin-top: 2rem;
+      h3 {
+        width: 100%;
+        font-weight: normal;
+        font-size: 23px;
+        line-height: normal;
+      }
+      ul {
+        li {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  #CourseDistributionCard {
+    #topicCardContent {
+      width: 100%;
+      height: max-content;
+      font-size: 18px;
+      padding: 2rem;
+    }
   }
 }

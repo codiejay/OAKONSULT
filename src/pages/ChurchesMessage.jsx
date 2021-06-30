@@ -3,6 +3,9 @@ import ExploreBtn from '../Components/ExploreBtn';
 import '../Scss/churchMessage.scss';
 import WatchStory from '../Components/WatchStory';
 import PlayIcon from '../Assets/playbutton.svg';
+import { Link } from 'react-router-dom';
+import Speaker from '../Assets/icons/Speaker.svg';
+import '../Scss/mediaQuery.scss';
 
 const Churches = () => {
   return (
@@ -127,6 +130,31 @@ const Churches = () => {
           </ul>
         </div>
       </div>
+      {/* This button uses the format of ExploreBtn.jsx and ExploreBtn.scss with little modification */}
+      <Link to='blogs/for-parents'>
+        <div
+          className='SeeRelatedArticle CTA_Btn'
+          id='btn'
+          style={{
+            backgroundColor: '#b00aff',
+            marginBottom: '6rem',
+            marginTop: '3rem',
+          }}
+        >
+          <div
+            id='icon'
+            style={{
+              height: '50px',
+              width: '50px',
+              backgroundImage: `url(${Speaker})`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '50%',
+            }}
+          ></div>
+          <p>Invite me to speak</p>
+        </div>
+      </Link>
     </>
   );
 };

@@ -145,3 +145,105 @@
     }
   }
 }
+
+// Tablet
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  #Programmes {
+    #ProgrammesIntro {
+      #Title {
+        font-size: 56px;
+        line-height: normal;
+      }
+      #calenderImage {
+        margin: 0 auto;
+        width: 304px;
+        height: 306px;
+      }
+    }
+    #programmesSection {
+      #selectionNavBar {
+        .programSelection {
+        }
+        #current {
+        }
+        #past {
+        }
+      }
+      #AvailiableProgrammes {
+        #ProgrammeCard {
+          #dateTag {
+          }
+          #card {
+            h2 {
+            }
+            p {
+            }
+          }
+          #Register {
+          }
+        }
+
+        #ProgrammeCard:nth-child(even) {
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #Programmes {
+    #ProgrammesIntro {
+      flex-direction: column-reverse;
+      #Title {
+        font-size: 36px;
+        line-height: normal;
+        width: 100%;
+      }
+      #calenderImage {
+        margin: 0;
+        width: 304px;
+        height: 306px;
+      }
+    }
+    #programmesSection {
+      #selectionNavBar {
+        width: 100%;
+        margin-top: 3rem;
+        .programSelection {
+          font-size: 13px;
+          margin-left: 1rem;
+          padding: 0 0.5rem;
+        }
+        #current {
+        }
+        #past {
+        }
+      }
+      #AvailiableProgrammes {
+        #ProgrammeCard {
+          #dateTag {
+          }
+          #card {
+            width: 100%;
+            h2 {
+              font-size: 23px;
+              line-height: normal;
+            }
+            p {
+            }
+          }
+          #Register {
+          }
+        }
+
+        #ProgrammeCard:nth-child(even) {
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import './Popup.scss';
 
 const Popup = (props) => {
+  let randomSelected = Math.floor(Math.random() * props.data.length);
+
+  console.log(props.data[randomSelected]);
+
   let displayValue;
   const [showPopUp, changeShowPopUp] = useState(false);
 
@@ -26,8 +30,10 @@ const Popup = (props) => {
         ></div>
         <div className='popUpcontent'>
           <h2 className='popUpTitle'>GOD PROMISES</h2>
-          <p className='popUpText'>{props.data[0].quote}</p>
-          <div className='popUpSource'>{props.data[0].bible_verse}</div>
+          <p className='popUpText'>{props.data[randomSelected].quote}</p>
+          <div className='popUpSource'>
+            {props.data[randomSelected].bible_verse}
+          </div>
         </div>
 
         <div className='horizontalLine'></div>
