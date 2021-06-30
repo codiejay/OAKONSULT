@@ -17,6 +17,7 @@ const CreatePost = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [title, setTitle] = useState("");
+  const [mainTag, setMainTag] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [hook, setHook] = useState("");
   const [body, setBody] = useState("");
@@ -39,6 +40,7 @@ const CreatePost = () => {
       thumbnail,
       user: "Admin",
       tags,
+      main_tag: mainTag.toLocaleLowerCase().split(" ").join("-"),
       posted_at: Date.now(),
       updated_at: Date.now(),
       articleOfTheWeek: false,
@@ -150,19 +152,32 @@ const CreatePost = () => {
             height={`${GetWindowDimensions().height - 600}px`}
           />
           <Spacing height="1em" />
-          {/* <CustomInput
-            label="Hook"
-            value={hook}
-            type={"text"}
-            onChange={({ target }) => setHook(target.value)}
-            required
-          /> */}
           <CustomInput
             label="Thumbnail"
             value={thumbnail}
             type={"text"}
             onChange={({ target }) => setThumbnail(target.value)}
             required
+          />
+          <Spacing height="1em" />
+          <span className={`tag-label`}>Select Tag</span>
+          <Spacing height="2em" />
+          <MainTag
+            tagName="For Parents"
+            mainTag={mainTag}
+            setMainTag={setMainTag}
+          />
+          <Spacing height="1em" />
+          <MainTag
+            tagName="For Siblings"
+            mainTag={mainTag}
+            setMainTag={setMainTag}
+          />
+          <Spacing height="1em" />
+          <MainTag
+            tagName="For Carers"
+            mainTag={mainTag}
+            setMainTag={setMainTag}
           />
         </div>
         <div className="editor">
@@ -222,3 +237,16 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
+
+const MainTag = ({ mainTag, tagName, setMainTag }) => {
+  return (
+    <div className="post-tag">
+      <div
+        className="post-tag-check"
+        onClick={() => setMainTag(tagName)}
+        style={mainTag === tagName ? { backgroundColor: "#6ab5b9" } : {}}
+      ></div>
+      <span className="post-tag-text">{tagName}</span>
+    </div>
+  );
+};

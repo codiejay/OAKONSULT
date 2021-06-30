@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import logo from '../Assets/logo.png';
 import playicon from '../Assets/playIcon.png';
 import playIconForButton from '../Assets/playIcon.svg';
 import { Link } from 'react-router-dom';
-import '../Scss/Main.scss';
 import Popup from '../Components/PopUp/Popup';
+
+import '../Scss/Main.scss';
 
 const Main = (props) => {
   const quotes = useSelector(({ common }) => common.quotes);
@@ -37,7 +39,7 @@ const Main = (props) => {
               </p>
               <ul>
                 <li>
-                  <Link to='#aboutFounder'>
+                  <Link to='about'>
                     <h3>01</h3>
                     <p>About OAK</p>
                   </Link>
@@ -81,6 +83,9 @@ const Main = (props) => {
   };
 
   const Footer = () => {
+    const [email, setEmail] = useState('');
+    const url =
+      'https://oakonsult.us1.list-manage.com/subscribe/post?u=f514bac518d81829d3a86f8d8&amp;id=c138c64f47';
     return (
       <footer>
         <div id='programs'>
@@ -107,16 +112,40 @@ const Main = (props) => {
               you can read in less than 20mins but will stay with you for longer
             </p>
           </div>
-
-          <form>
-            <div>
-              <input placeholder='YOUR EMAIL' />
-              <div id='sendButton'>
-                <img src={playIconForButton} />
-              </div>
-            </div>
-            <p>*your email is safe with me.</p>
-          </form>
+          <MailchimpSubscribe
+            url={url}
+            render={({ subscribe, status, message }) => {
+              const onSubmit = (e) => {
+                e.preventDefault();
+                subscribe({ EMAIL: email });
+                status === 'success' && setEmail('');
+              };
+              return (
+                <div>
+                  <form onSubmit={onSubmit}>
+                    <div>
+                      <input
+                        placeholder='YOUR EMAIL'
+                        onChange={({ target }) => setEmail(target.value)}
+                      />
+                      <div id='sendButton' onClick={onSubmit}>
+                        <img src={playIconForButton} />
+                      </div>
+                    </div>
+                    {status === 'success' ? (
+                      <span className='success-subscribe'>
+                        Subscribed{' '}
+                        <span role='img' aria-label='check'>
+                          ✔
+                        </span>
+                      </span>
+                    ) : null}
+                    <p>*your email is safe with me.</p>
+                  </form>
+                </div>
+              );
+            }}
+          />
         </div>
 
         <div id='mainFooter'>

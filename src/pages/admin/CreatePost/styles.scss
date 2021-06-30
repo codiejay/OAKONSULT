@@ -56,3 +56,30 @@ code {
   right: 2em;
   display: flex;
 }
+.tag-label {
+  color: $black;
+  font-size: 1.2em;
+  // font-family: ;
+  margin-left: 0.2em;
+  margin-bottom: 0.5em;
+}
+.post-tag {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-left: 1em;
+
+  .post-tag-text {
+    color: $black;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .post-tag-check {
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.2em solid $tint;
+    transition: all 0.3s ease-in-out;
+    margin-right: 1em;
+  }
+}

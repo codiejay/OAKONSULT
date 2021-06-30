@@ -20,9 +20,13 @@ const Dialog = ({
   if (dialogVisible) {
     document.body.style.overflowY = "hidden";
   } else {
-    location.pathname === "/register" ||
-      (location.pathname === "/login" &&
-        (document.body.style.overflowY = "scroll"));
+    // location.pathname === "/register" ||
+    //   (location.pathname === "/login" &&
+    //     (document.body.style.overflowY = "scroll"));
+
+    location.pathname.includes("oak-admin")
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
   }
   return (
     <div

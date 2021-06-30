@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import renderHTML from "react-render-html";
 import { firestore } from "../../firebase/config";
@@ -26,7 +27,21 @@ const Post = ({ endpoint }) => {
   }, []);
   return (
     <div>
-      {loading ? <Spinner style={{ height: "70vh" }} /> : renderHTML(data.body)}
+      <Helmet>
+        <title>{loading ? "" : data.title} &mdash; Oak</title>
+        <meta property="og:title" content={loading ? "" : data.title} />
+        <meta property="og:type" content="website" />
+        <meta name="description" content="" />
+        <meta property="og:site_name" content="Oakonsult" />
+      </Helmet>
+      {loading ? (
+        <Spinner style={{ height: "70vh" }} />
+      ) : (
+        <div>
+          <h3>{data.title}</h3>
+          {renderHTML(data.body)}
+        </div>
+      )}
     </div>
   );
 };

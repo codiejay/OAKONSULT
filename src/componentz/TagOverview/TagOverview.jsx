@@ -23,8 +23,9 @@ const TagOverview = () => {
   const [posts, setPosts] = useState([]);
   const [noPost, setNoPost] = useState(false);
   const [onEndReachedCalled, setOnEndReachedCalled] = useState(false);
+  console.log(endpoint);
   const [tagRef] = useState(
-    firestore.collection("tags").doc(endpoint).collection("posts")
+    firestore.collection("blogs").where("main_tag", "==", endpoint)
   );
   const data =
     endpoint === "for-parents"
@@ -35,19 +36,19 @@ const TagOverview = () => {
 
   const onLoadTagPosts = () => {
     setIsLoading(true);
-    const slug = tagRef.orderBy("created_at").limit(10);
+    const slug = tagRef.orderBy("posted_at", "desc").limit(10);
     slug.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         setNoPost(true);
         return;
       }
-      setNoPost(true);
       let newPosts = [];
       setLastDoc(snapshot.docs[snapshot.docs.length - 1]);
 
       for (let i = 0; i < snapshot.docs.length; i++) {
         newPosts.push(snapshot.docs[i].data());
       }
+      console.log(newPosts);
       setPosts(newPosts);
     });
   };
@@ -86,7 +87,12 @@ const TagOverview = () => {
       <div
         className="hero"
         style={{
-          backgroundImage: `linear-gradient(#0aa7ff3a, #0aa5ff90), url(${placeholder})`,
+          backgroundImage:
+            endpoint === "for-parents"
+              ? `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${placeholder})`
+              : endpoint === "for-siblings"
+              ? `linear-gradient(#ff0ac98a, #ff0ac93a), url(${placeholder})`
+              : `linear-gradient(#ffba0a8a, #ffba0a3a), url(${placeholder})`,
         }}
       >
         <div className="hero-text-wrapper">
@@ -97,7 +103,7 @@ const TagOverview = () => {
       </div>
       <Spacing height={`6em`} />
       <div className="posts">
-        {All_Blogs.map((item, index) => (
+        {posts.map((item, index) => (
           <TagOverviewPostPreview key={index} data={item} />
         ))}
       </div>

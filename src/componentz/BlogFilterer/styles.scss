@@ -9,16 +9,16 @@
   background-color: $black;
 }
 .filter-button {
-  padding: 1em 2em;
-  font-size: 1.1em;
+  padding: 1em 3em;
+  font-size: 1.3em;
   //   background-image: linear-gradient(#0aa7ff, #0aa5ff3a), url(../../assets/images/placeholder.png);
 }
 .for-parents {
-  background-color: lighten($color: $for_parents, $amount: 10);
+  background-color: #a2ddff;
 }
 .for-siblings {
-  background-color: lighten($color: $for_siblings, $amount: 10);
+  background-color: #ff8ce6;
 }
 .for-carers {
-  background-color: lighten($color: $for_carers, $amount: 10);
+  background-color: #ffdf8c;
 }

@@ -1,4 +1,5 @@
 @import "./fonts";
+@import "./colors";
 // TODO "Add Font Families"
 * {
   margin: 0;
@@ -83,4 +84,41 @@ li {
 a {
   font-size: 1.2em;
   outline: none;
+}
+
+.success-subscribe {
+  display: block;
+  background-color: #affdaf;
+  color: $success;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+  animation: toggleShow 7s linear forwards;
+  z-index: 99;
+
+  span {
+    float: right;
+  }
+}
+
+@keyframes toggleShow {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  25% {
+    display: block;
+    opacity: 1;
+  }
+
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
