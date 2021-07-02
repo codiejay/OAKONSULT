@@ -6,11 +6,15 @@ import playicon from '../Assets/playIcon.png';
 import playIconForButton from '../Assets/playIcon.svg';
 import { Link } from 'react-router-dom';
 import Popup from '../Components/PopUp/Popup';
+import Dialog from '../componentz/Dialog/Dialog';
+import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
 
 import '../Scss/Main.scss';
 
 const Main = (props) => {
   const quotes = useSelector(({ common }) => common.quotes);
+  const [dialogVisible, setDialogVisible] = useState(false);
+
   //state and variables
   const [showMenu, setShowMenu] = useState(false);
 
@@ -38,29 +42,46 @@ const Main = (props) => {
                 close
               </p>
               <ul>
-                <li>
-                  <Link to='about'>
+                <li
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
+                  <Link to='carers'>
                     <h3>01</h3>
-                    <p>About OAK</p>
+                    <p>For Carers</p>
                   </Link>
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   <Link to='/training-and-resourcing'>
                     <h3>02</h3>
                     <p>Training And Resources</p>
                   </Link>
                 </li>
-                <li>
-                  <Link to='invite'>
-                    <h3>03</h3>
-                    <p>Invite me</p>
-                  </Link>
-                </li>
-                <li>
+
+                <li
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   <Link to='churches'>
                     <h3>04</h3>
                     <p>For Churces</p>
                   </Link>
+                </li>
+
+                <li
+                  onClick={() => {
+                    setDialogVisible(true);
+                    setShowMenu(false);
+                  }}
+                >
+                  <h3>03</h3>
+                  <p>Invite me</p>
                 </li>
               </ul>
 
@@ -184,6 +205,9 @@ const Main = (props) => {
       <Header />
       <Popup data={quotes} />
       {props.children}
+      <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
+        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} />
+      </Dialog>
       <Footer />
     </div>
   );

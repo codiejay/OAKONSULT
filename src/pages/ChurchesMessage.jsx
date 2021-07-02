@@ -8,8 +8,11 @@ import Speaker from '../Assets/icons/Speaker.svg';
 import '../Scss/mediaQuery.scss';
 import VideoModal from '../Components/VideoModal/VideoModal';
 import React, { useState } from 'react';
+import Dialog from '../componentz/Dialog/Dialog';
+import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
 
 const Churches = () => {
+  const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
   let showVideoPlayer;
   DisplayModal
@@ -154,30 +157,33 @@ const Churches = () => {
         </div>
       </div>
       {/* This button uses the format of ExploreBtn.jsx and ExploreBtn.scss with little modification */}
-      <Link to='blogs/for-parents'>
+      <div
+        className='SeeRelatedArticle CTA_Btn'
+        id='btn'
+        style={{
+          backgroundColor: '#b00aff',
+          marginBottom: '6rem',
+          marginTop: '3rem',
+        }}
+        onClick={() => setDialogVisible(true)}
+      >
         <div
-          className='SeeRelatedArticle CTA_Btn'
-          id='btn'
+          id='icon'
           style={{
-            backgroundColor: '#b00aff',
-            marginBottom: '6rem',
-            marginTop: '3rem',
+            height: '50px',
+            width: '50px',
+            backgroundImage: `url(${Speaker})`,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '50%',
           }}
-        >
-          <div
-            id='icon'
-            style={{
-              height: '50px',
-              width: '50px',
-              backgroundImage: `url(${Speaker})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '50%',
-            }}
-          ></div>
-          <p>Invite me to speak</p>
-        </div>
-      </Link>
+        ></div>
+        <p>Invite me to speak</p>
+      </div>
+
+      <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
+        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} />
+      </Dialog>
     </>
   );
 };
