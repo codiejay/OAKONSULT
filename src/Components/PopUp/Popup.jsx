@@ -30,10 +30,11 @@ const Popup = (props) => {
         ></div>
         <div className='popUpcontent'>
           <h2 className='popUpTitle'>GOD PROMISES</h2>
-          <p className='popUpText'>{props.data[randomSelected].quote}</p>
-          <div className='popUpSource'>
-            {props.data[randomSelected].bible_verse}
-          </div>
+          <p className='popUpText'>
+            For God so loved the world, that He gave His only begotten Son, that
+            whoever believes in Him shall not perish, but have eternal life. ...{' '}
+          </p>
+          <div className='popUpSource'>John 3:16</div>
         </div>
 
         <div className='horizontalLine'></div>
@@ -44,3 +45,13 @@ const Popup = (props) => {
 };
 
 export default Popup;
+
+//  popUpText
+// {
+//   props.data[randomSelected].quote;
+// }
+
+// popUpSource
+// {
+//   props.data[randomSelected].bible_verse;
+// }
