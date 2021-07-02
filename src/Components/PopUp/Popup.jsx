@@ -4,7 +4,7 @@ import './Popup.scss';
 const Popup = (props) => {
   let randomSelected = Math.floor(Math.random() * props.data.length);
 
-  console.log(props.data[randomSelected]);
+  // console.log(props.data[randomSelected]);
 
   let displayValue;
   const [showPopUp, changeShowPopUp] = useState(false);

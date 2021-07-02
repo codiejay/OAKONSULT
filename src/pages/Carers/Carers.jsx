@@ -5,12 +5,19 @@ import { Link } from 'react-router-dom';
 import LibraryImg from '../../Assets/Library.svg';
 import GetCourseModal from '../../componentz/admin/GetCourseModal/GetCourseModal';
 import Dialog from '../../componentz/Dialog/Dialog';
+import VideoModal from '../../Components/VideoModal/VideoModal';
 
 import './Carers.scss';
 
 const Carers = () => {
   const [courseType, setCourseType] = useState(null);
   const [dialogVisible, setDialogVisible] = useState(false);
+  const [DisplayModal, ChangeDisplayModal] = useState(false);
+  let showVideoPlayer;
+  DisplayModal
+    ? (showVideoPlayer = { display: 'flex' })
+    : (showVideoPlayer = { display: 'none' });
+
   return (
     <>
       <Helmet>
@@ -21,6 +28,16 @@ const Carers = () => {
         <meta property='og:site_name' content='Oakonsult' />
       </Helmet>
       <div id='Carers_intro'>
+        <div
+          id='VideoModal'
+          style={showVideoPlayer}
+          onClick={() => {
+            ChangeDisplayModal(false);
+          }}
+        >
+          <VideoModal data={['https://www.youtube.com/embed/4iir1nvI444']} />
+        </div>
+
         <div className='introTextContent'>
           <div className='quoteSrc'>
             <div className='quote_dash'></div>
@@ -33,7 +50,12 @@ const Carers = () => {
             lives notwithstanding the associated challenges.
           </p>
           {/* btn */}
-          <div id='watchStory'>
+          <div
+            id='watchStory'
+            onClick={() => {
+              ChangeDisplayModal(true);
+            }}
+          >
             <div className='icon'></div>
             <p className='text'>My Message </p>
           </div>

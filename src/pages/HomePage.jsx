@@ -43,7 +43,7 @@ const Homepage = () => {
             ChangeDisplayModal(false);
           }}
         >
-          <VideoModal data={[true]} />
+          <VideoModal data={['https://www.youtube.com/embed/N5rtt_IDVsA']} />
         </div>
 
         {/* Section 1 */}

@@ -1,11 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { useState } from 'react';
 
 import './PublicSpeaking.scss';
 import TopicCard from '../../Components/TopicCard/TopicCard';
 import ChatIcon from '../../Assets/ChatIcon.svg';
+import VideoModal from '../../Components/VideoModal/VideoModal';
 
 const PublicSpeaking = () => {
+  const [DisplayModal, ChangeDisplayModal] = useState(false);
+  let showVideoPlayer;
+  DisplayModal
+    ? (showVideoPlayer = { display: 'flex' })
+    : (showVideoPlayer = { display: 'none' });
   return (
     <>
       <Helmet>
@@ -16,6 +23,16 @@ const PublicSpeaking = () => {
         <meta property='og:site_name' content='Oakonsult' />
       </Helmet>
       <div id='P_Sintro'>
+        <div
+          id='VideoModal'
+          style={showVideoPlayer}
+          onClick={() => {
+            ChangeDisplayModal(false);
+          }}
+        >
+          <VideoModal data={['https://www.youtube.com/embed/4iir1nvI444']} />
+        </div>
+
         <div className='introTextContent'>
           <div className='quoteSrc'>
             <div className='quote_dash'></div>
@@ -31,7 +48,12 @@ const PublicSpeaking = () => {
             Women forums, Retreats, Churches and Conferences.
           </p>
           {/* btn */}
-          <div id='watchStory'>
+          <div
+            id='watchStory'
+            onClick={() => {
+              ChangeDisplayModal(true);
+            }}
+          >
             <div className='icon'></div>
             <p className='text'>My Message </p>
           </div>

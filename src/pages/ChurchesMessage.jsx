@@ -6,11 +6,29 @@ import PlayIcon from '../Assets/playbutton.svg';
 import { Link } from 'react-router-dom';
 import Speaker from '../Assets/icons/Speaker.svg';
 import '../Scss/mediaQuery.scss';
+import VideoModal from '../Components/VideoModal/VideoModal';
+import React, { useState } from 'react';
 
 const Churches = () => {
+  const [DisplayModal, ChangeDisplayModal] = useState(false);
+  let showVideoPlayer;
+  DisplayModal
+    ? (showVideoPlayer = { display: 'flex' })
+    : (showVideoPlayer = { display: 'none' });
+
   return (
     <>
       <div id='Church_intro'>
+        <div
+          id='VideoModal'
+          style={showVideoPlayer}
+          onClick={() => {
+            ChangeDisplayModal(false);
+          }}
+        >
+          <VideoModal data={['https://www.youtube.com/embed/Ta8mky1mb4s']} />
+        </div>
+
         <div className='introTextContent'>
           <div className='quoteSrc'>
             <div className='quote_dash'></div>
@@ -28,7 +46,12 @@ const Churches = () => {
             also precious in God’s sight. Gen 1:27; Romans 8:17
           </p>
           {/* btn */}
-          <div id='watchStory'>
+          <div
+            id='watchStory'
+            onClick={() => {
+              ChangeDisplayModal(true);
+            }}
+          >
             <div className='icon'></div>
             <p className='text'>My Message To Churches</p>
           </div>
