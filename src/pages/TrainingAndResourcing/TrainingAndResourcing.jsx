@@ -5,8 +5,13 @@ import { useState } from 'react';
 import './TrainingAndResourcing.scss';
 import TopicCard from '../../Components/TopicCard/TopicCard';
 import VideoModal from '../../Components/VideoModal/VideoModal';
+import Dialog from '../../componentz/Dialog/Dialog';
+import InviteToSpeakMOdal from '../../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
+import GetCourseModal from '../../componentz/admin/GetCourseModal/GetCourseModal';
 
 const TrainingAndResourcing = () => {
+  const [courseType, setCourseType] = useState(null);
+  const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
   let showVideoPlayer;
   DisplayModal
@@ -103,7 +108,16 @@ const TrainingAndResourcing = () => {
             to know what to say or how to act around them?
           </li>
         </ul>
+        <div
+          className='getCourse'
+          onClick={() => {
+            setDialogVisible(true);
+          }}
+        >
+          GET THIS COURSE
+        </div>
       </div>
+
       <div id='TargetAndGoals'>
         <div id='ForWho'>
           <h2>Who is this for?</h2>
@@ -155,6 +169,13 @@ const TrainingAndResourcing = () => {
           Conferences or as workshops.
         </div>
       </div>
+
+      <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
+        <GetCourseModal
+          courseType={courseType}
+          setDialogVisible={setDialogVisible}
+        />
+      </Dialog>
     </>
   );
 };

@@ -21,7 +21,7 @@ const Carers = () => {
   return (
     <>
       <Helmet>
-        <title>Careers &mdash; Oak</title>
+        <title>Carers &mdash; Oak</title>
         <meta property='og:title' content='Churches &mdash; Oak' />
         <meta property='og:type' content='website' />
         <meta name='description' content='' />

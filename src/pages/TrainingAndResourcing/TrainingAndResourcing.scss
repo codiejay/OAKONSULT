@@ -177,6 +177,25 @@ $Archivo: 'Archivo', sans-serif;
       border-radius: 10px;
     }
   }
+
+  .getCourse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 469px;
+    height: 76px;
+    background: $pink;
+    border-radius: 900px;
+    color: white;
+    cursor: pointer;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 31px;
+    text-transform: capitalize;
+    color: #ffffff;
+  }
 }
 
 #TargetAndGoals {
@@ -393,6 +412,11 @@ $Archivo: 'Archivo', sans-serif;
         letter-spacing: normal;
         margin-bottom: 1.5rem;
       }
+    }
+
+    .getCourse {
+      width: 100%;
+      font-size: 17px;
     }
   }
 
