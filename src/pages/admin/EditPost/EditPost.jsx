@@ -116,13 +116,6 @@ const EditPost = () => {
             height={`${GetWindowDimensions().height - 600}px`}
           />
           <Spacing height="1em" />
-          {/* <CustomInput
-            label="Hook"
-            value={hook}
-            type={"text"}
-            onChange={({ target }) => setHook(target.value)}
-            required
-          /> */}
           <CustomInput
             label="Thumbnail"
             value={thumbnail}
@@ -132,10 +125,6 @@ const EditPost = () => {
           />
         </div>
         <div className="editor">
-          <code>
-            {'<img src="https://" alt="image description" height="700px"/>'}
-          </code>
-          <Spacing height="1em" />
           <SunEditor
             setContents={data.body}
             onChange={handleChange}

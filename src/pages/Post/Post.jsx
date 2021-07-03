@@ -10,7 +10,6 @@ import "./styles.scss";
 const Post = ({ endpoint }) => {
   const location = useLocation();
   const query = location.search;
-  console.log(query);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -37,10 +36,7 @@ const Post = ({ endpoint }) => {
       {loading ? (
         <Spinner style={{ height: "70vh" }} />
       ) : (
-        <div>
-          <h3>{data.title}</h3>
-          {renderHTML(data.body)}
-        </div>
+        <div>{renderHTML(data.body)}</div>
       )}
     </div>
   );
