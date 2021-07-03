@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SunEditor from "suneditor-react";
 import plugins from "suneditor/src/plugins";
 import image from "suneditor/src/plugins/dialog/link";
@@ -24,10 +24,12 @@ const CreatePost = () => {
   const [tags, setTags] = useState(["all"]);
   const [ready, setReady] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const onSetHook = (content) => {
     setHook(content);
   };
-  const handleChange = (content) => {
+  const handleChange = (content, core) => {
+    console.log(core);
     setBody(content);
   };
   const getPostInfo = () => {
@@ -181,10 +183,6 @@ const CreatePost = () => {
           />
         </div>
         <div className="editor">
-          <code>
-            {'<img src="https://" alt="image description" height="700px"/>'}
-          </code>
-          <Spacing height="1em" />
           <SunEditor
             onChange={handleChange}
             enableToolbar={true}
