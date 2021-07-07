@@ -41,10 +41,15 @@ const Homepage = () => {
           id='VideoModal'
           style={showVideoPlayer}
           onClick={() => {
-            ChangeDisplayModal(false);
+            // ChangeDisplayModal(false);
           }}
         >
-          <VideoModal data={['https://www.youtube.com/embed/N5rtt_IDVsA']} />
+          <VideoModal
+            data={['https://www.youtube.com/embed/N5rtt_IDVsA']}
+            closeFunc={() => {
+              ChangeDisplayModal(false);
+            }}
+          />
         </div>
 
         {/* Section 1 */}
