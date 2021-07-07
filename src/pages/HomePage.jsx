@@ -89,9 +89,8 @@ const Homepage = () => {
           <div id='whoAreYouContent'>
             <section className='AboutDeets'>
               <h1>
-                Are you a Parent Carer,
-                <br /> Sibling of a child or young person with disabilities/
-                special needs or a faith based organisation ?
+                Are you a Parent Carer of a Child /Young Person with
+                Disabilities or Special Needs OR A Faith-Based Organisation
               </h1>
               <p>
                 OAK’s mandate is to introduce the gospel of Christ to Carers. We
@@ -108,7 +107,7 @@ const Homepage = () => {
               <TagDetail
                 data={[
                   {
-                    tagName: 'For Parents.',
+                    tagName: 'For Parent.',
                     tagContent:
                       'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
                   },
