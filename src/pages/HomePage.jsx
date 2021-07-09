@@ -98,16 +98,15 @@ const Homepage = () => {
                 biblical principles and truth.
               </p>
               <div className='tagGroup'>
-                <UserTag data={['For Parents']} />
-                <UserTag data={['For Siblings']} />
-                <UserTag data={['For Carers']} />
+                <UserTag data={['For Parent Carers']} />
+                <UserTag data={['For Churches']} />
               </div>
             </section>
             <section className='userCategories'>
               <TagDetail
                 data={[
                   {
-                    tagName: 'For Parent.',
+                    tagName: 'FOR PARENT CARERS',
                     tagContent:
                       'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
                   },
@@ -116,18 +115,9 @@ const Homepage = () => {
               <TagDetail
                 data={[
                   {
-                    tagName: 'For Siblings.',
+                    tagName: 'FOR CHURCHES',
                     tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
-                  },
-                ]}
-              />
-              <TagDetail
-                data={[
-                  {
-                    tagName: 'For Carers.',
-                    tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
+                      'OAK’s mandate is to introduce the gospel of Christ to Churches. We empower Churches and families',
                   },
                 ]}
               />
@@ -137,10 +127,7 @@ const Homepage = () => {
 
         {/* Section 3 */}
         <div id='RssCategories'>
-          <h2 id='sectionTitle'>
-            Something
-            <br /> for everyone
-          </h2>
+          <h2 id='sectionTitle'>OUR OFFERINGS</h2>
           <p id='sectionDetails'>
             OAK’s mandate is to introduce the gospel of Christ to Carers. We
             empower Carers and families dealing with disability matters with
@@ -149,7 +136,22 @@ const Homepage = () => {
           </p>
 
           <div className='cards_mother'>
-            <div className='rssCard cardOne'>
+            <div className='rssCard parents'>
+              <h2 className='cardTitle'>FOR PARENT CARERS</h2>
+              <p className='cardContent'>
+                OAK’s mandate is to introduce the gospel of Christ to Carers. We
+                empower Carers and families dealing with disability matters with
+                biblical principles.
+              </p>
+              <Link to='./carers'>
+                <div id='learnMore_btn'>
+                  <p>Learn More</p>
+                  <div className='learnMore_icon'></div>
+                </div>
+              </Link>
+            </div>
+
+            <div className='rssCard churches'>
               <h2 className='cardTitle'>
                 FOR CHURCHES AND
                 <br /> FAITH-BASED ORGANISATIONS
@@ -167,37 +169,7 @@ const Homepage = () => {
               </Link>
             </div>
 
-            <div className='rssCard cardTwo'>
-              <h2 className='cardTitle'>FOR PARENT CARERS</h2>
-              <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
-              </p>
-              <Link to='./carers'>
-                <div id='learnMore_btn'>
-                  <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
-                </div>
-              </Link>
-            </div>
-
-            <div className='rssCard cardThree'>
-              <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
-              <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
-              </p>
-              <Link to='./public-speaking'>
-                <div id='learnMore_btn'>
-                  <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
-                </div>
-              </Link>
-            </div>
-
-            <div className='rssCard cardFour'>
+            <div className='rssCard training'>
               <h2 className='cardTitle'>TRAINING AND RESOURCES</h2>
               <p className='cardContent'>
                 OAK’s mandate is to introduce the gospel of Christ to Carers. We
@@ -205,6 +177,21 @@ const Homepage = () => {
                 biblical principles.
               </p>
               <Link to='./training-and-resourcing'>
+                <div id='learnMore_btn'>
+                  <p>Learn More</p>
+                  <div className='learnMore_icon'></div>
+                </div>
+              </Link>
+            </div>
+
+            <div className='rssCard publicSpeaking'>
+              <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
+              <p className='cardContent'>
+                OAK’s mandate is to introduce the gospel of Christ to Carers. We
+                empower Carers and families dealing with disability matters with
+                biblical principles.
+              </p>
+              <Link to='./public-speaking'>
                 <div id='learnMore_btn'>
                   <p>Learn More</p>
                   <div className='learnMore_icon'></div>
@@ -272,14 +259,11 @@ const Homepage = () => {
           <SectionIcon image={StackIcon} />
           <div id='syllabusIntroContent'>
             <div id='syllabusIntroTitle'>
-              <h2>
-                The Complete
-                <br /> Syllabus <br /> for everyone.
-                <br />
-                for you
-              </h2>
+              <h2>OAKONSULT’s TRAINING PROGRAMS</h2>
               <Link to='./training-and-resourcing'>
-                <ExploreBtn data={['Browse Our Syllabus', syllabusIcon]} />
+                <ExploreBtn
+                  data={['Browse Our Training Programs', syllabusIcon]}
+                />
               </Link>
             </div>
 
@@ -289,6 +273,16 @@ const Homepage = () => {
                   Title: 'Beyond Suffering',
                   Content:
                     ' Beyond Suffering Course has been designed by the Joni and Friends Ministry (USA) to explore the problem of suffering in general and then to examine ways in which the disability community provides the church with a dynamic model of spiritual transformation.',
+
+                  Link: 'training-and-resourcing',
+                }}
+              />
+
+              <SyllabusCard
+                data={{
+                  Title: 'Project Me',
+                  Content:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, consequat dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 
                   Link: 'training-and-resourcing',
                 }}

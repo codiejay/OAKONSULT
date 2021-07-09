@@ -101,13 +101,13 @@ $yellow: #ffba0a;
 #Carer_goals {
   background: url(../../Assets/images/carers.jpg);
   @include BGConfig(120%, center);
-  min-height: 90vh;
+  min-height: 80vh;
   height: max-content;
   border-radius: 10px;
 
   .bgLayer {
-    background: rgba(10, 167, 255, 0.85);
-    min-height: 90vh;
+    background: rgba(10, 165, 255, 0.8);
+    min-height: 80vh;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -124,8 +124,8 @@ $yellow: #ffba0a;
     font-family: $Archivo;
     font-style: normal;
     font-weight: normal;
-    font-size: 33px;
-    line-height: 59px;
+    font-size: 26.4px;
+    line-height: 47.2px;
     text-transform: capitalize;
     color: #ffffff;
     margin: 2rem 0;
@@ -276,8 +276,15 @@ $yellow: #ffba0a;
       margin-bottom: 6rem;
     }
   }
+  #Carer_goals {
+    min-height: 80vh;
+    .bgLayer {
+      min-height: 80vh;
+    }
+  }
 }
 
+// Mobile
 @media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
   #Carers_intro {
     flex-direction: column-reverse;

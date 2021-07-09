@@ -94,13 +94,13 @@ $Archivo: 'Archivo', sans-serif;
 #Training_goals {
   background: url(../../Assets/images/hugging.svg);
   @include BGConfig(120%, center);
-  min-height: 90vh;
+  min-height: 80vh;
   height: max-content;
   border-radius: 10px;
 
   .bgLayer {
     background: rgba(255, 10, 201, 0.85);
-    min-height: 90vh;
+    min-height: 80vh;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -118,8 +118,8 @@ $Archivo: 'Archivo', sans-serif;
     font-family: $Archivo;
     font-style: normal;
     font-weight: normal;
-    font-size: 33px;
-    line-height: 59px;
+    font-size: 26.4px;
+    line-height: 47.2px;
     text-transform: capitalize;
     color: #ffffff;
     margin: 2rem 0;

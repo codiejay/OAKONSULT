@@ -49,17 +49,7 @@ const Main = (props) => {
                 >
                   <Link to='carers'>
                     <h3>01</h3>
-                    <p>For Carers</p>
-                  </Link>
-                </li>
-                <li
-                  onClick={() => {
-                    setShowMenu(false);
-                  }}
-                >
-                  <Link to='/training-and-resourcing'>
-                    <h3>02</h3>
-                    <p>Training And Resources</p>
+                    <p>PARENT CARERS</p>
                   </Link>
                 </li>
 
@@ -69,8 +59,19 @@ const Main = (props) => {
                   }}
                 >
                   <Link to='churches'>
-                    <h3>04</h3>
-                    <p>For Churces</p>
+                    <h3>02</h3>
+                    <p>CHURCHES AND FAITH BASED ORGANISATIONS</p>
+                  </Link>
+                </li>
+
+                <li
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
+                  <Link to='/training-and-resourcing'>
+                    <h3>03</h3>
+                    <p>TRAINING AND RESOURCING</p>
                   </Link>
                 </li>
 
@@ -80,7 +81,7 @@ const Main = (props) => {
                     setShowMenu(false);
                   }}
                 >
-                  <h3>03</h3>
+                  <h3>04</h3>
                   <p>Invite me</p>
                 </li>
               </ul>

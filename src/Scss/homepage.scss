@@ -98,7 +98,7 @@ $pink: #ff34ba;
         // width: 700px;
         h1 {
           font-family: $DM;
-          font-size: 64px;
+          font-size: 54px;
           font-weight: normal;
           line-height: 87px;
           margin: 2rem 0;
@@ -119,7 +119,7 @@ $pink: #ff34ba;
         }
         .tagGroup {
           display: flex;
-          justify-content: space-between;
+          justify-content: space-evenly;
           max-width: 410px;
         }
       }
@@ -192,25 +192,25 @@ $pink: #ff34ba;
           }
         }
       }
-      .cardOne {
+      .churches {
         background: #eec9ff;
         div {
           background: #b00aff;
         }
       }
-      .cardTwo {
+      .parents {
         background: #bce7ff;
         div {
           background: #0aa7ff;
         }
       }
-      .cardThree {
+      .publicSpeaking {
         background: #ffd9c9;
         div {
           background: #ff6725;
         }
       }
-      .cardFour {
+      .training {
         background: #ffc9ed;
         div {
           background: #ff34ba;

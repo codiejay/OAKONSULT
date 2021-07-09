@@ -37,7 +37,12 @@ const TrainingAndResourcing = () => {
             ChangeDisplayModal(false);
           }}
         >
-          <VideoModal data={['https://www.youtube.com/embed/4iir1nvI444']} />
+          <VideoModal
+            data={['https://www.youtube.com/embed/4iir1nvI444']}
+            closeFunc={() => {
+              ChangeDisplayModal(false);
+            }}
+          />
         </div>
 
         <div className='introTextContent'>
