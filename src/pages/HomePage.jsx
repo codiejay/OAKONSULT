@@ -206,19 +206,36 @@ const Homepage = () => {
           <SectionIcon image={Star} />
           <div className='aboutContent'>
             <div id='Q_A'>
-              <h1>Who?</h1>
               <p>
-                Olufunke has lived a life of ‘above and beyond’ in the face of
-                many difficult and challenging situations. Her enduring vision
-                is to see Carers within this sphere empowered enough to push
-                forward
-              </p>
-              <h1>Why?</h1>
-              <p>
-                Olufunke has lived a life of ‘above and beyond’ in the face of
-                many difficult and challenging situations. Her enduring vision
-                is to see Carers within this sphere empowered enough to push
-                forward
+                Olufunke is the founder of OAKONSULT DISABILITIES OUTREACH
+                (OAKONSULT). She strongly believes in the difference the
+                ‘God-factor’ makes in caring roles and is passionate about
+                Carers finding fulfillment at whatever stage they are at in
+                their individual journeys. Olufunke speaks from the heart and
+                draws extensively from her walk with the Lord as a Carer,
+                sharing the love of Christ among families within this sphere. In
+                addition to her caring role, Olufunke is a Beyond Suffering
+                Course Instructor with the Joni & Friends Ministry (USA),
+                certified Personal Development Coach from the Coaching Academy,
+                UK, and a Public Speaker.
+                <br />
+                <br />
+                Olufunke had her career background in both specialist and
+                generalist roles in human resource practicing across the
+                educational, banking, consulting, and telecommunications
+                sectors. She made a transition into the field of disabilities
+                due to her personal life experience, working within the third
+                sector industry, to support families of children and young
+                people with Special Educational Needs and Disabilities.
+                Seamlessly combining transferable skills from her experience
+                with her latest career move, she empowers parents/carers with
+                essential information and vital tools needed to support them as
+                they continue the enormous task of providing care for their
+                children and young people with disabilities. She recently had
+                the privilege to lead on a policy implementation project of the
+                Children and Families Act 2014 which brought a needed change to
+                the type of support available to children with Special
+                Educational Needs in the UK.
               </p>
             </div>
             <div id='Founder'>
