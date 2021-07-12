@@ -153,7 +153,7 @@ const Homepage = () => {
 
             <div className='rssCard churches'>
               <h2 className='cardTitle'>
-                FOR CHURCHES AND
+                CHURCHES AND
                 <br /> FAITH-BASED ORGANISATIONS
               </h2>
               <p className='cardContent'>
