@@ -98,7 +98,7 @@ $pink: #ff34ba;
         // width: 700px;
         h1 {
           font-family: $DM;
-          font-size: 64px;
+          font-size: 54px;
           font-weight: normal;
           line-height: 87px;
           margin: 2rem 0;
@@ -119,7 +119,7 @@ $pink: #ff34ba;
         }
         .tagGroup {
           display: flex;
-          justify-content: space-between;
+          justify-content: space-evenly;
           max-width: 410px;
         }
       }
@@ -192,25 +192,25 @@ $pink: #ff34ba;
           }
         }
       }
-      .cardOne {
+      .churches {
         background: #eec9ff;
         div {
           background: #b00aff;
         }
       }
-      .cardTwo {
+      .parents {
         background: #bce7ff;
         div {
           background: #0aa7ff;
         }
       }
-      .cardThree {
+      .publicSpeaking {
         background: #ffd9c9;
         div {
           background: #ff6725;
         }
       }
-      .cardFour {
+      .training {
         background: #ffc9ed;
         div {
           background: #ff34ba;
@@ -225,28 +225,22 @@ $pink: #ff34ba;
     .aboutContent {
       margin-top: 2rem;
       display: flex;
+      width: 100%;
       #Q_A {
-        h1 {
-          color: $teal;
-          font-size: 90px;
-          font-family: $DM;
-          text-transform: uppercase;
-          line-height: 77px;
-          font-weight: normal;
-          margin-bottom: 2rem;
-        }
-
+        // width: 150%;
+        width: 30%;
         p {
-          color: $grey;
+          //  margin-bottom: 2rem;
           font-family: $Archivo;
-          font-size: 22px;
-          line-height: 130.1%;
-          margin-bottom: 6rem;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 25px;
+          text-transform: capitalize;
         }
       }
       #Founder {
-        flex-grow: 2;
         margin: 0 2rem;
+        width: 40%;
         #founderImg {
           height: 500px;
           width: 500px;
@@ -273,6 +267,8 @@ $pink: #ff34ba;
         }
       }
       #aboutFounder {
+        width: 30%;
+        flex-grow: 1;
         .founderDetails {
           margin-bottom: 2rem;
           font-family: $Archivo;
@@ -307,7 +303,7 @@ $pink: #ff34ba;
       }
       #syllabusCards {
         #Card:nth-child(1) {
-          margin-bottom: 4rem;
+          margin: 4rem 0;
         }
         #Card:nth-child(2) {
           margin-left: 45%;
@@ -361,16 +357,18 @@ $pink: #ff34ba;
       .aboutContent {
         flex-direction: column;
         #Q_A {
-          //   margin: 0 auto;
-          //   width: 80%;
+          margin-bottom: 2rem;
+          width: 100%;
         }
         #Founder {
+          width: 100%;
           #founderImg {
             margin: 0 auto;
           }
           margin-bottom: 4rem;
         }
         #aboutFounder {
+          width: 100%;
           #watchStory {
             margin: 0 auto;
           }
@@ -383,6 +381,14 @@ $pink: #ff34ba;
         #syllabusIntroTitle {
           h2 {
             font-size: 36px;
+          }
+        }
+        #syllabusCards {
+          #Card:nth-child(1) {
+            margin-bottom: 4rem;
+          }
+          #Card:nth-child(2) {
+            margin-left: 0;
           }
         }
       }
@@ -482,6 +488,8 @@ $pink: #ff34ba;
       .aboutContent {
         flex-direction: column;
         #Q_A {
+          width: 100%;
+          margin-bottom: 2rem;
           h1 {
             font-size: 48px;
             line-height: normal;
@@ -489,6 +497,8 @@ $pink: #ff34ba;
           }
         }
         #Founder {
+          width: 100%;
+          margin: 0 auto;
           #founderImg {
             margin: 0 auto;
             height: 200px;
@@ -509,6 +519,7 @@ $pink: #ff34ba;
           }
         }
         #aboutFounder {
+          width: 100%;
           margin-top: 1rem;
         }
       }
@@ -522,6 +533,11 @@ $pink: #ff34ba;
           h2 {
             font-size: 24px;
           }
+          #btn {
+            width: max-content;
+            padding-right: 1rem;
+            padding-left: 0;
+          }
         }
         #syllabusCards {
           #Card {
@@ -533,6 +549,12 @@ $pink: #ff34ba;
                 width: 100%;
               }
             }
+          }
+          #Card:nth-child(1) {
+            margin-bottom: 4rem;
+          }
+          #Card:nth-child(2) {
+            margin-left: 0;
           }
         }
       }

@@ -29,7 +29,12 @@ const Churches = () => {
             ChangeDisplayModal(false);
           }}
         >
-          <VideoModal data={['https://www.youtube.com/embed/Ta8mky1mb4s']} />
+          <VideoModal
+            data={['https://www.youtube.com/embed/Ta8mky1mb4s']}
+            closeFunc={() => {
+              ChangeDisplayModal(false);
+            }}
+          />
         </div>
 
         <div className='introTextContent'>

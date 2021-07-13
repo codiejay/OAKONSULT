@@ -7,7 +7,7 @@ const SyllabusCard = (props) => {
       <div className='cardContent'>
         <p className='classText'>{props.data.Content}</p>
         <Link to={props.data.Link}>
-          <div className='accessSyllabus'>Access This Syllabus</div>
+          <div className='accessSyllabus'>Access this Program</div>
         </Link>
       </div>
     </div>
