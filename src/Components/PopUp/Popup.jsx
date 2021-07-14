@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Popup.scss";
 
 const Popup = (props) => {
-  let randomSelected = Math.floor(Math.random() * props.data.length);
+  let randomSelected = props.data? Math.floor(Math.random() * props.data.length):{quote: "", bible_verse: ""};
 
   // console.log(props.data[randomSelected]);
 
@@ -35,17 +35,6 @@ const Popup = (props) => {
           </p>
           <div className="popUpSource">
             {props.data[randomSelected].bible_verse || ""}
-        {/* <div className="popUpcontent">
-          <h2 className="popUpTitle">GOD PROMISES</h2>
-          <p className="popUpText">
-            {props.data[randomSelected].quote &&
-              props.data[randomSelected].quote}
-          </p>
-          <div className="popUpSource">
-            {props.data[randomSelected].bible_verse &&
-              props.data[randomSelected].bible_verse}
-          </div>
-        </div> */}
 </div>
     </div>
 
