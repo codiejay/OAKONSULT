@@ -4,18 +4,15 @@ const TagDetail = (props) => {
   let color;
   if (props.data[0].tagName) {
     switch (props.data[0].tagName) {
-      case 'For Parents.':
+      case 'FOR PARENT CARERS':
         color = { background: '#0AA7FF' };
         break;
-      case 'For Siblings.':
-        color = { background: '#FF0AC9' };
-        break;
-      case 'For Carers.':
-        color = { background: '#FFBA0A' };
+      case 'FOR CHURCHES':
+        color = { background: '#b00aff' };
         break;
 
       default:
-        console.log("There's a bug in tag color switcher");
+        console.info("There's a bug in tag color switcher");
         break;
     }
   }

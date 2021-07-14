@@ -28,6 +28,13 @@ const Popup = (props) => {
             changeShowPopUp(false);
           }}
         ></div>
+        <div className="popUpcontent">
+          <h2 className="popUpTitle">GOD PROMISES</h2>
+          <p className="popUpText">
+            {props.data[randomSelected].quote || ""}
+          </p>
+          <div className="popUpSource">
+            {props.data[randomSelected].bible_verse || ""}
         {/* <div className="popUpcontent">
           <h2 className="popUpTitle">GOD PROMISES</h2>
           <p className="popUpText">
@@ -39,6 +46,8 @@ const Popup = (props) => {
               props.data[randomSelected].bible_verse}
           </div>
         </div> */}
+</div>
+    </div>
 
         <div className="horizontalLine"></div>
         <div className="popupImg"></div>

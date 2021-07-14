@@ -5,14 +5,11 @@ const UserTag = (props) => {
   let color;
   if (props.data[0]) {
     switch (props.data[0]) {
-      case 'For Parents':
+      case 'For Parent Carers':
         color = { background: '#0AA7FF' };
         break;
-      case 'For Siblings':
+      case 'For Churches':
         color = { background: '#FF0AC9' };
-        break;
-      case 'For Carers':
-        color = { background: '#FFBA0A' };
         break;
 
       default:
