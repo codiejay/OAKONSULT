@@ -25,7 +25,7 @@ const Popup = (props) => {
         <div
           className='close'
           onClick={() => {
-            // changeShowPopUp(false);
+            changeShowPopUp(false);
           }}
         ></div>
         <div className="popUpcontent">
