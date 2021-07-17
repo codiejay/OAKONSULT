@@ -87,7 +87,6 @@ $publicSpeakingOrange: #ff6725;
 
   .introVideoButton {
     width: 40%;
-    // background: rgb(201, 152, 152);
 
     .hexagon {
       height: 600px;
@@ -102,13 +101,11 @@ $publicSpeakingOrange: #ff6725;
 #PS_goals {
   background: url(../../Assets/images/training.jpg);
   @include BGConfig(120%, center);
-  min-height: 80vh;
   height: max-content;
   border-radius: 10px;
 
   .bgLayer {
     background: rgba(255, 103, 37, 0.85);
-    min-height: 80vh;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;

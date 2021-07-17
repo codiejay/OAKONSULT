@@ -8,6 +8,9 @@ $purple: #ff0ac9;
 $yellow: #ffba0a;
 $pink: #ff34ba;
 
+$oakGold: #cac492;
+$oakTeal: #41a196;
+
 // Mixins
 @mixin BGConfig($size, $position) {
   background-position: $position;
@@ -119,8 +122,11 @@ $pink: #ff34ba;
         }
         .tagGroup {
           display: flex;
-          justify-content: space-evenly;
           max-width: 410px;
+
+          :nth-child(2) {
+            margin-left: 2rem;
+          }
         }
       }
       .userCategories {
@@ -155,11 +161,11 @@ $pink: #ff34ba;
       display: flex;
       flex-wrap: wrap;
       .rssCard {
-        background: #eec9ff;
         margin: 1rem;
         padding: 1.75rem;
         width: 600px;
-        height: 400px;
+        min-height: 400px;
+        height: max-content;
         border-radius: 10px;
         .cardTitle {
           font-family: $Archivo;
@@ -193,27 +199,32 @@ $pink: #ff34ba;
         }
       }
       .churches {
-        background: #eec9ff;
-        div {
-          background: #b00aff;
+        background: $oakGold;
+        color: white;
+        #learnMore_btn {
+          background: $oakTeal;
+          border: 3px solid $oakGold;
         }
       }
       .parents {
-        background: #bce7ff;
-        div {
-          background: #0aa7ff;
+        background: $oakTeal;
+        color: white;
+        #learnMore_btn {
+          background: $oakGold;
         }
       }
       .publicSpeaking {
-        background: #ffd9c9;
-        div {
-          background: #ff6725;
+        background: $oakTeal;
+        color: white;
+        #learnMore_btn {
+          background: $oakGold;
         }
       }
       .training {
-        background: #ffc9ed;
-        div {
-          background: #ff34ba;
+        background: $oakGold;
+        color: white;
+        #learnMore_btn {
+          background: $oakTeal;
         }
       }
     }
@@ -229,6 +240,12 @@ $pink: #ff34ba;
       #Q_A {
         // width: 150%;
         width: 30%;
+        h1 {
+          font-family: $DM;
+          font-size: 3rem;
+          line-height: normal;
+          letter-spacing: normal;
+        }
         p {
           //  margin-bottom: 2rem;
           font-family: $Archivo;
@@ -248,23 +265,24 @@ $pink: #ff34ba;
           @include BGConfig(100%, center);
           border-radius: 300px 300px 0 0;
           position: relative;
+          margin-bottom: 2rem;
 
           &::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
-            background: rgba(0, 155, 167, 0.51);
+            background: #009ba782;
             border-radius: 300px 300px 0 0;
             height: 500px;
             width: 500px;
           }
         }
-        h1 {
-          text-align: center;
-          font-family: $DM;
-          font-size: 90px;
-        }
+        // h1 {
+        //   text-align: center;
+        //   font-family: $DM;
+        //   font-size: 90px;
+        // }
       }
       #aboutFounder {
         width: 30%;

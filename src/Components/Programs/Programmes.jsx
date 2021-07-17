@@ -18,9 +18,8 @@ const Programmes = () => {
     <div id='Programmes'>
       <div id='ProgrammesIntro'>
         <h2 id='Title'>
-          PROGRAMMES
-          <br /> TAILORED
-          <br /> FOR EVERYONE
+          OUR
+          <br /> PROGRAMMES
         </h2>
         <div id='calenderImage'></div>
       </div>

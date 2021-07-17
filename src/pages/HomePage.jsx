@@ -28,24 +28,34 @@ import VideoModal from '../Components/VideoModal/VideoModal';
 const Homepage = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
+  const [W_SdisplayModal, ChangeW_SdisplayModal] = useState(false);
 
   let showVideoPlayer;
   DisplayModal
     ? (showVideoPlayer = { display: 'flex' })
     : (showVideoPlayer = { display: 'none' });
 
+  let showStoryPlayer;
+  W_SdisplayModal
+    ? (showStoryPlayer = { display: 'flex' })
+    : (showStoryPlayer = { display: 'none' });
+
   return (
     <>
       <section id='homePage'>
-        <div
-          id='VideoModal'
-          style={showVideoPlayer}
-          onClick={() => {
-            // ChangeDisplayModal(false);
-          }}
-        >
+        {/* Intro Video Player */}
+        <div id='VideoModal' style={showVideoPlayer}>
           <VideoModal
-            data={['https://www.youtube.com/embed/N5rtt_IDVsA']}
+            data={['https://www.youtube.com/embed/-ypL6F7Mj0A']}
+            closeFunc={() => {
+              ChangeDisplayModal(false);
+            }}
+          />
+        </div>
+        {/* Watch My Story Video Player */}
+        <div id='VideoModal' style={showStoryPlayer}>
+          <VideoModal
+            data={['https://www.youtube.com/embed/dQw4w9WgXcQ']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}
@@ -98,8 +108,8 @@ const Homepage = () => {
                 biblical principles and truth.
               </p>
               <div className='tagGroup'>
-                <UserTag data={['For Parent Carers']} />
-                <UserTag data={['For Churches']} />
+                <UserTag data={['Parent Carers']} />
+                <UserTag data={['Churches']} />
               </div>
             </section>
             <section className='userCategories'>
@@ -108,7 +118,7 @@ const Homepage = () => {
                   {
                     tagName: 'FOR PARENT CARERS',
                     tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
+                      'Providing care for children or family members with disabilities, complex or life limiting conditions impact Carers in different ways.',
                   },
                 ]}
               />
@@ -117,7 +127,7 @@ const Homepage = () => {
                   {
                     tagName: 'FOR CHURCHES',
                     tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Churches. We empower Churches and families',
+                      'Only the gospel of Jesus can make a lasting, significant, and eternal difference in the lives of people with disabilities.',
                   },
                 ]}
               />
@@ -139,9 +149,11 @@ const Homepage = () => {
             <div className='rssCard parents'>
               <h2 className='cardTitle'>FOR PARENT CARERS</h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                Providing care for children or family members with disabilities,
+                complex or life limiting conditions impact Carers in different
+                ways. This could be physical, emotional, social, financial, or
+                spiritual just to mention a few; and in many instances, a
+                combination of all these factors.
               </p>
               <Link to='./carers'>
                 <div id='learnMore_btn'>
@@ -157,9 +169,11 @@ const Homepage = () => {
                 <br /> FAITH-BASED ORGANISATIONS
               </h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                Only the gospel of Jesus can make a lasting, significant, and
+                eternal difference in the lives of people with disabilities;
+                just like it is for every living being on the surface of the
+                earth! The needs of families dealing with disabilities go beyond
+                charitable offers, as helpful as these are.
               </p>
               <Link to='./churches'>
                 <div id='learnMore_btn'>
@@ -172,9 +186,10 @@ const Homepage = () => {
             <div className='rssCard training'>
               <h2 className='cardTitle'>TRAINING AND RESOURCES</h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                In partnership with Joni & Friends Ministry (USA), we train and
+                work with churches to create Special Needs group/unit focused on
+                meeting the needs and integrating people with special needs/ or
+                disability in church life.
               </p>
               <Link to='./training-and-resourcing'>
                 <div id='learnMore_btn'>
@@ -187,9 +202,8 @@ const Homepage = () => {
             <div className='rssCard publicSpeaking'>
               <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                I speak to faith and non-faith-based audiences at: Carer’s
+                Groups, Women forums, Retreats, Churches and Conferences.
               </p>
               <Link to='./public-speaking'>
                 <div id='learnMore_btn'>
@@ -206,6 +220,7 @@ const Homepage = () => {
           <SectionIcon image={Star} />
           <div className='aboutContent'>
             <div id='Q_A'>
+              <h1>Meet Olufunke Adeloye</h1>
               <p>
                 Olufunke is the founder of OAKONSULT DISABILITIES OUTREACH
                 (OAKONSULT). She strongly believes in the difference the
@@ -240,7 +255,6 @@ const Homepage = () => {
             </div>
             <div id='Founder'>
               <div id='founderImg'></div>
-              <h1>OLUFUNKE ADELOYE</h1>
               <ExploreBtn
                 onClick={() => setDialogVisible(true)}
                 data={['Speak With Me', ChatIcon, true]}
@@ -266,7 +280,13 @@ const Homepage = () => {
                 Award) from the Coaching Academy, UK, MA International Social
                 Policy from the University of Kent, Canterbury
               </p>
-              <WatchStory data={{ text: 'Watch My Story', icon: PlayIcon }} />
+              <WatchStory
+                // onClick={() => {
+                //   ChangeW_SdisplayModal(true);
+                //   console.log('Shots fired');
+                // }}
+                data={{ text: 'Watch My Story', icon: PlayIcon }}
+              />
             </div>
           </div>
         </div>

@@ -94,13 +94,11 @@ $Archivo: 'Archivo', sans-serif;
 #Training_goals {
   background: url(../../Assets/images/hugging.svg);
   @include BGConfig(120%, center);
-  min-height: 80vh;
   height: max-content;
   border-radius: 10px;
 
   .bgLayer {
     background: rgba(255, 10, 201, 0.85);
-    min-height: 80vh;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
