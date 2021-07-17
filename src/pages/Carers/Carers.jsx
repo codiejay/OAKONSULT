@@ -52,7 +52,7 @@ const Carers = () => {
           <p id='quoteText'>
             At OAKONSULT we are passionate about empowering and supporting
             Carers to garner inner strength and forge ahead in their individual
-            lives notwithstanding the associated challenges.
+            lives not withstanding the associated challenges.
           </p>
           {/* btn */}
           <div

@@ -101,13 +101,11 @@ $yellow: #ffba0a;
 #Carer_goals {
   background: url(../../Assets/images/carers.jpg);
   @include BGConfig(120%, center);
-  min-height: 80vh;
   height: max-content;
   border-radius: 10px;
 
   .bgLayer {
     background: rgba(10, 165, 255, 0.8);
-    min-height: 80vh;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -368,8 +366,8 @@ $yellow: #ffba0a;
             font-size: 23px;
             line-height: normal;
           }
-          #ProjectMeAim {
-          }
+          // #ProjectMeAim {
+          // }
           ul {
             li {
               font-size: 15px;
