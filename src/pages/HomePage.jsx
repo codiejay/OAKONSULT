@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Scss/homepage.scss';
 import '../Scss/mediaQuery.scss';
@@ -36,9 +36,11 @@ const Homepage = () => {
     : (showVideoPlayer = { display: 'none' });
 
   let showStoryPlayer;
+  // useEffect(() => {
   W_SdisplayModal
     ? (showStoryPlayer = { display: 'flex' })
     : (showStoryPlayer = { display: 'none' });
+  // }, [W_SdisplayModal]);
 
   return (
     <>
