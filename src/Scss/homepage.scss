@@ -261,6 +261,7 @@ $oakTeal: #41a196;
         #founderImg {
           height: 500px;
           width: 500px;
+          margin: 0 auto;
           background: url(../Assets/olufunke.svg);
           @include BGConfig(100%, center);
           border-radius: 300px 300px 0 0;
