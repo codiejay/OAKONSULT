@@ -29,6 +29,7 @@ const Homepage = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
   const [W_SdisplayModal, ChangeW_SdisplayModal] = useState(false);
+  const [showStoryModal, setShowStoryModal] = useState('none');
 
   let showVideoPlayer;
   DisplayModal
@@ -55,11 +56,11 @@ const Homepage = () => {
           />
         </div>
         {/* Watch My Story Video Player */}
-        <div id='VideoModal' style={showStoryPlayer}>
+        <div id='VideoModal' style={{display: showStoryModal}}>
           <VideoModal
             data={['https://www.youtube.com/embed/dQw4w9WgXcQ']}
             closeFunc={() => {
-              ChangeDisplayModal(false);
+              setShowStoryModal('none')
             }}
           />
         </div>
@@ -167,7 +168,7 @@ const Homepage = () => {
 
             <div className='rssCard churches'>
               <h2 className='cardTitle'>
-                CHURCHES AND
+               FOR CHURCHES AND
                 <br /> FAITH-BASED ORGANISATIONS
               </h2>
               <p className='cardContent'>
@@ -282,13 +283,11 @@ const Homepage = () => {
                 Award) from the Coaching Academy, UK, MA International Social
                 Policy from the University of Kent, Canterbury
               </p>
-              <WatchStory
-                // onClick={() => {
-                //   ChangeW_SdisplayModal(true);
-                //   console.log('Shots fired');
-                // }}
-                data={{ text: 'Watch My Story', icon: PlayIcon }}
-              />
+              <button style={{border: 'none', backgroundColor: 'transparent'}} onClick={() => {setShowStoryModal('flex')}}>
+                <WatchStory
+                  data={{ text: 'Watch My Story', icon: PlayIcon }}
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -331,7 +330,7 @@ const Homepage = () => {
         </div>
       </section>
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
-        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} />
+        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} title='Speak With Me' />
       </Dialog>
     </>
   );
