@@ -49,18 +49,18 @@ const Homepage = () => {
         {/* Intro Video Player */}
         <div id='VideoModal' style={showVideoPlayer}>
           <VideoModal
-            data={['https://www.youtube.com/embed/-ypL6F7Mj0A']}
+            data={['https://www.youtube.com/embed/IpQeVtuDeIA']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}
           />
         </div>
         {/* Watch My Story Video Player */}
-        <div id='VideoModal' style={{display: showStoryModal}}>
+        <div id='VideoModal' style={{ display: showStoryModal }}>
           <VideoModal
-            data={['https://www.youtube.com/embed/dQw4w9WgXcQ']}
+            data={['https://www.youtube.com/embed/-ypL6F7Mj0A']}
             closeFunc={() => {
-              setShowStoryModal('none')
+              setShowStoryModal('none');
             }}
           />
         </div>
@@ -168,7 +168,7 @@ const Homepage = () => {
 
             <div className='rssCard churches'>
               <h2 className='cardTitle'>
-               FOR CHURCHES AND
+                FOR CHURCHES AND
                 <br /> FAITH-BASED ORGANISATIONS
               </h2>
               <p className='cardContent'>
@@ -283,10 +283,13 @@ const Homepage = () => {
                 Award) from the Coaching Academy, UK, MA International Social
                 Policy from the University of Kent, Canterbury
               </p>
-              <button style={{border: 'none', backgroundColor: 'transparent'}} onClick={() => {setShowStoryModal('flex')}}>
-                <WatchStory
-                  data={{ text: 'Watch My Story', icon: PlayIcon }}
-                />
+              <button
+                style={{ border: 'none', backgroundColor: 'transparent' }}
+                onClick={() => {
+                  setShowStoryModal('flex');
+                }}
+              >
+                <WatchStory data={{ text: 'Watch My Story', icon: PlayIcon }} />
               </button>
             </div>
           </div>
@@ -330,7 +333,10 @@ const Homepage = () => {
         </div>
       </section>
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
-        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} title='Speak With Me' />
+        <InviteToSpeakMOdal
+          setDialogVisible={setDialogVisible}
+          title='Speak With Me'
+        />
       </Dialog>
     </>
   );
