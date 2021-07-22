@@ -36,7 +36,7 @@ const Carers = () => {
           }}
         >
           <VideoModal
-            data={['https://www.youtube.com/embed/4iir1nvI444']}
+            data={['https://www.youtube.com/embed/FMXHY5xSbOE']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}
@@ -184,7 +184,7 @@ const Carers = () => {
           className='SeeRelatedArticle CTA_Btn'
           id='btn'
           style={{
-            backgroundColor: '#0aa7ff',
+            backgroundColor: '#009ba7',
             marginBottom: '6rem',
             marginTop: '3rem',
           }}

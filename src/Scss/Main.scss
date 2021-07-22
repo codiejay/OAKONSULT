@@ -205,9 +205,11 @@ footer {
         margin-left: 1rem;
         width: 100px;
         height: 100px;
-        background: url('../Assets/whiteLogo.svg');
+        background: url('../Assets/logo.png'), white;
         background-position: center;
-        background-size: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        border: 4px dotted $teal;
       }
       .footerBox {
         h3 {

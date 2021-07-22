@@ -38,7 +38,7 @@ const TrainingAndResourcing = () => {
           }}
         >
           <VideoModal
-            data={['https://www.youtube.com/embed/4iir1nvI444']}
+            data={['https://www.youtube.com/embed/IpQeVtuDeIA']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}

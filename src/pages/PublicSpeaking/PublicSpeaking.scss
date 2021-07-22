@@ -11,8 +11,8 @@ $grey: #a9a6a6;
 $blue: #0aa7ff;
 $purple: #ff0ac9;
 $yellow: #ffba0a;
-$churchPagePurple: #b00aff;
-$publicSpeakingOrange: #ff6725;
+// $churchPagePurple: #b00aff;
+$publicSpeakingOrange: #cac492;
 
 @mixin BGConfig($size, $position) {
   background-position: $position;
@@ -62,7 +62,7 @@ $publicSpeakingOrange: #ff6725;
       margin-bottom: 4rem;
     }
     #watchStory {
-      background: hsla(18, 100%, 57%, 0.5);
+      background: $publicSpeakingOrange;
       height: 64px;
       width: 248px;
       display: flex;
@@ -74,7 +74,7 @@ $publicSpeakingOrange: #ff6725;
       .icon {
         height: '50px';
         width: '50px';
-        background-image: url(../../Assets/icons/orangePlayBtn.svg);
+        background-image: url(../../Assets/icons/tealPlayBtn.svg);
         @include BGConfig(80%, center);
       }
 
@@ -105,7 +105,7 @@ $publicSpeakingOrange: #ff6725;
   border-radius: 10px;
 
   .bgLayer {
-    background: rgba(255, 103, 37, 0.85);
+    background: #cac49285;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -114,7 +114,7 @@ $publicSpeakingOrange: #ff6725;
   #heartIcon {
     height: 100px;
     width: 100px;
-    background: url(../../Assets/icons/orangeHeartIcon.svg);
+    background: url(../../Assets/icons/tealHeartIcon.svg);
     @include BGConfig(100%, center);
     // margin-top: 6rem;
   }

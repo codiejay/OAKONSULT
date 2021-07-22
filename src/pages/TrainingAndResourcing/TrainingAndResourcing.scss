@@ -2,7 +2,7 @@
 @import '../../constants/scss/variables';
 @import '../../constants/scss/mixins';
 
-$pink: #ff34ba;
+$pink: #cac492;
 $DM: 'DM Serif Display', serif;
 $Archivo: 'Archivo', sans-serif;
 
@@ -54,7 +54,7 @@ $Archivo: 'Archivo', sans-serif;
       margin-bottom: 3rem;
     }
     #watchStory {
-      background: hsla(313, 100%, 52%, 0.47);
+      background: $pink;
       height: 64px;
       width: 365px;
       display: flex;
@@ -66,7 +66,7 @@ $Archivo: 'Archivo', sans-serif;
       .icon {
         height: '50px';
         width: '50px';
-        background-image: url(../../Assets/icons/pinkPlayBtn.svg);
+        background-image: url(../../Assets/icons/tealPlayBtn.svg);
         @include BGConfig(80%, center);
       }
 
@@ -98,7 +98,7 @@ $Archivo: 'Archivo', sans-serif;
   border-radius: 10px;
 
   .bgLayer {
-    background: rgba(255, 10, 201, 0.85);
+    background: #cac49285;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -107,7 +107,7 @@ $Archivo: 'Archivo', sans-serif;
   #heartIcon {
     height: 100px;
     width: 100px;
-    background: url(../../Assets/icons/pink_heartIcon.svg);
+    background: url(../../Assets/icons/tealHeartIcon.svg);
     @include BGConfig(100%, center);
     // margin-top: 6rem;
   }

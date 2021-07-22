@@ -7,7 +7,7 @@ $grey: #a9a6a6;
 $blue: #0aa7ff;
 $purple: #ff0ac9;
 $yellow: #ffba0a;
-$churchPagePurple: #b00aff;
+$churchPagePurple: #cac492;
 
 @mixin BGConfig($size, $position) {
   background-position: $position;
@@ -57,7 +57,7 @@ $churchPagePurple: #b00aff;
       margin-bottom: 3rem;
     }
     #watchStory {
-      background: rgba(177, 10, 255, 0.5);
+      background: $churchPagePurple;
       height: 64px;
       width: 365px;
       display: flex;
@@ -69,7 +69,7 @@ $churchPagePurple: #b00aff;
       .icon {
         height: '50px';
         width: '50px';
-        background-image: url(../Assets/icons/purplePlayBtn.svg);
+        background-image: url(../Assets/icons/tealPlayBtn.svg);
         @include BGConfig(80%, center);
       }
 
@@ -101,7 +101,7 @@ $churchPagePurple: #b00aff;
   border-radius: 10px;
 
   .bgLayer {
-    background: rgba(176, 10, 255, 0.85);
+    background: #cac49285;
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -110,7 +110,7 @@ $churchPagePurple: #b00aff;
   #heartIcon {
     height: 100px;
     width: 100px;
-    background: url(../Assets/icons/purple_heartIcon.svg);
+    background: url(../Assets/icons/tealHeartIcon.svg);
     @include BGConfig(100%, center);
     // margin-top: 6rem;
   }
