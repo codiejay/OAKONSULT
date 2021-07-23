@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
 $DM: 'DM Serif Display', serif;
 $Archivo: 'Archivo', sans-serif;
-$teal: #009ba7;
+$teal: #009b9b;
 $grey: #a9a6a6;
 $blue: #0aa7ff;
 $purple: #ff0ac9;
@@ -9,7 +9,7 @@ $yellow: #ffba0a;
 $pink: #ff34ba;
 
 $oakGold: #cac492;
-$oakTeal: #41a196;
+// $oakTeal: #41a196;
 
 // Mixins
 @mixin BGConfig($size, $position) {
@@ -202,19 +202,19 @@ $oakTeal: #41a196;
         background: $oakGold;
         color: white;
         #learnMore_btn {
-          background: $oakTeal;
+          background: $teal;
           border: 3px solid $oakGold;
         }
       }
       .parents {
-        background: $oakTeal;
+        background: $teal;
         color: white;
         #learnMore_btn {
           background: $oakGold;
         }
       }
       .publicSpeaking {
-        background: $oakTeal;
+        background: $teal;
         color: white;
         #learnMore_btn {
           background: $oakGold;
@@ -224,7 +224,7 @@ $oakTeal: #41a196;
         background: $oakGold;
         color: white;
         #learnMore_btn {
-          background: $oakTeal;
+          background: $teal;
         }
       }
     }
@@ -273,7 +273,7 @@ $oakTeal: #41a196;
             position: absolute;
             left: 0;
             top: 0;
-            background: #009ba782;
+            background: #009b9b82;
             border-radius: 300px 300px 0 0;
             height: 500px;
             width: 500px;
