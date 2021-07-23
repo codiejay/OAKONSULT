@@ -1,6 +1,6 @@
 $DM: 'DM Serif Display', serif;
 $Archivo: 'Archivo', sans-serif;
-$teal: #009ba7;
+$teal: #009b9b;
 $grey: #a9a6a6;
 $blue: #0aa7ff;
 $purple: #ff0ac9;
@@ -205,11 +205,10 @@ footer {
         margin-left: 1rem;
         width: 100px;
         height: 100px;
-        background: url('../Assets/logo.png'), white;
+        background: url('../Assets/logo.png');
         background-position: center;
         background-size: 100%;
         background-repeat: no-repeat;
-        border: 4px dotted $teal;
       }
       .footerBox {
         h3 {

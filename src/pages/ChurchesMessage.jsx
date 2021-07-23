@@ -166,7 +166,7 @@ const Churches = () => {
         className='SeeRelatedArticle CTA_Btn'
         id='btn'
         style={{
-          backgroundColor: '#009ba7',
+          backgroundColor: '#009b9b',
           marginBottom: '6rem',
           marginTop: '3rem',
         }}
