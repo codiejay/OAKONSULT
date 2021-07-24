@@ -8,23 +8,23 @@ const Programmes = () => {
   const [ProgrammeSort, ChangeProgrammeSort] = useState('Current');
   let currentStyle;
   let pastStyle;
-  let colorSwitch = { currentColor: '#009b9b', pastColor: '#009b9b99' };
+  let colorSwitch = { currentColor: '#009ba7', pastColor: '#009ba799' };
 
   switch (ProgrammeSort) {
     case 'Current':
       console.log('current programmes');
       currentStyle = { display: 'block' };
       pastStyle = { display: 'none' };
-      colorSwitch.currentColor = '#009b9b';
-      colorSwitch.pastColor = '#009b9b99';
+      colorSwitch.currentColor = '#009ba7';
+      colorSwitch.pastColor = '#009ba799';
 
       break;
     case 'Past':
       console.log('Past programmes');
       currentStyle = { display: 'none' };
       pastStyle = { display: 'block' };
-      colorSwitch.currentColor = '#009b9b99';
-      colorSwitch.pastColor = '#009b9b';
+      colorSwitch.currentColor = '#009ba799';
+      colorSwitch.pastColor = '#009ba7';
 
       break;
     default:

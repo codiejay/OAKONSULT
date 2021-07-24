@@ -1,5 +1,5 @@
 export const colors = {
-  tint: '#009b9b',
+  tint: '#009ba7',
   white: '#f5f6f7',
   black: '#151617',
   success: '#4CAF50',

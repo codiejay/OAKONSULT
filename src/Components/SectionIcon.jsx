@@ -5,7 +5,7 @@ const SectionIcon = (props) => {
   const iconStyle = {
     height: '100px',
     width: '100px',
-    background: `url(${props.image}), #009b9b`,
+    background: `url(${props.image}), #009ba7`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: '50%',
