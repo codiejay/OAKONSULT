@@ -205,11 +205,10 @@ footer {
         margin-left: 1rem;
         width: 100px;
         height: 100px;
-        background: url('../Assets/logo.png'), white;
+        background: url('../Assets/logo.png');
         background-position: center;
         background-size: 100%;
         background-repeat: no-repeat;
-        border: 4px dotted $teal;
       }
       .footerBox {
         h3 {

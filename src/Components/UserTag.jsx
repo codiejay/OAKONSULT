@@ -9,7 +9,7 @@ const UserTag = (props) => {
         color = { background: '#cac492' };
         break;
       case 'Churches':
-        color = { background: '#009BA7' };
+        color = { background: '#009b9b' };
         break;
 
       default:

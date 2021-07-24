@@ -8,7 +8,7 @@ const TagDetail = (props) => {
         color = { background: '#cbc593' };
         break;
       case 'FOR CHURCHES':
-        color = { background: '#009BA7' };
+        color = { background: '#009b9b' };
         break;
 
       default:

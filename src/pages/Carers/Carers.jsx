@@ -142,7 +142,7 @@ const Carers = () => {
             <div className='courseContainer'>
               <h3>PROJECT ME</h3>
               <p id='ProjectMeAim'>
-                ‘Project Me’ aims to support the Carer to find fulfilment and
+                ‘Project Me’ aims to support carers to find fulfilment and
                 purpose
                 <br /> in her caring role; and to push beyond boundaries for
                 herself!
@@ -150,17 +150,17 @@ const Carers = () => {
               </p>
 
               <ul>
-                <li>give Carers the courage to let go</li>
-                <li>allow Carers to set their minds free to dream again</li>
+                <li>Give Carers the courage to let go</li>
+                <li>Allow Carers to set their minds free to dream again</li>
                 <li>
-                  give Carers the encouragement needed to pursue personal dreams
+                  Give Carers the encouragement needed to pursue personal dreams
                 </li>
                 <li>
-                  liberate Carers from the ‘guilt’ of personal success or
+                  Liberate Carers from the ‘guilt’ of personal success or
                   achievement
                 </li>
                 <li>
-                  give opportunities for Carers to learn from and give support
+                  Give opportunities for Carers to learn from and give support
                   to one another.
                 </li>
               </ul>
@@ -184,7 +184,7 @@ const Carers = () => {
           className='SeeRelatedArticle CTA_Btn'
           id='btn'
           style={{
-            backgroundColor: '#009ba7',
+            backgroundColor: '#009b9b',
             marginBottom: '6rem',
             marginTop: '3rem',
           }}
