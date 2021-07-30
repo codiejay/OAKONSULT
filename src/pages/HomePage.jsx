@@ -11,6 +11,7 @@ import ChatIcon from '../Assets/ChatIcon.svg';
 import PlayIcon from '../Assets/playbutton.svg';
 import StackIcon from '../Assets/stackIcon.svg';
 import syllabusIcon from '../Assets/syllabusIcon.svg';
+import QuestionMark from '../Assets/icons/QuestionMark.svg';
 
 // External components
 import ExploreBtn from '../Components/ExploreBtn';
@@ -22,6 +23,7 @@ import SyllabusCard from '../Components/SyllabusCard';
 import Dialog from '../componentz/Dialog/Dialog';
 import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
 import VideoModal from '../Components/VideoModal/VideoModal';
+import About from '../Components/About/About';
 
 // Internal Component
 
@@ -78,9 +80,14 @@ const Homepage = () => {
               <br /> life, and that more
               <br /> abundantly
             </h1>
-            <Link to='/blogs'>
-              <ExploreBtn data={['Explore our library', LibraryImg]} />
-            </Link>
+            <div className='homepageCallToAction'>
+              <Link to='/blogs'>
+                <ExploreBtn data={['Explore our library', LibraryImg]} />
+              </Link>
+              <Link to='/about'>
+                <ExploreBtn data={['About OAK', QuestionMark]} />
+              </Link>
+            </div>
           </div>
 
           <div className='introVideoButton'>
