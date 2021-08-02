@@ -91,7 +91,7 @@ const BlogOverview = () => {
           <div
             className='tumbnail'
             style={{
-              backgroundImage: `linear-gradient(#0aa7ff8a, #0aa5ff3a), url(${
+              backgroundImage: `linear-gradient(#cac492b4, #cac4923f), url(${
                 articleOfTheWeek.tumbnail || articleOfTheWeek.thumbnail
               })`,
             }}

@@ -49,7 +49,7 @@
     flex: 0 0 calc(100% / 1.7);
     max-width: calc(100% / 1.7);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
   }
   .article-text-button {
@@ -60,6 +60,8 @@
     .article-text {
       .main-article-title {
         // font-size: 5em;
+      }
+      .main-article-hook {
       }
     }
     .cr-btn-container {
