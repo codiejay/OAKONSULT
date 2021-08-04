@@ -15,6 +15,7 @@ const EditQuote = ({ data, setDialogVisible }) => {
   const [quote, setQuote] = useState(data.quote);
   const [bibleVerse, setBibleVerse] = useState(data.bible_verse);
   const [errorMessage, setErrorMessage] = useState("");
+
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -23,6 +24,7 @@ const EditQuote = ({ data, setDialogVisible }) => {
       quote,
       bible_verse: bibleVerse
     };
+    console.log(quoteData);
     if (quote.trim() === "") {
       setLoading(false);
       setErrorMessage(`Photo url is required!`);

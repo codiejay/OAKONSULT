@@ -176,7 +176,7 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>contact</h3>
-              <a href='mailto:funke@oakonsult.com '>- Send us an email</a>
+              <a href='mailto:olufunke.adeloye@oakonsult.com'>- Send us an email</a>
               <a href='tel:+447368934865'>- Give us a call</a>
             </div>
 
