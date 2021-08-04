@@ -48,7 +48,7 @@ const Popup = (props) => {
         <div className='popupNav'>
           <div className='welcome'>
             <div className='popupImg'></div>
-            <h2>Welcome to Oakonsult, thanks for visiting</h2>
+            <h2>Welcome to OAKonsult, thanks for visiting</h2>
           </div>
 
           <div className='navLinks'>

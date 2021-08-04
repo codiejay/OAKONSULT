@@ -176,7 +176,9 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>contact</h3>
-              <a href='mailto:olufunke.adeloye@oakonsult.com'>- Send us an email</a>
+              <a href='mailto:OLUFUNKE.ADELOYE@OAKONSULT.COM '>
+                - Send us an email
+              </a>
               <a href='tel:+447368934865'>- Give us a call</a>
             </div>
 
@@ -190,8 +192,12 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>about OAK</h3>
-              <a href='/blogs/for-parents/up-and-going-with-active-socialization?9ac33c12589a49fc9d222b7685e07ab8'>- our story</a>
-              <a href="/blogs/for-parents/abigail's-story?ace50500afe74156b38ddd889f4eb7e2">- abigail's story</a>
+              <a href='/blogs/for-parents/up-and-going-with-active-socialization?9ac33c12589a49fc9d222b7685e07ab8'>
+                - our story
+              </a>
+              <a href="/blogs/for-parents/abigail's-story?ace50500afe74156b38ddd889f4eb7e2">
+                - abigail's story
+              </a>
               <a href='/donations'>- make a donation</a>
             </div>
           </div>
