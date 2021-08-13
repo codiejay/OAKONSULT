@@ -30,6 +30,18 @@ const CreatePost = () => {
   const handleChange = (content) => {
     setBody(content);
   };
+  const CleanUp = () => {
+    setErrorMessage("");
+    setSuccessMessage("Post successfully created");
+    setTitle("");
+    setMainTag("");
+    setThumbnail("");
+    setHook("");
+    setBody("");
+    setTags(["all"]);
+    setReady(false);
+    setLoading(false);
+  };
   const getPostInfo = () => {
     const id = uuidv4().split("-").join("");
     const data = {
@@ -83,10 +95,8 @@ const CreatePost = () => {
     }
     setLoading(true);
     try {
-      await OnPost(getPostInfo());
-      setLoading(false);
+      OnPost(getPostInfo(), CleanUp);
     } catch (error) {
-      console.log(error);
       setErrorMessage("Failed, try again");
     }
   };
@@ -119,14 +129,14 @@ const CreatePost = () => {
         <CustomButton
           label="Save to Draft"
           className="create-post-btn"
-          onClick={OnSaveDraft}
+          onClick={!loading && OnSaveDraft}
           style={{ cursor: "pointer" }}
         />
         <Spacing width="2em" />
         <CustomButton
           label="Post"
           className="create-post-btn"
-          onClick={OnCreatePost}
+          onClick={!loading && OnCreatePost}
           onMouseEnter={OnMouse}
           onMouseLeave={OnMouse}
           style={{ cursor: !ready ? "not-allowed" : "pointer" }}
@@ -181,10 +191,6 @@ const CreatePost = () => {
           />
         </div>
         <div className="editor">
-          <code>
-            {'<img src="https://" alt="image description" height="700px"/>'}
-          </code>
-          <Spacing height="1em" />
           <SunEditor
             onChange={handleChange}
             enableToolbar={true}
