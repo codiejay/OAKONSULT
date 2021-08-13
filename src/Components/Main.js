@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import Popup from '../Components/PopUp/Popup';
 import Dialog from '../componentz/Dialog/Dialog';
 import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
-
 import '../Scss/Main.scss';
 
 const Main = (props) => {
@@ -49,17 +48,7 @@ const Main = (props) => {
                 >
                   <Link to='carers'>
                     <h3>01</h3>
-                    <p>For Carers</p>
-                  </Link>
-                </li>
-                <li
-                  onClick={() => {
-                    setShowMenu(false);
-                  }}
-                >
-                  <Link to='/training-and-resourcing'>
-                    <h3>02</h3>
-                    <p>Training And Resources</p>
+                    <p>PARENT CARERS</p>
                   </Link>
                 </li>
 
@@ -69,8 +58,19 @@ const Main = (props) => {
                   }}
                 >
                   <Link to='churches'>
-                    <h3>04</h3>
-                    <p>For Churces</p>
+                    <h3>02</h3>
+                    <p>CHURCHES AND FAITH BASED ORGANISATIONS</p>
+                  </Link>
+                </li>
+
+                <li
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
+                  <Link to='/training-and-resourcing'>
+                    <h3>03</h3>
+                    <p>TRAINING AND RESOURCING</p>
                   </Link>
                 </li>
 
@@ -80,7 +80,7 @@ const Main = (props) => {
                     setShowMenu(false);
                   }}
                 >
-                  <h3>03</h3>
+                  <h3>04</h3>
                   <p>Invite me</p>
                 </li>
               </ul>
@@ -176,8 +176,10 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>contact</h3>
-              <a href='https://hey.com'>- Send us an email</a>
-              <a href='https://hey.com'>- Give us a call</a>
+              <a href='mailto:OLUFUNKE.ADELOYE@OAKONSULT.COM '>
+                - Send us an email
+              </a>
+              <a href='tel:+447368934865'>- Give us a call</a>
             </div>
 
             <div className='footerBox'>
@@ -190,8 +192,12 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>about OAK</h3>
-              <a href='https://hey.com'>- our story</a>
-              <a href='https://hey.com'>- abigail's story</a>
+              <a href='/blogs/for-parents/up-and-going-with-active-socialization?9ac33c12589a49fc9d222b7685e07ab8'>
+                - our story
+              </a>
+              <a href="/blogs/for-parents/abigail's-story?ace50500afe74156b38ddd889f4eb7e2">
+                - abigail's story
+              </a>
               <a href='/donations'>- make a donation</a>
             </div>
           </div>

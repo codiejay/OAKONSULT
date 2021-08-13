@@ -23,9 +23,9 @@ const EditQuote = ({ data, setDialogVisible }) => {
     setLoading(true);
     e.preventDefault();
     const quoteData = {
+      id: data.id,
       quote,
-      bible_verse: bibleVerse,
-      created_at: Date.now(),
+      bible_verse: bibleVerse
     };
     if (quote.trim() === "") {
       setLoading(false);

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Scss/homepage.scss';
 import '../Scss/mediaQuery.scss';
@@ -11,6 +11,7 @@ import ChatIcon from '../Assets/ChatIcon.svg';
 import PlayIcon from '../Assets/playbutton.svg';
 import StackIcon from '../Assets/stackIcon.svg';
 import syllabusIcon from '../Assets/syllabusIcon.svg';
+import QuestionMark from '../Assets/icons/QuestionMark.svg';
 
 // External components
 import ExploreBtn from '../Components/ExploreBtn';
@@ -22,29 +23,48 @@ import SyllabusCard from '../Components/SyllabusCard';
 import Dialog from '../componentz/Dialog/Dialog';
 import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
 import VideoModal from '../Components/VideoModal/VideoModal';
+import About from '../Components/About/About';
 
 // Internal Component
 
 const Homepage = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
+  const [W_SdisplayModal, ChangeW_SdisplayModal] = useState(false);
+  const [showStoryModal, setShowStoryModal] = useState('none');
 
   let showVideoPlayer;
   DisplayModal
     ? (showVideoPlayer = { display: 'flex' })
     : (showVideoPlayer = { display: 'none' });
 
+  let showStoryPlayer;
+  // useEffect(() => {
+  W_SdisplayModal
+    ? (showStoryPlayer = { display: 'flex' })
+    : (showStoryPlayer = { display: 'none' });
+  // }, [W_SdisplayModal]);
+
   return (
     <>
       <section id='homePage'>
-        <div
-          id='VideoModal'
-          style={showVideoPlayer}
-          onClick={() => {
-            ChangeDisplayModal(false);
-          }}
-        >
-          <VideoModal data={['https://www.youtube.com/embed/N5rtt_IDVsA']} />
+        {/* Intro Video Player */}
+        <div id='VideoModal' style={showVideoPlayer}>
+          <VideoModal
+            data={['https://www.youtube.com/embed/IpQeVtuDeIA']}
+            closeFunc={() => {
+              ChangeDisplayModal(false);
+            }}
+          />
+        </div>
+        {/* Watch My Story Video Player */}
+        <div id='VideoModal' style={{ display: showStoryModal }}>
+          <VideoModal
+            data={['https://www.youtube.com/embed/-ypL6F7Mj0A']}
+            closeFunc={() => {
+              setShowStoryModal('none');
+            }}
+          />
         </div>
 
         {/* Section 1 */}
@@ -60,9 +80,14 @@ const Homepage = () => {
               <br /> life, and that more
               <br /> abundantly
             </h1>
-            <Link to='/blogs'>
-              <ExploreBtn data={['Explore our library', LibraryImg]} />
-            </Link>
+            <div className='homepageCallToAction'>
+              <Link to='/blogs'>
+                <ExploreBtn data={['Explore our library', LibraryImg]} />
+              </Link>
+              <Link to='/about'>
+                <ExploreBtn data={['About OAK', QuestionMark]} />
+              </Link>
+            </div>
           </div>
 
           <div className='introVideoButton'>
@@ -84,9 +109,8 @@ const Homepage = () => {
           <div id='whoAreYouContent'>
             <section className='AboutDeets'>
               <h1>
-                Are you a Parent Carer,
-                <br /> Sibling of a child or young person with disabilities/
-                special needs or a faith based organisation ?
+                Are you a Parent Carer of a Child /Young Person with
+                Disabilities or Special Needs OR A Faith-Based Organisation
               </h1>
               <p>
                 OAK’s mandate is to introduce the gospel of Christ to Carers. We
@@ -94,36 +118,26 @@ const Homepage = () => {
                 biblical principles and truth.
               </p>
               <div className='tagGroup'>
-                <UserTag data={['For Parents']} />
-                <UserTag data={['For Siblings']} />
-                <UserTag data={['For Carers']} />
+                <UserTag data={['Parent Carers']} />
+                <UserTag data={['Churches']} />
               </div>
             </section>
             <section className='userCategories'>
               <TagDetail
                 data={[
                   {
-                    tagName: 'For Parents.',
+                    tagName: 'FOR PARENT CARERS',
                     tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
+                      'Providing care for children or family members with disabilities, complex or life limiting conditions impact Carers in different ways.',
                   },
                 ]}
               />
               <TagDetail
                 data={[
                   {
-                    tagName: 'For Siblings.',
+                    tagName: 'FOR CHURCHES',
                     tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
-                  },
-                ]}
-              />
-              <TagDetail
-                data={[
-                  {
-                    tagName: 'For Carers.',
-                    tagContent:
-                      'OAK’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families',
+                      'Only the gospel of Jesus can make a lasting, significant, and eternal difference in the lives of people with disabilities.',
                   },
                 ]}
               />
@@ -133,10 +147,7 @@ const Homepage = () => {
 
         {/* Section 3 */}
         <div id='RssCategories'>
-          <h2 id='sectionTitle'>
-            Something
-            <br /> for everyone
-          </h2>
+          <h2 id='sectionTitle'>OUR OFFERINGS</h2>
           <p id='sectionDetails'>
             OAK’s mandate is to introduce the gospel of Christ to Carers. We
             empower Carers and families dealing with disability matters with
@@ -145,30 +156,14 @@ const Homepage = () => {
           </p>
 
           <div className='cards_mother'>
-            <div className='rssCard cardOne'>
-              <h2 className='cardTitle'>
-                FOR CHURCHES AND
-                <br /> FAITH-BASED ORGANISATIONS
-              </h2>
-              <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
-              </p>
-              <Link to='./churches'>
-                <div id='learnMore_btn'>
-                  <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
-                </div>
-              </Link>
-            </div>
-
-            <div className='rssCard cardTwo'>
+            <div className='rssCard parents'>
               <h2 className='cardTitle'>FOR PARENT CARERS</h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                Providing care for children or family members with disabilities,
+                complex or life limiting conditions impact Carers in different
+                ways. This could be physical, emotional, social, financial, or
+                spiritual just to mention a few; and in many instances, a
+                combination of all these factors.
               </p>
               <Link to='./carers'>
                 <div id='learnMore_btn'>
@@ -178,14 +173,19 @@ const Homepage = () => {
               </Link>
             </div>
 
-            <div className='rssCard cardThree'>
-              <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
+            <div className='rssCard churches'>
+              <h2 className='cardTitle'>
+                FOR CHURCHES AND
+                <br /> FAITH-BASED ORGANISATIONS
+              </h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                Only the gospel of Jesus can make a lasting, significant, and
+                eternal difference in the lives of people with disabilities;
+                just like it is for every living being on the surface of the
+                earth! The needs of families dealing with disabilities go beyond
+                charitable offers, as helpful as these are.
               </p>
-              <Link to='./public-speaking'>
+              <Link to='./churches'>
                 <div id='learnMore_btn'>
                   <p>Learn More</p>
                   <div className='learnMore_icon'></div>
@@ -193,14 +193,29 @@ const Homepage = () => {
               </Link>
             </div>
 
-            <div className='rssCard cardFour'>
+            <div className='rssCard training'>
               <h2 className='cardTitle'>TRAINING AND RESOURCES</h2>
               <p className='cardContent'>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles.
+                In partnership with Joni & Friends Ministry (USA), we train and
+                work with churches to create Special Needs group/unit focused on
+                meeting the needs and integrating people with special needs/ or
+                disability in church life.
               </p>
               <Link to='./training-and-resourcing'>
+                <div id='learnMore_btn'>
+                  <p>Learn More</p>
+                  <div className='learnMore_icon'></div>
+                </div>
+              </Link>
+            </div>
+
+            <div className='rssCard publicSpeaking'>
+              <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
+              <p className='cardContent'>
+                I speak to faith and non-faith-based audiences at: Carer’s
+                Groups, Women forums, Retreats, Churches and Conferences.
+              </p>
+              <Link to='./public-speaking'>
                 <div id='learnMore_btn'>
                   <p>Learn More</p>
                   <div className='learnMore_icon'></div>
@@ -215,24 +230,41 @@ const Homepage = () => {
           <SectionIcon image={Star} />
           <div className='aboutContent'>
             <div id='Q_A'>
-              <h1>Who?</h1>
+              <h1>Meet Olufunke Adeloye</h1>
               <p>
-                Olufunke has lived a life of ‘above and beyond’ in the face of
-                many difficult and challenging situations. Her enduring vision
-                is to see Carers within this sphere empowered enough to push
-                forward
-              </p>
-              <h1>Why?</h1>
-              <p>
-                Olufunke has lived a life of ‘above and beyond’ in the face of
-                many difficult and challenging situations. Her enduring vision
-                is to see Carers within this sphere empowered enough to push
-                forward
+                Olufunke is the founder of OAKONSULT DISABILITIES OUTREACH
+                (OAKONSULT). She strongly believes in the difference the
+                ‘God-factor’ makes in caring roles and is passionate about
+                Carers finding fulfillment at whatever stage they are at in
+                their individual journeys. Olufunke speaks from the heart and
+                draws extensively from her walk with the Lord as a Carer,
+                sharing the love of Christ among families within this sphere. In
+                addition to her caring role, Olufunke is a Beyond Suffering
+                Course Instructor with the Joni & Friends Ministry (USA),
+                certified Personal Development Coach from the Coaching Academy,
+                UK, and a Public Speaker.
+                <br />
+                <br />
+                Olufunke had her career background in both specialist and
+                generalist roles in human resource practicing across the
+                educational, banking, consulting, and telecommunications
+                sectors. She made a transition into the field of disabilities
+                due to her personal life experience, working within the third
+                sector industry, to support families of children and young
+                people with Special Educational Needs and Disabilities.
+                Seamlessly combining transferable skills from her experience
+                with her latest career move, she empowers parents/carers with
+                essential information and vital tools needed to support them as
+                they continue the enormous task of providing care for their
+                children and young people with disabilities. She recently had
+                the privilege to lead on a policy implementation project of the
+                Children and Families Act 2014 which brought a needed change to
+                the type of support available to children with Special
+                Educational Needs in the UK.
               </p>
             </div>
             <div id='Founder'>
               <div id='founderImg'></div>
-              <h1>OLUFUNKE ADELOYE</h1>
               <ExploreBtn
                 onClick={() => setDialogVisible(true)}
                 data={['Speak With Me', ChatIcon, true]}
@@ -258,7 +290,14 @@ const Homepage = () => {
                 Award) from the Coaching Academy, UK, MA International Social
                 Policy from the University of Kent, Canterbury
               </p>
-              <WatchStory data={{ text: 'Watch My Story', icon: PlayIcon }} />
+              <button
+                style={{ border: 'none', backgroundColor: 'transparent' }}
+                onClick={() => {
+                  setShowStoryModal('flex');
+                }}
+              >
+                <WatchStory data={{ text: 'Watch My Story', icon: PlayIcon }} />
+              </button>
             </div>
           </div>
         </div>
@@ -268,14 +307,11 @@ const Homepage = () => {
           <SectionIcon image={StackIcon} />
           <div id='syllabusIntroContent'>
             <div id='syllabusIntroTitle'>
-              <h2>
-                The Complete
-                <br /> Syllabus <br /> for everyone.
-                <br />
-                for you
-              </h2>
+              <h2>OAKONSULT’s TRAINING PROGRAMS</h2>
               <Link to='./training-and-resourcing'>
-                <ExploreBtn data={['Browse Our Syllabus', syllabusIcon]} />
+                <ExploreBtn
+                  data={['Browse Our Training Programs', syllabusIcon]}
+                />
               </Link>
             </div>
 
@@ -289,12 +325,25 @@ const Homepage = () => {
                   Link: 'training-and-resourcing',
                 }}
               />
+
+              <SyllabusCard
+                data={{
+                  Title: 'Project Me',
+                  Content:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, consequat dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+
+                  Link: 'training-and-resourcing',
+                }}
+              />
             </div>
           </div>
         </div>
       </section>
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
-        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} />
+        <InviteToSpeakMOdal
+          setDialogVisible={setDialogVisible}
+          title='Speak With Me'
+        />
       </Dialog>
     </>
   );

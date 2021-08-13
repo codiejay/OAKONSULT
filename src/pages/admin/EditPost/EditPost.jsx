@@ -120,13 +120,6 @@ const EditPost = () => {
             height={`${GetWindowDimensions().height - 600}px`}
           />
           <Spacing height="1em" />
-          {/* <CustomInput
-            label="Hook"
-            value={hook}
-            type={"text"}
-            onChange={({ target }) => setHook(target.value)}
-            required
-          /> */}
           <CustomInput
             label="Thumbnail"
             value={thumbnail}
