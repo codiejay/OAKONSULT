@@ -48,10 +48,13 @@ const Churches = () => {
             <br /> ORGANISATIONS.
           </h1>
           <p id='quoteText'>
-            We must look beyond reaching out to people with disabilities as an
-            act of benevolence, but as reaching out to people who are also among
-            the heirs of salvation, joint heirs of the kingdom whose souls are
-            also precious in God’s sight. Gen 1:27; Romans 8:17
+            The Lord Jesus directly mandated the Church in Luke 14:21-23 as a
+            matter of urgency saying: "...Then the owner of the house became
+            angry and said to his servant, 'Go out quickly into the streets and
+            alleys of the city, and bring in the poor, the crippled, the blind,
+            and the lame.' So, the master told his servant, 'Go out to the
+            highways and hedges and compel them to come in, so that my house
+            will be full..."
           </p>
           {/* btn */}
           <div

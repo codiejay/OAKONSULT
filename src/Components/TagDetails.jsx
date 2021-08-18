@@ -7,6 +7,14 @@ const TagDetail = (props) => {
       case 'FOR PARENT CARERS':
         color = { background: '#cbc593' };
         break;
+
+      case 'Our Mission':
+        color = { background: '#cbc593' };
+        break;
+      case 'Our Vision':
+        color = { background: '#009ba7' };
+        break;
+
       case 'FOR CHURCHES':
         color = { background: '#009ba7' };
         break;
