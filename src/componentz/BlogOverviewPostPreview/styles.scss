@@ -1,6 +1,6 @@
-@import '../../constants/scss/colors';
-@import '../../constants/scss/variables';
-@import '../../constants/scss/mixins';
+@import "../../constants/scss/colors";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
 
 .blog-overview-post-preview-container {
   flex: 0 0 calc(100% / 2) !important;
@@ -51,6 +51,7 @@
         margin-top: auto;
         margin-bottom: 2em;
         .title {
+          font-family: "Archivo", sans-serif;
           font-size: 1.6em;
           cursor: pointer;
         }
@@ -60,6 +61,7 @@
       }
     }
     .hook {
+      font-family: "Archivo", sans-serif !important;
       font-size: 1.4em;
       margin-bottom: 1.5em;
     }
