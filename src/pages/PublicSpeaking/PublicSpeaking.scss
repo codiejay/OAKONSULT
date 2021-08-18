@@ -117,25 +117,7 @@ $gold: #cac492;
   //   @include BGConfig(100%, center);
   //   // margin-top: 6rem;
   // }
-  p {
-    font-family: $Archivo;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26.4px;
-    line-height: 47.2px;
-    color: #ffffff;
-    margin: 2rem 0;
-  }
-}
 
-#PS_forYou {
-  width: 859px;
-  height: 652px;
-  background: #ffffff;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.178);
-  border-radius: 12px;
-  padding: 1rem 2rem;
-  margin: -4rem 0 0 2rem;
   ul {
     li {
       font-style: normal;
@@ -143,15 +125,14 @@ $gold: #cac492;
       font-size: 23px;
       line-height: 41px;
       color: rgba(0, 0, 0, 0.49);
-      // list-style: url(../../Assets/icons/hyphen.svg);
       list-style: outside;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
   }
   h1 {
     font-family: $DM;
     font-weight: normal;
-    font-size: 55px;
+    font-size: 48px;
     line-height: 55px;
     color: #000000;
     position: relative;
@@ -162,10 +143,53 @@ $gold: #cac492;
       position: absolute;
       left: 0;
       bottom: -1rem;
-      width: 50px;
+      width: 80px;
+      height: 10px;
+      background: $teal;
+      border-radius: 10px;
+    }
+  }
+}
+
+#PS_forYou {
+  width: 859px;
+  height: max-content;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.178);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  margin: -4rem 0 0 2rem;
+
+  p {
+    font-family: $Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26.4px;
+    line-height: 47.2px;
+    margin: 2rem 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.75rem;
+      width: 70px;
       height: 10px;
       background: $gold;
       border-radius: 10px;
+    }
+  }
+
+  ul {
+    li {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 23px;
+      line-height: 41px;
+      color: rgba(0, 0, 0, 0.49);
+      list-style: inside;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -372,10 +396,15 @@ $gold: #cac492;
         height: 50px;
         width: 50px;
       }
-      p {
-        font-size: 18px;
-        line-height: 24px;
+      h1 {
+        font-size: 36px;
+        line-height: normal;
         letter-spacing: normal;
+      }
+      ul {
+        li {
+          width: 100%;
+        }
       }
     }
   }

@@ -103,10 +103,33 @@ $oakGold: #cac492;
     #whoAreYouContent {
       display: flex;
       justify-content: space-between;
+      margin-top: 2rem;
       .AboutDeets {
-        // background: rgb(121, 223, 126);
+        width: 100%;
         flex-grow: 2;
-        // width: 700px;
+        .missionVision {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          margin-right: 4rem;
+
+          #tagDetails {
+            .tagColor {
+              height: 1.5rem;
+              min-width: 0.5rem;
+              margin-right: 1rem;
+              margin-top: 0.5rem;
+            }
+            .tagDeets {
+              h3 {
+                font-size: 28px;
+              }
+              p {
+                min-width: 100%;
+              }
+            }
+          }
+        }
         h1 {
           font-family: $DM;
           font-size: 54px;
@@ -130,17 +153,28 @@ $oakGold: #cac492;
         }
         .tagGroup {
           display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: space-between;
           max-width: 410px;
 
-          :nth-child(2) {
-            margin-left: 2rem;
+          #btn {
+            padding: 1rem;
+            #icon {
+              display: none;
+            }
+            p {
+              margin-bottom: 0;
+              color: white;
+              max-width: none;
+            }
           }
         }
       }
       .userCategories {
         position: relative;
         right: 0;
-        // background: rgb(187, 148, 148);
+        top: 1rem;
         flex-grow: 1;
         min-width: 300px;
       }
@@ -251,7 +285,7 @@ $oakGold: #cac492;
         width: 30%;
         h1 {
           font-family: $DM;
-          font-size: 3rem;
+          font-size: 2.5rem;
           line-height: normal;
           letter-spacing: normal;
         }

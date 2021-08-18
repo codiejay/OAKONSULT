@@ -108,18 +108,31 @@ const Homepage = () => {
           <SectionIcon image={HeartImg} />
           <div id='whoAreYouContent'>
             <section className='AboutDeets'>
-              <h1>
-                Are you a Parent Carer of a Child /Young Person with
-                Disabilities or Special Needs OR A Faith-Based Organisation
-              </h1>
-              <p>
-                OAK’s mandate is to introduce the gospel of Christ to Carers. We
-                empower Carers and families dealing with disability matters with
-                biblical principles and truth.
-              </p>
+              <div className='missionVision'>
+                <TagDetail
+                  data={[
+                    {
+                      tagName: 'Our Mission',
+                      tagContent:
+                        'OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families dealing with disability matters with biblical principles and truths that will enable them find fulfilment at whatever stage they might be in their individual journeys.',
+                    },
+                  ]}
+                />
+                <TagDetail
+                  data={[
+                    {
+                      tagName: 'Our Vision',
+                      tagContent:
+                        'OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on introducing people with special needs children (parents/carers) to the possibility of having a purposeful and fulfilled lifestyle despite life demands associated with the caring role. We are working towards collaborating with more churches and  organizations to create awareness and build inclusive culture in relation to people with disabilities and their families.',
+                    },
+                  ]}
+                />
+              </div>
+
               <div className='tagGroup'>
-                <UserTag data={['Parent Carers']} />
-                <UserTag data={['Churches']} />
+                <Link to='/about'>
+                  <ExploreBtn data={['Learn more about OAK']} />
+                </Link>
               </div>
             </section>
             <section className='userCategories'>
@@ -252,15 +265,6 @@ const Homepage = () => {
                 due to her personal life experience, working within the third
                 sector industry, to support families of children and young
                 people with Special Educational Needs and Disabilities.
-                Seamlessly combining transferable skills from her experience
-                with her latest career move, she empowers parents/carers with
-                essential information and vital tools needed to support them as
-                they continue the enormous task of providing care for their
-                children and young people with disabilities. She recently had
-                the privilege to lead on a policy implementation project of the
-                Children and Families Act 2014 which brought a needed change to
-                the type of support available to children with Special
-                Educational Needs in the UK.
               </p>
             </div>
             <div id='Founder'>
@@ -272,11 +276,15 @@ const Homepage = () => {
             </div>
             <div id='aboutFounder'>
               <p className='founderDetails'>
-                Olufunke has a Diploma in Personal Performance Coaching (Merit
-                Award) from the Coaching Academy, UK, MA International Social
-                Policy from the University of Kent, Canterbury, UK; M.Sc.
-                Geography (Area of Specialization: Population Geography and
-                Resources Analysis)
+                Seamlessly combining transferable skills from her experience
+                with her latest career move, she empowers parents/carers with
+                essential information and vital tools needed to support them as
+                they continue the enormous task of providing care for their
+                children and young people with disabilities. She recently had
+                the privilege to lead on a policy implementation project of the
+                Children and Families Act 2014 which brought a needed change to
+                the type of support available to children with Special
+                Educational Needs in the UK.
               </p>
               <p className='founderDetails'>
                 Olufunke has a Diploma in Personal Performance Coaching (Merit
@@ -285,11 +293,7 @@ const Homepage = () => {
                 Geography (Area of Specialization: Population Geography and
                 Resources Analysis)
               </p>
-              <p className='founderDetails'>
-                Olufunke has a Diploma in Personal Performance Coaching (Merit
-                Award) from the Coaching Academy, UK, MA International Social
-                Policy from the University of Kent, Canterbury
-              </p>
+
               <button
                 style={{ border: 'none', backgroundColor: 'transparent' }}
                 onClick={() => {
@@ -330,7 +334,7 @@ const Homepage = () => {
                 data={{
                   Title: 'Project Me',
                   Content:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, consequat dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    "Project Me' aims to support the Carer to find fulfilment and purpose in her caring role; and to push beyond boundaries for herself! This is offered as a group workshop over a 3-day period and is inclusive of well-being package offers/massage therapies/information on healthy living/beauty therapies and goodie bags for carers.",
 
                   Link: 'training-and-resourcing',
                 }}

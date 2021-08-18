@@ -164,8 +164,7 @@ const Carers = () => {
               <h3>PROJECT ME</h3>
               <p id='ProjectMeAim'>
                 ‘Project Me’ aims to support carers to find fulfilment and
-                purpose
-                <br /> in her caring role; and to push beyond boundaries for
+                purpose in her caring role and to push beyond boundaries for
                 herself!
                 <br /> Project Me will therefore:
               </p>
