@@ -1,8 +1,8 @@
-@import '../../constants/scss/colors';
-@import '../../constants/scss/default';
-@import '../../constants/scss/variables';
-@import '../../constants/scss/mixins';
-@import '../../constants/scss/framework';
+@import "../../constants/scss/colors";
+@import "../../constants/scss/default";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
+@import "../../constants/scss/framework";
 
 .blog-overview {
   padding: 2em 2%;
@@ -27,9 +27,11 @@
 
     .article-text {
       .main-article-title {
+        font-family: "Archivo", sans-serif !important;
         font-size: 4em;
       }
       .main-article-hook {
+        font-family: "Archivo", sans-serif !important;
         font-size: 2.2em;
       }
     }

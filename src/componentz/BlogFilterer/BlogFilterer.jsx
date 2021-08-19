@@ -1,9 +1,9 @@
-import React from "react";
-import { useHistory } from "react-router";
-import CustomButton from "../CustomButton/CustomButton";
-import Spacing from "../Spacing/Spacing";
+import React from 'react';
+import { useHistory } from 'react-router';
+import CustomButton from '../CustomButton/CustomButton';
+import Spacing from '../Spacing/Spacing';
 
-import "./styles.scss";
+import './styles.scss';
 
 const BlogFilterer = ({}) => {
   const history = useHistory();
@@ -34,7 +34,7 @@ const BlogFilterer = ({}) => {
         />
         <Spacing width={`2em`} />
         <CustomButton
-          label={`For Carers`}
+          label={`For Churches`}
           onClick={() => history.push(`/blogs/for-carers`)}
           className={`filter-button for-carers`}
         />

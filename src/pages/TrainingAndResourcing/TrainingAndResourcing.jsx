@@ -77,42 +77,39 @@ const TrainingAndResourcing = () => {
         <div className='bgLayer'>
           <div id='heartIcon'></div>
 
+          <h1>
+            Beyond Suffering Course (BYS) - A Christian Perspective to
+            Disability
+          </h1>
           <p>
-            “For I am persuaded that neither death nor life, nor angels nor
-            principalities nor powers, nor things present nor things to come,
-            nor height nor depth, nor any other created thing, shall be able to
-            separate us from the love of God which is in Christ Jesus our Lord”.
-            Romans 8:38-39 (ERV)
-            <br />
-            <br /> Beyond Suffering Course has been designed by the Joni and
-            Friends Ministry (USA) to explore the problem of suffering in
-            general and then to examine ways in which the disability community
-            provides the church with a dynamic model of spiritual
-            transformation.
+            People with disabilities are considered one of the world’s largest
+            under-represented groups. The church is largely unprepared for the
+            burgeoning disabled population. Have you ever suffered physically,
+            emotionally, or spiritually and wondered why? Do you have family
+            members or friends with disabilities and struggle to know what to
+            say or how to act around them?
           </p>
+
+          {/* <div
+            className='getCourse'
+            onClick={() => {
+              setDialogVisible(true);
+            }}
+          >
+            GET THIS COURSE
+          </div> */}
         </div>
       </div>
       <div id='Training_forYou'>
-        <h1>
-          Beyond Suffering Course (BYS) - A Christian Perspective to Disability
-        </h1>
         <p>
-          People with disabilities are considered one of the world’s largest
-          under-represented groups.
-          <br />
-          <br /> The church is largely unprepared for the burgeoning disabled
-          population.
+          In partnership with Joni & Friends Ministry (USA), we train and work
+          with churches to create Special Needs group/unit focused on meeting
+          the needs and integrating.
+          <br /> Beyond Suffering Course has been designed by the Joni and
+          Friends Ministry (USA) to explore the problem of suffering in general
+          and then to examine ways in which the disability community provides
+          the church with a dynamic model of spiritual transformation.
         </p>
-        <ul>
-          <li>
-            Have you ever suffered physically, emotionally, or spiritually and
-            wondered why?
-          </li>
-          <li>
-            Do you have family members or friends with disabilities and struggle
-            to know what to say or how to act around them?
-          </li>
-        </ul>
         <div
           className='getCourse'
           onClick={() => {
@@ -169,9 +166,18 @@ const TrainingAndResourcing = () => {
       <div id='CourseDistributionCard'>
         <div id='pinkTag'></div>
         <div id='topicCardContent'>
-          OAKONSULT DISABILITIES OUTREACH offers the Beyond Suffering Course to
-          the above listed audiences and delivers the course in Churches,
-          Conferences or as workshops.
+          At OAKONSULT, we deliver the BYS Course as:
+          <br />
+          <br /> A 3-day conference for Pastors and church leaders, church
+          workers and individuals seeking to know more about the theology of
+          suffering in a broken world and Parent Carers providing care for a
+          child/young person with disabilities/special needs.
+          <br />
+          <br /> A 3-week intensive course for students in the seminary and
+          other Bible Colleges and Institutions.
+          <br />
+          <br /> A 16-week comprehensive curriculum of study for students in the
+          seminary and other Bible Colleges and Institutions.
         </div>
       </div>
 
