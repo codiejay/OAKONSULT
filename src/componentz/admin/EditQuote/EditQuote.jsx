@@ -19,6 +19,8 @@ const EditQuote = ({ data, setDialogVisible }) => {
     setLoading(false);
     setDialogVisible(false);
   };
+
+
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -27,6 +29,7 @@ const EditQuote = ({ data, setDialogVisible }) => {
       quote,
       bible_verse: bibleVerse
     };
+    console.log(quoteData);
     if (quote.trim() === "") {
       setLoading(false);
       setErrorMessage(`Photo url is required!`);

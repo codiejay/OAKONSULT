@@ -93,7 +93,7 @@ const BlogOverview = () => {
             style={{
               backgroundImage: `linear-gradient(#cac492b4, #cac4923f), url(${
                 articleOfTheWeek.tumbnail || articleOfTheWeek.thumbnail
-              })`,
+              })`, backgroundSize: '100%', backgroundPosition: 'top',
             }}
           ></div>
           <Spacing width={`2em`} />

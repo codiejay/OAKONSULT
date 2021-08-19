@@ -10,6 +10,7 @@
 .article-data {
   display: flex;
   justify-content: flex-start;
+  height: 55vh;
   .tumbnail {
     flex: 0 0 calc(100% / 1.7);
     max-width: calc(100% / 1.7);
