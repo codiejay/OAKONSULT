@@ -91,7 +91,7 @@ const Churches = () => {
         </div>
       </div>
       <div id='Churches_forYou'>
-        <h1>Olufunke will inspire your audience to:</h1>
+        <h1>THE NEED</h1>
         <ul>
           <li>
             Over one billion people, or 15% of the world’s population, live with

@@ -201,7 +201,7 @@ $yellow: #ffba0a;
       background: #ffffff;
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
       border-radius: 12px;
-      padding: 2rem 3rem;
+      padding: 2rem;
       margin-top: -1rem;
       // display: none;
 
@@ -230,7 +230,9 @@ $yellow: #ffba0a;
           font-size: 22px;
           line-height: 27px;
           color: #000000;
+
           list-style: url(../../Assets/icons/hyphen.svg);
+          list-style-position: unset;
         }
       }
       .getCourse {
