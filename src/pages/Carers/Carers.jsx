@@ -158,12 +158,12 @@ const Carers = () => {
               </div>
             </div>
           </div>
-          <div className='carersCourse'>
+          <div className='carersCourse' id='projectMe'>
             <div className='blueTag'></div>
             <div className='courseContainer'>
               <h3>PROJECT ME</h3>
               <p id='ProjectMeAim'>
-                ‘Project Me’ aims to support carers to find fulfilment and
+                ‘Project Me’ aims to support the carers to find fulfilment and
                 purpose in her caring role and to push beyond boundaries for
                 herself!
                 <br /> Project Me will therefore:

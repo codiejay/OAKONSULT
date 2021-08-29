@@ -6,8 +6,12 @@ import './PublicSpeaking.scss';
 import TopicCard from '../../Components/TopicCard/TopicCard';
 import ChatIcon from '../../Assets/ChatIcon.svg';
 import VideoModal from '../../Components/VideoModal/VideoModal';
+import Dialog from '../../componentz/Dialog/Dialog';
+import InviteToSpeakMOdal from '../../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
+import Speaker from '../../Assets/icons/Speaker.svg';
 
 const PublicSpeaking = () => {
+  const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
   let showVideoPlayer;
   DisplayModal
@@ -176,20 +180,25 @@ const PublicSpeaking = () => {
           marginBottom: '6rem',
           marginTop: '3rem',
         }}
+        onClick={() => setDialogVisible(true)}
       >
         <div
           id='icon'
           style={{
             height: '50px',
             width: '50px',
-            backgroundImage: `url(${ChatIcon})`,
+            backgroundImage: `url(${Speaker})`,
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '50%',
           }}
         ></div>
-        <p>Invite Me To Speak</p>
+        <p>Invite me to speak</p>
       </div>
+
+      <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
+        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} />
+      </Dialog>
     </>
   );
 };
