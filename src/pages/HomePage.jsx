@@ -84,8 +84,8 @@ const Homepage = () => {
               <Link to='/blogs'>
                 <ExploreBtn data={['Explore our library', LibraryImg]} />
               </Link>
-              <Link to='/about'>
-                <ExploreBtn data={['About OAK', QuestionMark]} />
+              <Link to='/about' id='about'>
+                <ExploreBtn data={['About OAK']} />
               </Link>
             </div>
           </div>
@@ -336,7 +336,7 @@ const Homepage = () => {
                   Content:
                     "Project Me' aims to support the Carer to find fulfilment and purpose in her caring role; and to push beyond boundaries for herself! This is offered as a group workshop over a 3-day period and is inclusive of well-being package offers/massage therapies/information on healthy living/beauty therapies and goodie bags for carers.",
 
-                  Link: 'training-and-resourcing',
+                  Link: 'carers',
                 }}
               />
             </div>

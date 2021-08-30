@@ -189,22 +189,24 @@ footer {
   #mainFooter {
     border-radius: 12px;
     background-color: $teal;
-    padding-bottom: 3rem;
+    padding: 3rem 0;
     #footerImg {
       width: 100%;
       height: 80vh;
       background-position: -20% 90%;
       background-size: center;
       background-repeat: no-repeat;
+      display: none;
     }
     #footerBoxes {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       #footerLogo {
         margin-left: 1rem;
+        border-radius: 5px 20px 5px;
         width: 100px;
         height: 100px;
-        background: url('../Assets/logo.png');
+        background: url('../Assets/logo.png'), white;
         background-position: center;
         background-size: 100%;
         background-repeat: no-repeat;
@@ -279,6 +281,7 @@ footer {
     }
 
     #mainFooter {
+      padding-left: 1rem;
       #footerImg {
         height: 40vh;
         background-size: 100%;
@@ -287,6 +290,7 @@ footer {
         display: flex;
         flex-direction: column;
         #footerLogo {
+          margin-bottom: 1rem;
         }
         .footerBox {
         }
