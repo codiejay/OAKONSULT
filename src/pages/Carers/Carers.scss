@@ -217,7 +217,10 @@ $yellow: #ffba0a;
       #ProjectMeAim {
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        text-justify: inter-word;
+        text-align: justify;
+
+        font-size: 22px;
         line-height: 27px;
         color: rgba(0, 0, 0, 0.58);
         margin-bottom: 1rem;
