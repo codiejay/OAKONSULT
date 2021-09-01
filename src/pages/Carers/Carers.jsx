@@ -163,10 +163,10 @@ const Carers = () => {
             <div className='courseContainer'>
               <h3>PROJECT ME</h3>
               <p id='ProjectMeAim'>
-                ‘Project Me’ aims to support the carers to find fulfilment and
+                ‘Project Me’ aims to support the carer to find fulfilment and
                 purpose in her caring role and to push beyond boundaries for
                 herself!
-                <br /> Project Me will therefore:
+                <br /> <br /> Project Me will therefore:
               </p>
 
               <ul>

@@ -83,7 +83,10 @@ const Popup = (props) => {
         </div>
       </div>
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
-        <InviteToSpeakMOdal setDialogVisible={setDialogVisible} />
+        <InviteToSpeakMOdal
+          setDialogVisible={setDialogVisible}
+          title={'Speak with me'}
+        />
       </Dialog>
     </div>
   );
